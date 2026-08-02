@@ -4,68 +4,65 @@
 -- Run this script in your Supabase SQL Editor ONCE before starting Spring Boot.
 --
 -- What this script does:
---   1. Drops old Supabase-auth-dependent objects (RLS policies, functions, tables)
---   2. Creates a 'users' table (Spring Boot now owns authentication)
+--   1. Drops old Supabase-auth-dependent objects safely
+--   2. Creates a 'users' table (Spring Boot owns authentication)
 --   3. Creates 'jobs' table with status column and reference to public.users
---   4. Creates 'candidates' table (same structure as before)
---   5. Disables RLS (Spring Boot enforces user isolation in application layer)
---
--- IMPORTANT: This will DROP the existing jobs and candidates tables.
--- If you have existing data you want to keep, export it first.
+--   4. Creates 'candidates' table
+--   5. Disables RLS (Spring Boot enforces user data isolation in application layer)
 -- =============================================================================
 
 -- =============================================================================
--- STEP 1: Drop all old Supabase-auth-dependent objects
+-- STEP 1: Safe Cleanup of old objects
 -- =============================================================================
 
--- Drop RLS policies (they reference auth.uid() which we no longer use)
-DROP POLICY IF EXISTS "Users can view their own jobs" ON public.jobs;
-DROP POLICY IF EXISTS "Users can insert their own jobs" ON public.jobs;
-DROP POLICY IF EXISTS "Users can update their own jobs" ON public.jobs;
-DROP POLICY IF EXISTS "Users can delete their own jobs" ON public.jobs;
-DROP POLICY IF EXISTS "Users can view candidates from their jobs" ON public.candidates;
-DROP POLICY IF EXISTS "Users can insert candidates to their jobs" ON public.candidates;
-DROP POLICY IF EXISTS "Users can update candidates in their jobs" ON public.candidates;
-DROP POLICY IF EXISTS "Users can delete candidates from their jobs" ON public.candidates;
+-- Drop RLS policies safely inside a DO block so it never fails if tables don't exist
+DO $$
+BEGIN
+    IF EXISTS (SELECT 1 FROM pg_tables WHERE schemaname = 'public' AND tablename = 'jobs') THEN
+        DROP POLICY IF EXISTS "Users can view their own jobs" ON public.jobs;
+        DROP POLICY IF EXISTS "Users can insert their own jobs" ON public.jobs;
+        DROP POLICY IF EXISTS "Users can update their own jobs" ON public.jobs;
+        DROP POLICY IF EXISTS "Users can delete their own jobs" ON public.jobs;
+        DROP TRIGGER IF EXISTS update_jobs_updated_at ON public.jobs;
+    END IF;
+    IF EXISTS (SELECT 1 FROM pg_tables WHERE schemaname = 'public' AND tablename = 'candidates') THEN
+        DROP POLICY IF EXISTS "Users can view candidates from their jobs" ON public.candidates;
+        DROP POLICY IF EXISTS "Users can insert candidates to their jobs" ON public.candidates;
+        DROP POLICY IF EXISTS "Users can update candidates in their jobs" ON public.candidates;
+        DROP POLICY IF EXISTS "Users can delete candidates from their jobs" ON public.candidates;
+    END IF;
+END $$;
 
--- Drop Supabase-auth-dependent functions
+-- Drop functions
 DROP FUNCTION IF EXISTS get_job_with_stats(TEXT) CASCADE;
 DROP FUNCTION IF EXISTS delete_expired_jobs() CASCADE;
-DO $$ 
-BEGIN 
-    IF EXISTS (SELECT 1 FROM pg_tables WHERE schemaname = 'public' AND tablename = 'jobs') THEN 
-        DROP TRIGGER IF EXISTS update_jobs_updated_at ON public.jobs; 
-    END IF; 
-END $$;
 DROP FUNCTION IF EXISTS update_updated_at_column() CASCADE;
 
--- Drop old tables in dependency order (candidates first, then jobs)
+-- Drop old tables in dependency order
 DROP TABLE IF EXISTS public.candidates CASCADE;
 DROP TABLE IF EXISTS public.jobs CASCADE;
+DROP TABLE IF EXISTS public.users CASCADE;
 
 -- =============================================================================
 -- STEP 2: Create users table (Spring Boot owns authentication)
 -- =============================================================================
--- Spring Boot handles signup, login, BCrypt hashing, and JWT issuance.
--- Supabase Auth is no longer used — this is a plain PostgreSQL database.
 
-CREATE TABLE IF NOT EXISTS public.users (
+CREATE TABLE public.users (
     id            UUID         PRIMARY KEY DEFAULT gen_random_uuid(),
     email         TEXT         NOT NULL UNIQUE,
     password_hash TEXT         NOT NULL,    -- BCrypt hash, managed by Spring Boot
     created_at    TIMESTAMPTZ  NOT NULL DEFAULT NOW()
 );
 
-CREATE INDEX IF NOT EXISTS idx_users_email ON public.users(email);
+CREATE INDEX idx_users_email ON public.users(email);
 
 COMMENT ON TABLE public.users IS 'Recruiter accounts. Managed entirely by Spring Boot (BCrypt + JWT).';
-COMMENT ON COLUMN public.users.password_hash IS 'BCrypt-hashed password. Spring Boot validates this on login.';
 
 -- =============================================================================
--- STEP 3: Create jobs table (references public.users, adds status column)
+-- STEP 3: Create jobs table
 -- =============================================================================
 
-CREATE TABLE IF NOT EXISTS public.jobs (
+CREATE TABLE public.jobs (
     id                UUID         PRIMARY KEY DEFAULT gen_random_uuid(),
     job_id            TEXT         NOT NULL UNIQUE,     -- 8-char hex ID, generated by Spring Boot
     user_id           UUID         NOT NULL REFERENCES public.users(id) ON DELETE CASCADE,
@@ -73,17 +70,18 @@ CREATE TABLE IF NOT EXISTS public.jobs (
     status            TEXT         NOT NULL DEFAULT 'PROCESSING'
                                    CHECK (status IN ('PROCESSING', 'COMPLETED', 'FAILED')),
     error_message     TEXT,                             -- Populated when status = FAILED
-    total_candidates  INTEGER,                          -- Set when status = COMPLETED
+    total_candidates  INTEGER,                          -- Populated when status = COMPLETED
     created_at        TIMESTAMPTZ  NOT NULL DEFAULT NOW(),
     updated_at        TIMESTAMPTZ  NOT NULL DEFAULT NOW()
 );
 
-CREATE INDEX IF NOT EXISTS idx_jobs_user_id    ON public.jobs(user_id);
-CREATE INDEX IF NOT EXISTS idx_jobs_job_id     ON public.jobs(job_id);
-CREATE INDEX IF NOT EXISTS idx_jobs_status     ON public.jobs(user_id, status);
-CREATE INDEX IF NOT EXISTS idx_jobs_created_at ON public.jobs(created_at DESC);
+CREATE INDEX idx_jobs_user_id ON public.jobs(user_id);
+CREATE INDEX idx_jobs_job_id  ON public.jobs(job_id);
+CREATE INDEX idx_jobs_status  ON public.jobs(user_id, status);
 
--- Auto-update updated_at trigger
+COMMENT ON TABLE public.jobs IS 'Ranking jobs submitted by recruiters.';
+
+-- Auto-update updated_at timestamp trigger
 CREATE OR REPLACE FUNCTION update_updated_at_column()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -97,73 +95,58 @@ CREATE TRIGGER update_jobs_updated_at
     FOR EACH ROW
     EXECUTE FUNCTION update_updated_at_column();
 
-COMMENT ON TABLE  public.jobs         IS 'Ranking pipeline jobs. Each job belongs to a user. Status updated by Spring Boot after AI pipeline completes.';
-COMMENT ON COLUMN public.jobs.job_id  IS '8-character hex ID generated by Spring Boot (e.g., "3d419e2a").';
-COMMENT ON COLUMN public.jobs.status  IS 'PROCESSING: pipeline running. COMPLETED: results saved. FAILED: pipeline error.';
-
 -- =============================================================================
--- STEP 4: Create candidates table (identical structure to original schema)
+-- STEP 4: Create candidates table
 -- =============================================================================
 
-CREATE TABLE IF NOT EXISTS public.candidates (
-    id                  UUID             PRIMARY KEY DEFAULT gen_random_uuid(),
-    job_id              TEXT             NOT NULL REFERENCES public.jobs(job_id) ON DELETE CASCADE,
-    candidate_id        TEXT             NOT NULL,
-    name                TEXT             NOT NULL DEFAULT '',
-    email               TEXT             NOT NULL DEFAULT '',
-    role                TEXT             NOT NULL DEFAULT '',
-    rank                INTEGER          NOT NULL DEFAULT 1  CHECK (rank >= 1),
-    percentile          INTEGER          NOT NULL DEFAULT 0  CHECK (percentile >= 0 AND percentile <= 100),
-    pr_score            INTEGER          NOT NULL DEFAULT 0  CHECK (pr_score >= 0 AND pr_score <= 100),
-    github_score        INTEGER          NOT NULL DEFAULT 0  CHECK (github_score >= 0 AND github_score <= 100),
-    dsa_score           INTEGER          NOT NULL DEFAULT 0  CHECK (dsa_score >= 0 AND dsa_score <= 100),
-    verdict             TEXT             NOT NULL DEFAULT 'REJECT'
-                                         CHECK (verdict IN ('HIRE', 'REVIEW', 'REJECT')),
-    skills              JSONB            NOT NULL DEFAULT '[]'::jsonb,
-    github_evidence     JSONB            NOT NULL DEFAULT '{}'::jsonb,
-    leetcode            JSONB            NOT NULL DEFAULT '{}'::jsonb,
-    codeforces          JSONB                     DEFAULT NULL,
-    timeline            JSONB            NOT NULL DEFAULT '[]'::jsonb,
-    risk_flags          JSONB            NOT NULL DEFAULT '[]'::jsonb,
-    summary             TEXT             NOT NULL DEFAULT '',
-    layer1_score        DOUBLE PRECISION NOT NULL DEFAULT 0.0 CHECK (layer1_score >= 0.0 AND layer1_score <= 1.0),
-    layer2_score        DOUBLE PRECISION NOT NULL DEFAULT 0.0 CHECK (layer2_score >= 0.0 AND layer2_score <= 1.0),
-    layer3_confidence   DOUBLE PRECISION NOT NULL DEFAULT 0.0 CHECK (layer3_confidence >= 0.0 AND layer3_confidence <= 1.0),
-    created_at          TIMESTAMPTZ      NOT NULL DEFAULT NOW(),
+CREATE TABLE public.candidates (
+    id                UUID         PRIMARY KEY DEFAULT gen_random_uuid(),
+    job_id            TEXT         NOT NULL,            -- References jobs.job_id
+    candidate_id      TEXT         NOT NULL,            -- Candidate ID from uploaded CSV
+    name              TEXT         NOT NULL DEFAULT '',
+    email             TEXT         NOT NULL DEFAULT '',
+    role              TEXT         NOT NULL DEFAULT '',
+    rank              INTEGER      NOT NULL DEFAULT 1,
+    percentile        INTEGER      NOT NULL DEFAULT 0,
+    pr_score          INTEGER      NOT NULL DEFAULT 0,
+    github_score      INTEGER      NOT NULL DEFAULT 0,
+    dsa_score         INTEGER      NOT NULL DEFAULT 0,
+    verdict           TEXT         NOT NULL DEFAULT 'REJECT'
+                                   CHECK (verdict IN ('HIRE', 'REVIEW', 'REJECT')),
+
+    -- Rich JSONB fields stored as JSON
+    skills            JSONB        NOT NULL DEFAULT '[]'::jsonb,
+    github_evidence   JSONB        NOT NULL DEFAULT '{}'::jsonb,
+    leetcode          JSONB        NOT NULL DEFAULT '{}'::jsonb,
+    codeforces        JSONB,                            -- Optional: null if candidate has no CF profile
+    timeline          JSONB        NOT NULL DEFAULT '[]'::jsonb,
+    risk_flags        JSONB        NOT NULL DEFAULT '[]'::jsonb,
+
+    summary           TEXT         NOT NULL DEFAULT '',
+    layer1_score      DOUBLE PRECISION NOT NULL DEFAULT 0.0,
+    layer2_score      DOUBLE PRECISION NOT NULL DEFAULT 0.0,
+    layer3_confidence DOUBLE PRECISION NOT NULL DEFAULT 0.0,
+    created_at        TIMESTAMPTZ  NOT NULL DEFAULT NOW(),
 
     CONSTRAINT candidates_job_candidate_unique UNIQUE (job_id, candidate_id)
 );
 
-CREATE INDEX IF NOT EXISTS idx_candidates_job_id   ON public.candidates(job_id);
-CREATE INDEX IF NOT EXISTS idx_candidates_rank     ON public.candidates(job_id, rank);
-CREATE INDEX IF NOT EXISTS idx_candidates_verdict  ON public.candidates(job_id, verdict);
-CREATE INDEX IF NOT EXISTS idx_candidates_pr_score ON public.candidates(job_id, pr_score DESC);
-
--- GIN indexes for JSONB queries
-CREATE INDEX IF NOT EXISTS idx_candidates_skills           ON public.candidates USING GIN (skills);
-CREATE INDEX IF NOT EXISTS idx_candidates_github_evidence  ON public.candidates USING GIN (github_evidence);
-
-COMMENT ON TABLE public.candidates IS 'Ranked candidates with all AI pipeline enrichments. Saved by Spring Boot after Python service returns results.';
+CREATE INDEX idx_candidates_job_id   ON public.candidates(job_id);
+CREATE INDEX idx_candidates_rank     ON public.candidates(job_id, rank);
+CREATE INDEX idx_candidates_verdict  ON public.candidates(job_id, verdict);
+CREATE INDEX idx_candidates_pr_score ON public.candidates(job_id, pr_score);
 
 -- =============================================================================
--- STEP 5: Disable RLS (Spring Boot enforces user isolation via WHERE user_id = :id)
+-- STEP 5: Explicitly disable RLS
 -- =============================================================================
+-- Spring Boot is the single owner of the database.
+-- Application layer enforces: WHERE user_id = :authenticated_user_id.
 
 ALTER TABLE public.users      DISABLE ROW LEVEL SECURITY;
 ALTER TABLE public.jobs       DISABLE ROW LEVEL SECURITY;
 ALTER TABLE public.candidates DISABLE ROW LEVEL SECURITY;
 
--- =============================================================================
--- STEP 6: Grants (allow the postgres role Spring Boot connects with)
--- =============================================================================
-
-GRANT SELECT, INSERT, UPDATE, DELETE ON public.users      TO authenticated;
-GRANT SELECT, INSERT, UPDATE, DELETE ON public.jobs       TO authenticated;
-GRANT SELECT, INSERT, UPDATE, DELETE ON public.candidates TO authenticated;
-GRANT USAGE ON SCHEMA public TO authenticated;
-
--- =============================================================================
--- DONE. Verify with:
---   SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';
--- Expected: users, jobs, candidates
--- =============================================================================
+-- Grant permissions to public/anon/authenticated roles
+GRANT ALL ON TABLE public.users      TO anon, authenticated, service_role, postgres;
+GRANT ALL ON TABLE public.jobs       TO anon, authenticated, service_role, postgres;
+GRANT ALL ON TABLE public.candidates TO anon, authenticated, service_role, postgres;
