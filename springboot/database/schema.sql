@@ -31,7 +31,12 @@ DROP POLICY IF EXISTS "Users can delete candidates from their jobs" ON public.ca
 -- Drop Supabase-auth-dependent functions
 DROP FUNCTION IF EXISTS get_job_with_stats(TEXT) CASCADE;
 DROP FUNCTION IF EXISTS delete_expired_jobs() CASCADE;
-DROP TRIGGER IF EXISTS update_jobs_updated_at ON public.jobs;
+DO $$ 
+BEGIN 
+    IF EXISTS (SELECT 1 FROM pg_tables WHERE schemaname = 'public' AND tablename = 'jobs') THEN 
+        DROP TRIGGER IF EXISTS update_jobs_updated_at ON public.jobs; 
+    END IF; 
+END $$;
 DROP FUNCTION IF EXISTS update_updated_at_column() CASCADE;
 
 -- Drop old tables in dependency order (candidates first, then jobs)
