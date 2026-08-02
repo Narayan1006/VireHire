@@ -1,0 +1,57 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Build
+dist/
+frontend/dist/
+dist-ssr/
+
+# Environment
+.env
+.env.local
+.env.*.local
+backend/.env
+frontend/.env
+
+# Python
+backend/venv/
+backend/.venv/
+__pycache__/
+*.py[cod]
+backend/.pytest_cache/
+*.egg-info/
+
+# Data & uploads
+backend/data/chroma_db/
+backend/data/bench_chroma_db/
+backend/data/test_chroma_db/
+backend/data/test_layer1_db/
+backend/data/uploads/*
+!backend/data/uploads/.gitkeep
+!backend/data/.gitkeep
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.sw?
+
+# Large media (use Git LFS or host separately if needed)
+# frontend/public/videos/*.mp4
+
+# Cursor / local
+.cursor/
+.kiro/
+
+# Docs build artifacts
+docs/node_modules/
+docs/package-lock.json

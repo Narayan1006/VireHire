@@ -1,0 +1,12 @@
+venv
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+.env
+.git
+data/chroma_db
+data/bench_chroma_db
+data/test_chroma_db
+data/test_layer1_db
+*.csv

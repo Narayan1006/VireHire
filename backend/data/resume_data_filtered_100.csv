@@ -1,0 +1,2340 @@
+address,career_objective,skills,educational_institution_name,degree_names,passing_years,educational_results,result_types,major_field_of_studies,professional_company_names,company_urls,start_dates,end_dates,related_skils_in_job,positions,locations,responsibilities,extra_curricular_activity_types,extra_curricular_organization_names,extra_curricular_organization_links,role_positions,languages,proficiency_levels,certification_providers,certification_skills,online_links,issue_dates,expiry_dates,job_position_name,educationaL_requirements,experiencere_requirement,age_requirement,responsibilities.1,skills_required,matched_score
+,,"['budgeting', 'CAD', 'construction management', 'engineer', 'film', 'hiring', 'inspection', 'laser', 'machinery', 'managing', 'mechanical', 'negotiations', 'processes', 'process improvement', 'project management', 'quality', 'simulation', 'SPC', 'strategy', 'supervision', 'system administrator', 'Paper converting equipment', 'Facility and plant modifications', 'DMF and Project Work Process', 'Written and verbal communication skills', 'AutoCAD', 'Excel']",['University of Idaho - School of Engineering'],['Bachelor of Science'],['N/A'],['N/A'],['N/A'],['Mechanical Engineering'],"['Company Name', 'Company Name', 'Company Name', 'Company Name', 'Company Name', 'Company Name', 'Company Name']","[None, None, None, None, None, None, None]","['May 2011', 'January 2009', 'November 2005', 'November 2000', 'January 1993', 'November 1992', 'January 1984']","['Current', 'May 2011', 'January 2009', 'November 2005', 'November 2000', 'January 1993', 'November 1992']","[['project management', 'capital projects', 'engineering talent', 'venture summaries', 'hiring'], ['safe work performance', 'contract adherence', 'maintenance group', 'lubrication', 'precision maintenance work', 'sustainable PM processes', 'BOMs', 'procedure based job plans'], ['PM program', 'mechanical work standards', 'job plan library', 'CMMS', 'RCM methodology', 'CMMS system administration', 'tools development', 'PM processes'], ['laser patterning', 'lamination process', 'web handling', 'SPC strategy', 'GR&R practices', 'adhesive improvement', 'task force leadership'], ['budgeting', 'capital improvement', 'construction management', 'vendor negotiations', 'installation and startup', 'project management'], ['utilization improvement plans'], ['design engineer', 'machinery development', 'equipment layouts', 'CAD installation', 'simulation models']]","['Engineering Manager', 'Manager - Maintenance and Reliability', 'Supervisor Reliability Engineer', 'Process & Tooling Engineer', 'Converting Plant Engineer', 'Senior Converting Analyst', 'Development Designer, Mechanical Engineer, Senior Mechanical Engineer']","['City , State', 'City , State', 'City , State', 'City , State', 'City , State', 'City , State', 'City , State']","Generative AI Development
+Evolutionary Computation
+Deep Learning Optimization
+Expert Systems Design
+Knowledge Representation
+Data Preprocessing
+Model Training
+Research & Integration",,,,,,,,,"https://github.com/antirez, https://leetcode.com/williamfiset",,,Intern (Generative AI Engineering - 2D/3D Image Generation),Bachelor of Science (BSc),,Age 20 to 35 years,"Generative AI Development
+Evolutionary Computation
+Deep Learning Optimization
+Expert Systems Design
+Knowledge Representation
+Data Preprocessing
+Model Training
+Research & Integration",,0.716666667
+,,"['Machine Learning', 'Method Development', 'Artificial Intelligence', 'Data Modeling', 'Data Visualization', 'Data Validation', 'Deep Learning', 'MySQL', 'MongoDB', 'Python', 'Plotly', 'Seaborn', 'Matplotlib']",['CDAC ACTS'],['B.Tech'],['2020'],['N/A'],['N/A'],['Electronics and Telecommunication'],['BlueM Solutions'],[None],['Jun 2020'],['till date'],"[['Machine Learning', 'Python']]",['Associate Software Engineer and Analyst'],['N/A'],"Database Design & Development
+SQL Query Optimization
+Data Integrity & Security
+BI Solutions Development
+ETL Process Implementation
+Database Maintenance
+Backup & Restore Management
+Index Rebuilding & Performance Tuning
+SQL Server Clustering & High Availability
+SQL Server Replication
+High Availability Group Management
+Database Monitoring & Troubleshooting",,,,,,,['AWS'],[None],"https://github.com/Narayan1006, https://leetcode.com/practice2024",['N/A'],[None],Database Administrator (DBA),Bachelor of Science (BSc) in Computer Science,At least 1 year,Age 25 to 40 years,"Database Design & Development
+SQL Query Optimization
+Data Integrity & Security
+BI Solutions Development
+ETL Process Implementation
+Database Maintenance
+Backup & Restore Management
+Index Rebuilding & Performance Tuning
+SQL Server Clustering & High Availability
+SQL Server Replication
+High Availability Group Management
+Database Monitoring & Troubleshooting","ASP.NET MVC Strong understanding of database design
+Database Administrator (DBA)
+Database management
+Elasticsearch
+MongoDB
+MySQL database
+NoSQL database
+REDIS",0.85
+,I want to join a role where I can experiment and learn with new types of data and increase my ability to build more complex models in the future.,"['Deep Learning', 'Machine Learning', 'Artificial Intelligence', 'Linear Regression', 'Software Engineering', 'Python', 'Java', 'SAP', 'C', 'C++', 'Jenkins', 'Kubernetes', 'Docker', 'Backend']",['Jawaharlal Nehru University'],['B.Tech'],['2019'],[None],[None],['Civil'],['Accenture'],[None],['Jan 2019'],['Jan 2020'],"[['SAP', 'Data Loading', 'Configuration', 'User Stories']]",['Application Development Associate'],[None],"Relationship Building
+HR Collaboration
+Policy Development
+Training Management
+Record Keeping
+Compliance
+Employee Development
+Policy Enforcement
+Communication
+Task Execution",[None],['Google Cloud Platform'],[None],['AI on the cloud'],,,,,"https://github.com/academind, https://leetcode.com/kevin_naughton_jr",,,HR Officer,"•Bachelor of Business Administration (BBA) in Human Resource Management
+•BBA/MBA in HRM/Management from any reputed university.",,Age 18 to 30 years,"Relationship Building
+HR Collaboration
+Policy Development
+Training Management
+Record Keeping
+Compliance
+Employee Development
+Policy Enforcement
+Communication
+Task Execution",Human Resource Management,0.383333333
+,,"['C/Python', 'R', 'STK', 'CATIA', 'ANSYS', 'LaTeX', 'SolidWorks', 'Microsoft Office', 'Microsoft Project']","['NORTMEAD HIGH SCHOOL', 'UNIVERSITY OF NEW SOUTH WALES (UNSW)']","['High School Diploma', 'Bachelor of Science, BE Bachelor of Engineering (Honours) (Aerospace)']","['2012', '2017']","[None, '79.42']","[None, 'WAM']","['MATHEMATICS, PHYSICS, CHEMISTRY, ENGINEERING', 'Aerospace']","['Company Name', 'Company Name', 'Company Name']","[None, None, None]","['Feb 2017', 'Feb 2016', 'Aug 2015']","['Apr 2017', 'May 2016', 'Jul 2017']","[['ANSYS', 'SolidWorks', 'CAD', 'Customer Service', 'Sales', 'Time Management'], ['Teaching', 'Mathematics', 'Science', 'English'], ['SolidWorks', 'ANSYS', 'CAD', 'Leadership', 'JIRA']]","['Engineering intern', 'Tutor', 'Mechanical Design Engineer']","['City, State', 'City, State', 'City, State']","Hardware & Software Installation
+System Monitoring
+IT Support
+Networking Expertise
+Mail Server Administration
+Security Management
+Troubleshooting & Repair
+Operations Support","['Membership', 'Volunteering']","['BLUEsat (Basic Low Earth Orbit UNSW Experimental Satellite) Group', 'Karabi community & Development Services']","[None, None]","['Engineer', 'Social Support and Youth Services Volunteer']",,,"['Scrum Fundamentals', 'Data Science Fundamentals', 'Oracle']","[None, None, ['SQL']]","https://github.com/mpj, https://leetcode.com/errichto","['N/A', 'N/A', 'N/A']","[None, None, None]",Executive/ Sr. Executive -IT,Bachelor of Science (BSc) in Computer Science & Engineering,3 to 5 years,Age at most 40 years,"Hardware & Software Installation
+System Monitoring
+IT Support
+Networking Expertise
+Mail Server Administration
+Security Management
+Troubleshooting & Repair
+Operations Support",,0.85
+,,"['Executive Decision Maker', 'Process Design & Improvement', 'New Product Development', 'Strategic Planning & Development', 'Lean & Six Sigma Practitioner', 'Product Design', 'Budgetary and Policy Development', 'Automation Design', 'Quality Control', 'Project Management & Execution', 'Economic Analysis', 'Ergonomic and Safety Conscious']","['KELLER GRADUATE SCHOOL OF MANAGEMENT, DEVRY UNIVERSITY', 'MINNESOTA STATE UNIVERSITY', 'NORTHWEST IOWA COMMUNITY COLLEGE']","['Master of Business Administration', 'Bachelor of Science', 'Manufacturing Engineering Technology']","['2010', '2004', '1997']","['3.6', '3.5', 'N/A']","['GPA', 'GPA', 'N/A']","['Project & Program Management', 'Political Science', 'Manufacturing Engineering Technology']","['Company Name', 'Company Name', 'Company Name', 'Company Name', 'Company Name']","[None, None, None, None, None]","['10/2012', '05/2011', '01/2010', '01/2008', '01/2004']","['03/2014', '08/2012', '01/2011', '01/2010', '01/2008']","[['Project Management', 'Design Engineering', 'New Product Development', 'Process Development'], ['Project Management', 'Automation Design', 'Resource Allocation'], ['Productivity Improvement', 'Resource Capability', 'Lean', 'Six Sigma'], ['Process Improvement', 'Product Development', 'Cost Containment'], ['Process Improvement', 'Quality Control', 'Automation Design']]","['Engineering Manager', 'Project Manager', 'Senior Manufacturing Engineer', 'Senior Manufacturing Engineer', 'Manufacturing Engineer']","['Boyden, IA', 'Oshkosh, WI', 'Jackson, MN', 'Spencer, IA', 'Emmetsburg, IA']","Digital Marketing Strategy
+Brand Awareness, Online Traffic
+Social Media Management
+Google Analytics
+Cross-functional Teams
+Campaign Execution, SEO",['Robotics Coaching'],['Spencer for STEM'],[None],"['CoFounder, Coach, and Mentor']",,,,,"https://github.com/emmabostian, https://leetcode.com/neetcode",,,Marketing Officer,Bachelor/Honors,At least 1 year,,"Digital Marketing Strategy
+Brand Awareness, Online Traffic
+Social Media Management
+Google Analytics
+Cross-functional Teams
+Campaign Execution, SEO","Corporate Marketing
+Facebook Ads Manager
+Facebook campaign
+Facebook marketing
+Google Ads
+Google analytics
+Market Researc
+Marketing
+Search Engine Optimization (SEO)",0.576666667
+,,"['Microsoft Project', 'Microsoft Office', 'Microsoft Visio', 'IBM Rationale DOORS', 'Communication/Presentations', 'Risk Analysis', 'Process Improvement', 'CMPro', 'Air Force', 'budget', 'Hardware', 'Conflict Management', 'continuous improvement', 'DC', 'delivery', 'DOORS', 'electrical engineering', 'electrical systems', 'Engineer', 'Estimating', 'senior management', 'functional', 'drawing', 'Hardware Design', 'IBM', 'Leadership', 'Team Leadership', 'Leadership Development', 'Materials', 'mechanical', 'mechanical engineering', 'Microsoft Visio', 'Navy', 'peer review', 'power distribution', 'power supplies', 'Presentations', 'Process Improvement', 'procurement', 'producing', 'Project Management', 'Project Planning', 'proposals', 'quality', 'Risk Analysis', 'schematics', 'Siemens', 'software engineering', 'staffing', 'Systems Engineering', 'video']","['Indiana University', 'University of Evansville', 'Villanova University']","['Master of Business Administration', 'Bachelor of Science', 'Project Management Graduate Certificate']","[None, None, None]","[None, None, None]","[None, None, None]","[None, 'Electrical Engineering', None]","['Company Name', 'Company Name', 'Company Name', None]","[None, None, None, None]","['03/2015', '08/2008', '05/2005', '11/2001']","['Current', '03/2015', '08/2008', '05/2005']","[['Leadership', 'Project Management', 'Systems Engineering', 'Process Improvement', 'Risk Analysis', 'Communication/Presentations'], ['Project Management', 'Hardware Solutions', 'Leadership', 'Communication/Presentations', 'Systems Engineering'], ['Electrical Engineering', 'Leadership', 'Cost Savings', 'Process Improvement', 'Project Management'], ['Electrical Systems', 'Design', 'Cost Savings', 'Process Improvement', 'Project Management']]","['Multi-Skilled Engineering Manager', 'Lead Systems Engineer', 'Lead Electrical Engineer', 'Electrical Engineer']","['City, State', 'City, State', 'City, State', None]","Relationship Building
+HR Collaboration
+Policy Development
+Training Management
+Record Keeping
+Compliance
+Employee Development
+Policy Enforcement
+Communication
+Task Execution",,,,,,,,,"https://github.com/cassidoo, https://leetcode.com/williamfiset",,,HR Officer,"•Bachelor of Business Administration (BBA) in Human Resource Management
+•BBA/MBA in HRM/Management from any reputed university.",,Age 18 to 30 years,"Relationship Building
+HR Collaboration
+Policy Development
+Training Management
+Record Keeping
+Compliance
+Employee Development
+Policy Enforcement
+Communication
+Task Execution",Human Resource Management,0.716666667
+,"looking for an opportunity as an engineer or related position which offers key participation, team-oriented tasks, immediate challenges and career opportunities in a reputed organization which will help me deliver my best and upgrade my skills in engineering and meet the demands of the organization. To utilize my technical skills for achieving the target and developing the best performance in the organization. I would like to implement my innovative ideas, skills and creativity for accomplishing projects.","['Know-your-consumer (KYC)', 'Statistical process control', 'Cost reduction and avoidance', 'Systems Engineering', 'Systems Engineering management', 'Software systems engineering', 'Quality control', 'Failure analysis', 'Tools of operations research', 'MS Office', 'Auto CAD', 'inspection', 'Lean manufacturing', 'process control', 'process design', 'simulation', 'system configuration']","['Oklahoma Christian University', 'Sastra University, Tanjore Tamil Nadu']","['Master of Science', 'Bachelor of Technology']","['current', '2016']","['3.6', '6.97']","['GPA', 'GPA']","['Engineering Management', 'Chemical Engineering']","['Company Name', 'Company Name']","[None, None]","['06/2014', 'N/A']","['06/2014', 'N/A']","[['Lean techniques', 'Kaizen Events'], ['extraction', 'Nutraceuticals', 'sub-critical Carbon-di-oxide']]","['Engineering Intern', 'N/A']","['N/A', 'N/A']","Generative AI Development
+Evolutionary Computation
+Deep Learning Optimization
+Expert Systems Design
+Knowledge Representation
+Data Preprocessing
+Model Training
+Research & Integration",,,,,,,,,"https://github.com/beginner-dev, https://leetcode.com/nickwhite",,,Intern (Generative AI Engineering - 2D/3D Image Generation),Bachelor of Science (BSc),,Age 20 to 35 years,"Generative AI Development
+Evolutionary Computation
+Deep Learning Optimization
+Expert Systems Design
+Knowledge Representation
+Data Preprocessing
+Model Training
+Research & Integration",,0.85
+,,"['Aderant/CMS', 'Excel', 'QuickBooks Pro', 'SQL', 'Access', 'Peachtree', 'Hyperion Essbase', 'Financial reporting', 'US GAAP principles', 'IFRS', 'Bookkeeping', 'Budget development', 'Individual tax returns']",['TEMPLE UNIVERSITY'],['Bachelor of Business Administration'],['2002'],[None],[None],['Accounting'],"['Company Name', 'Company Name', 'Company Name']","[None, None, None]","['Mar 2006', 'Jan 2005', 'Aug 2002']","['Current', 'Mar 2006', 'Jan 2005']","[None, None, None]","['Senior Accountant', 'Accountant', 'Financial Analyst']","['City , State', 'City , State', 'City , State']","Application Development
+Object-Oriented Design
+Collaboration
+Problem-Solving
+Software Lifecycle
+Innovation
+Software Testing
+System Analysis
+Performance Monitoring
+Plugin Development
+Documentation
+Integration Support",['Vice President'],['APS (Accounting Professional Society)'],[None],['Vice President'],,,['New York State'],[None],"https://github.com/yukihiro-matz, https://leetcode.com/beginner_coder",['03/04/2015'],[None],Data Science Engineer,Bachelor of Science (BSc) in Computer Science & Engineering,At least 2 years,Age 25 to 32 years,"Application Development
+Object-Oriented Design
+Collaboration
+Problem-Solving
+Software Lifecycle
+Innovation
+Software Testing
+System Analysis
+Performance Monitoring
+Plugin Development
+Documentation
+Integration Support","Business Analysis
+Effective communication skills
+Java
+REST API Design
+Soft Skills
+Software Development",0.316666667
+,"I am a Junior Machine Learning developer who focuses on data improvement and modelling, finding patterns in large databases and optimization of different models.","['Data Analyst', 'Data Analytics', 'Machine Learning', 'Artificial Intelligence', 'Linear Regression', 'Clustering', 'MongoDB', 'Flask', 'AWS', 'Git', 'Python', 'Neural Networks', 'PyTorch', 'C++', 'CNN', 'Image Processing']",['JCP COLLEGE OF ENGINEERING AND TECHNOLOGY'],['B.TECH'],['2020'],['N/A'],['N/A'],['ELECTRICAL'],['CAPITUM INDIA'],['N/A'],['APR 2020'],['TILL DATE'],"[[""Evaluating and pre-processing client's credit data"", 'Mine and analyze data', 'Optimization and improvement of product development']]",['JUNIOR MACHINE LEARNING ENGINEER'],['NASIK'],"Machinery Maintenance
+Troubleshooting
+Report Preparation
+Log Maintenance",,,,,,,,,"https://github.com/test-account-123, https://leetcode.com/practice2024",,,Mechanical Engineer,"Bachelor of Science (BSc) in Mechanical Engineering, Diploma in Mechanical",2 to 5 years,Age 25 to 40 years,"Machinery Maintenance
+Troubleshooting
+Report Preparation
+Log Maintenance","Maintenance  and Troubleshooting
+Mechanical",0.35
+,,"['C/Python', 'R', 'STK', 'CATIA', 'ANSYS', 'LaTeX', 'SolidWorks', 'Microsoft Office', 'Microsoft Project']","['NORTMEAD HIGH SCHOOL', 'UNIVERSITY OF NEW SOUTH WALES (UNSW)']","['High School Diploma', 'Bachelor of Science, BE Bachelor of Engineering (Honours) (Aerospace)']","['2012', '2017']","[None, '79.42']","[None, 'WAM']","['MATHEMATICS, PHYSICS, CHEMISTRY, ENGINEERING', 'Aerospace']","['Company Name', 'Company Name', 'Company Name']","[None, None, None]","['Feb 2017', 'Feb 2016', 'Aug 2015']","['Apr 2017', 'May 2016', 'Jul 2017']","[['ANSYS', 'SolidWorks', 'CAD', 'Customer Service', 'Sales', 'Time Management'], ['Teaching', 'Mathematics', 'Science', 'English'], ['SolidWorks', 'ANSYS', 'CAD', 'Leadership', 'JIRA']]","['Engineering intern', 'Tutor', 'Mechanical Design Engineer']","['City, State', 'City, State', 'City, State']","Data Platform Design
+Data Pipeline Development
+ETL Processes
+SQL Query Optimization
+Data Integration & Transformation
+Data Modeling
+Stakeholder Collaboration
+Data Quality Monitoring
+Continuous Learning","['Membership', 'Volunteering']","['BLUEsat (Basic Low Earth Orbit UNSW Experimental Satellite) Group', 'Karabi community & Development Services']","[None, None]","['Engineer', 'Social Support and Youth Services Volunteer']",,,"['Scrum Fundamentals', 'Data Science Fundamentals', 'Oracle']","[None, None, ['SQL']]","https://github.com/getify, https://leetcode.com/tourist","['N/A', 'N/A', 'N/A']","[None, None, None]",Data Engineer,Bachelor of Science (BSc),5 to 8 years,,"Data Platform Design
+Data Pipeline Development
+ETL Processes
+SQL Query Optimization
+Data Integration & Transformation
+Data Modeling
+Stakeholder Collaboration
+Data Quality Monitoring
+Continuous Learning","Azure
+Big Data
+Data Analytics
+ETL Tools
+Power BI
+SQL",0.783333333
+,Collaborative computer science graduate. Eager to secure an internship using my experience with natural language processing and building web apps for non-technical users to further the mission of Coursera in democratizing education across the world.,"['JavaScript (Angular)', 'HTML/ CSS', 'Python (Django)', 'SQL (PostgreSQL, Oracle)', 'REST APIs (GraphQL)', 'Git']",['University of Texas'],['B.S.'],['2021'],['3.4'],['GPA'],['Computer Science'],"['University of Texas Help Desk', 'UT Computer Science Institute']","['N/A', 'N/A']","['January 2018', 'April 2015']","['May 2021', 'January 2018']","[['ticketing system management', 'network troubleshooting'], ['programming solutions research', 'interactive web app development', 'Python', 'Natural Language Toolkit']]","['Technician', 'Research Assistant']","['Austin, TX', 'Austin, TX']","Project Design
+Data Analysis
+ACCORD/Alliance Knowledge
+BNBC Standards
+Cost Estimation
+Feasibility Studies
+Documentation
+Compliance
+Site Monitoring
+Policy Enforcement
+Legal Compliance
+Data Management
+Team Collaboration",,,,,,,,,"https://github.com/ghost, https://leetcode.com/tmwilliamlin168",,,Project Coordinator (Civil),•Bachelor of Business Administration (BBA) in Human Resource Management,5 to 10 years,Age 30 to 40 years,"Project Design
+Data Analysis
+ACCORD/Alliance Knowledge
+BNBC Standards
+Cost Estimation
+Feasibility Studies
+Documentation
+Compliance
+Site Monitoring
+Policy Enforcement
+Legal Compliance
+Data Management
+Team Collaboration","Auto CAD 2D 3D
+Civil 3D
+Civil Construction
+Civil Engineering",0.65
+,,"['QA Engineering software expertise - Design, Estimate, Execute, Maintain and Document.', 'Technical communication skills - Bug Triage, reporting, technical reviews, Root cause analysis', 'Automation tools - Design and Implement', 'Collaborating with stakeholders - Roadmap, Managing releases, Demos, Risk mitigation planning', 'Test Methodologies: Regression Testing, Black box testing, Sanity testing, boundary analysis, requirement analysis (Static testing), Performance Testing, system integration testing, functional testing, manual testing.', 'Test Artifacts: Test Estimation, Test plan, Test coverage, Traceability matrix, bug tracking, automation design, Test scenario engineering', 'Programming Tools: Python, Katalon studio, XLS data input, UNIX Shell/PERL scripting, Groovy, REST, JSON, XML, ISO 8583, EMV tags, TCP, HTTP, POSTMAN, curl-siege, Jmeter, COBOL, JCL, CICS, Postman', 'Operating Systems: Unix-AIX, Unix-Solaris, Linux, Windows, IBM-AIX', 'Virtual Systems: VMWare, VSphere, Proxmox', 'Payment terminals: VeriFone, Ingenico, Equinox, PAX and Innowi, Key Management, KPI, DUKPT, Key Injection, KEK', 'Version Control Tools: Git-bash, Git-stash, Git-lab, TorquiseSVN, SourceTree, VSS', 'Database and Tools: Oracle 11g, Oracle 12c, PostgreSQL, MongoDB, PGAdmin 4, SQL Developer, SQL management studio, Toad, DB2', 'Project Management: Confluence, Jira, Microsoft Office Suite, Bugzilla, redmine, HP Quality center', 'Project Management Methodologies: Agile, Scrum, Waterfall, Iterative', 'Talent Management tools: HireRight, iCIMS', 'POS Systems: Micros, Restaurant Manager, Symphony, positouch, broadPOS', 'EMV Systems : BTT (UL), ICCVerify, VCMS, VTS, Astrex, Discover RCT, ATS, MAS, MDFS, ACI-Interchange, ACI-PRM, ACI- ADM, TSYS CertifyNow, FirstData CertPro and more']","['Devi Ahilya University', 'Devi Ahilya University']","['Master of Computer Applications (MCA)', 'Bachelors of Science']","['2005', '2002']","[None, None]","[None, None]","['Computer Applications, Software Engineering, Databases, Networking, and Operating Systems', 'Electronics']","['Company Name', 'Company Name', 'Company Name']","[None, None, None]","['01/2016', '04/2015', '09/2005']","['Current', '01/2016', '04/2015']","[None, None, None]","['QA Engineering Manager', 'Software Certification Analyst', 'Project Lead']","['City , State', 'City , State', 'City , State']","Administrative Support
+Scheduling
+Filing & Documentation
+Communication
+Team Support
+Equipment Maintenance
+Information Provision
+Inventory Management
+Team Collaboration
+OHS Policy Development
+Safety Advice
+Risk Assessment
+Policy Review
+OHS Training
+Safety Inspections
+Unsafe Act Prevention
+Incident Investigation
+Report Preparation",,,,,,,"['Certified Scrum Master (CSM)', 'Certified Tester Foundation Level (CTFL)', 'Agile Scrum Foundation', 'LinkedIn', 'LinkedIn', 'LinkedIn']","[None, None, None, ['Python'], ['Python: XML, JSON, and the Web'], ['SQL for Testers']]","https://github.com/flaviocopes, https://leetcode.com/kevin_naughton_jr","[None, None, None, None, None, None]","['May 2022', None, None, None, None, None]",Asst. Manager/ Manger (Administrative),Bachelor/Honors,At least 5 years,Age at least 28 years,"Administrative Support
+Scheduling
+Filing & Documentation
+Communication
+Team Support
+Equipment Maintenance
+Information Provision
+Inventory Management
+Team Collaboration
+OHS Policy Development
+Safety Advice
+Risk Assessment
+Policy Review
+OHS Training
+Safety Inspections
+Unsafe Act Prevention
+Incident Investigation
+Report Preparation","•Administration
+•Health Safety and Environment
+•Safety and Security Management",0.793333333
+,,"['Web Developer', 'Data Analyst', 'Web Development', 'Machine Learning', 'Python', 'FrontEnd', 'HTML', 'Javascript', 'PHP', 'CSS', 'MySQL', 'Java', 'Data Structures', 'OOP', 'Algorithms', 'C']","['Shri Guru Gobind Singhji College of Engineering and Technology, Nanded']",['B.Tech(Computers)'],['2019'],['N/A'],['N/A'],['Computers'],['SAI Technologies'],['N/A'],['Aug 2020'],['Till Date'],"[['python', 'cybersecurity', 'HTML', 'CSS', 'javascript', 'java', 'Docker containers']]",['Intern'],['N/A'],"Supervision
+Monitoring
+Construction
+Estimation
+Planning
+Material Management
+Project Coordination
+Quality Assurance
+Cost Control
+Inventory
+Operations
+Safety
+Error Escalation
+Miscellaneous Tasks
+
+
+
+
+",['Data Analyst'],['Python Programming'],['N/A'],['N/A'],,,,,"https://github.com/tenderlove, https://leetcode.com/maroonrk",,,Site Engineer,Bachelor of Science (BSc) in Civil Engineering,1 to 2 years,Age 25 to 30 years,"Supervision
+Monitoring
+Construction
+Estimation
+Planning
+Material Management
+Project Coordination
+Quality Assurance
+Cost Control
+Inventory
+Operations
+Safety
+Error Escalation
+Miscellaneous Tasks
+
+
+
+
+","AutoCAD
+Communication and negotiation skills
+Internet
+MS Office",0.35
+,"strong willingness to exhibit my proficiency in Analytical tools, Statistics and Computing Methodologies in the professional environment.","['Python', 'Webscrapping', 'PowerBI', 'Data Cleaning', 'Data Preparation', 'Data Analysis', 'Predictive Modeling', 'Data Analytics', 'Pivot Table', 'SQL', 'PostgreSQL', 'Analytics', 'Excel', 'Machine Learning', 'XML']",['Mumbai University'],['Bachelor of Science'],['2020'],['N/A'],['N/A'],['Statistics'],['Dell Technologies'],['N/A'],['Jul 2019'],['Sep 2020'],[['Creating dashboards for sales and profits']],['Junior Analyst'],['N/A'],"Management Trainee
+Mechanical Systems
+Maintenance & Troubleshooting
+Performance Analysis
+Project Support
+Process Improvement
+Training & Development
+Administrative Support",,,,,,,['N/A'],"[['R', 'Python', 'PowerBI']]","https://github.com/mpj, https://leetcode.com/ksun48",['N/A'],[None],Management Trainee - Mechanical,Fresh graduates with a Bachelor’s degree in Mechanical Engineering or a related field.,,Age at least 22 years,"Management Trainee
+Mechanical Systems
+Maintenance & Troubleshooting
+Performance Analysis
+Project Support
+Process Improvement
+Training & Development
+Administrative Support","Computer skill
+Good communication skills
+Mechanical Engineering
+Quick learner and hard working",0.683333333
+,,"['Client engagement', 'Communication', 'Analytical and business acumen', 'Demand creation pursuits', 'Federal Government experience', 'IT support services', 'Data storage', 'Interoperability', 'Advanced data analytics']","['Rochester Institute of Technology', 'Columbia University', 'Revenue Storm']","['Mechanical-Industrial Engineering', 'Executive Management', 'Business Development']","['1983', '1990', '2011']","['N/A', 'N/A', 'N/A']","['N/A', 'N/A', 'N/A']","['Mechanical-Industrial Engineering', 'Accelerated Management Program', 'N/A']","['Company Name', 'Company Name', 'Applied Graphics Technologies', 'Company Name']","[None, None, None, None]","['Feb 2007', 'Sep 2003', 'Feb 1996', 'Jan 1974']","['Current', 'Jan 2007', 'Aug 2003', 'Jan 1996']","[['Healthcare', 'Data acquisition', 'Data mining', 'SaaS', 'Repository Services', 'Interoperability', 'Advanced data analytics'], ['IT Support Services', 'Software solutions', 'Healthcare', 'Records management', 'Interoperability networks'], ['Digital technology', 'Management', 'Storage', 'Presentation', 'Revenue generation'], ['Industrial engineering', 'Statistical release testing', 'Client engineering support services', 'Sales management', 'Revenue generation']]","['Director, Business Development', 'CEO and President', 'Vice President, Commercial Digital Services', 'Director, National and Strategic Accounts - Digital and Applied Imaging Group']","['City, State', 'City, State', 'City, State', 'City, State']","Administrative Support
+Scheduling
+Filing & Documentation
+Communication
+Team Support
+Equipment Maintenance
+Information Provision
+Inventory Management
+Team Collaboration
+OHS Policy Development
+Safety Advice
+Risk Assessment
+Policy Review
+OHS Training
+Safety Inspections
+Unsafe Act Prevention
+Incident Investigation
+Report Preparation","['Professional Affiliation', 'Advisory Board']","['Mid-Atlantic Professional Affiliation (MAPA)', 'Mitchell International/Jopari Advisory Board']","[None, None]","['N/A', 'N/A']",,,['HIPAA Academy'],[['HIPAA Compliance']],"https://github.com/getify, https://leetcode.com/student_dev",['2002'],['N/A'],Asst. Manager/ Manger (Administrative),Bachelor/Honors,At least 5 years,Age at least 28 years,"Administrative Support
+Scheduling
+Filing & Documentation
+Communication
+Team Support
+Equipment Maintenance
+Information Provision
+Inventory Management
+Team Collaboration
+OHS Policy Development
+Safety Advice
+Risk Assessment
+Policy Review
+OHS Training
+Safety Inspections
+Unsafe Act Prevention
+Incident Investigation
+Report Preparation","•Administration
+•Health Safety and Environment
+•Safety and Security Management",0.71
+,,"['account reconciliation', 'accounting', 'accountant', 'accounting system', 'AR', 'budget', 'business objects', 'closing', 'Contracts', 'financial', 'financial analysis', 'financial controls', 'financial operations', 'financial reports', 'financial statements', 'GL', 'Grants', 'inventory', 'invoicing', 'ledger', 'Macros', 'Access', 'Excel', 'Microsoft Office', 'office', 'Outlook', 'PowerPoint', 'Word', 'Monitors', 'operating systems', 'PeopleSoft', 'policies', 'processes', 'procurement', 'reporting', 'Research', 'SAP', 'Sarbanes-Oxley', 'training materials', 'view']","['Prairie View A&M University', 'Prairie View A&M University']","['Masters of Science', 'BBA']","['2009', 'N/A']","['N/A', 'N/A']","['N/A', 'N/A']","['Accounting', 'Accounting']","['Company Name', 'Company Name', 'Company Name']","[None, None, None]","['08/2014', '12/2012', '01/2010']","['Current', '08/2014', '02/2012']","[['financial reports', 'financial models', 'financial analysis', 'reconciliation', 'budget', 'financial controls', 'invoice', 'training materials', 'Macros', 'SAP', 'PeopleSoft'], ['accounting', 'financial statements', 'reporting', 'journal ledger', 'P&L', 'financial analysis', 'GAAP', 'account reconciliation'], ['accounting', 'auditing', 'software applications', 'financial training', 'internal controls', 'GAAP', 'Sarbanes-Oxley']]","['Accountant', 'Staff Accountant', 'Accountant /Auditor']","['City , State', 'City , State', 'City , State']","Open-Source Technologies
+CI/CD Culture & Tooling
+Product Availability & Scalability
+Automation (Build & Deploy)
+Monitoring & Reliability
+Infrastructure Innovation
+Software Engineering Velocity
+Infrastructure Resiliency
+Security & Data Availability","['Community Activities', 'Professional Society']","['Phi Beta Lambda and National Association of Black Accountants', ""Texas Society of CPA's Beta Gamma Sigma Greater Women's Chamber of Society""]","[None, None]","['Participant', 'Member']",,,,,"https://github.com/beginner-dev, https://leetcode.com/practice2024",,,DevOps Engineer,Bachelor/Honors,At least 3 years,,"Open-Source Technologies
+CI/CD Culture & Tooling
+Product Availability & Scalability
+Automation (Build & Deploy)
+Monitoring & Reliability
+Infrastructure Innovation
+Software Engineering Velocity
+Infrastructure Resiliency
+Security & Data Availability","Ansible
+AWS Cloud
+Cloud Platform
+DevOps
+Dockers and Kubernetes
+Java
+ReactJS
+Terraform",0.55
+,I would like to introduce myself as an applicant for the data scientist role. I have gathered an well informed amount of experience from my coursework and I feel that I can perform and produce results in an work environment if given the opportunity.,"['Data Science', 'Analysis', 'Machine Learning', 'Bounding Algorithms', 'Heuristics', 'ANN', 'Decision Trees', 'SVM', 'Hypothesis Analysis', 'Optimization']","['St Josephs College of Arts and Science Bengaluru', 'St Josephs College of Arts and Science Bengaluru']","['B.Sc (Computer Science Engineering)', 'M.Sc (Data Science)']","['2019', '2021']","['N/A', 'N/A']","['N/A', 'N/A']","['Computer Science Engineering', 'Data Science']",['Crison Global Service'],['N/A'],['Jan 2021'],['Till Date'],"[['Analysis', 'Model Designing']]",['Intern'],['N/A'],"Apparel Sourcing
+Quality Garment Sourcing
+Reliable Partner
+Buyer/Vendor Communication",['Workshop'],['N/A'],['N/A'],['Participant'],,,,,"https://github.com/beginner-dev, https://leetcode.com/kefaa2",,,Business Development Executive,Bachelor/Honors,1 to 3 years,Age 22 to 30 years,"Apparel Sourcing
+Quality Garment Sourcing
+Reliable Partner
+Buyer/Vendor Communication","Fast typing skill
+IELTSInternet browsing & online work ability.",0.48
+,,"['Payroll & Tax 940, 941 withholding Accounting', 'Accounts Payable & Receivable', 'Multi-State Sales Tax Filing', 'Analytical reasoning', 'Account reconciliation expert', 'QuickBooks', 'Peachtree', 'Payroll Mate', 'Adobe', 'Sage', 'PeachTree', 'Quick Books', 'MS Office', 'Medlin', 'Tax Slayer', 'Pro Series', 'Lotus I, II, III']","['Colorado Technical University', 'Rowan Cabarrus Community College']","['Bachelor of Science', 'Associate of Arts and Applied Science']","['2010', '2007']","['N/A', 'N/A']","['N/A', 'N/A']","['Accounting', 'Accounting']","['Company Name', 'Company Name', 'Company Name', 'Company Name', 'Company Name']","[None, None, None, None, None]","['01/2011', '01/2012', '01/2011', '01/2010', '01/2002']","['Current', 'Current', '01/2012', '01/2011', '01/2011']","[['Negotiation', 'Tax Reconciliation', 'Client Management'], ['Audit', 'Tax Filing', 'Vendor Management', 'Inventory Management'], ['Payroll', 'Tax Preparation', 'Financial Management', 'Software Implementation'], ['Debt Collection', 'Tax Amendment', 'Billing Process Restructuring'], ['General Ledger Accounting', 'Regulatory Reporting', 'Tax Preparation', 'Software Management']]","['Senior Accountant', 'Accountants Payable/Receivable & Purchasing Administrator', 'Accountant', 'Accounts Receivable & Collection Manager', 'Accountant']","['City, State', 'City, State', 'City, State', 'City, State', 'City, State']","Generative AI Development
+Evolutionary Computation
+Deep Learning Optimization
+Expert Systems Design
+Knowledge Representation
+Data Preprocessing
+Model Training
+Research & Integration",,,,,,,,,"https://github.com/yukihiro-matz, https://leetcode.com/maroonrk",,,Intern (Generative AI Engineering - 2D/3D Image Generation),Bachelor of Science (BSc),,Age 20 to 35 years,"Generative AI Development
+Evolutionary Computation
+Deep Learning Optimization
+Expert Systems Design
+Knowledge Representation
+Data Preprocessing
+Model Training
+Research & Integration",,0.55
+,"Creative and innovative draftsman, passionate about building designs and advanced construction solutions.Â  Â Seeking the best opportunity to further enhance present professional experience and expand knowledge base on architectural designs, while growing with an organization.","['3D modeling', 'architectural drafting', 'AutoCAD', 'read blueprints', 'carpentry', 'Detail oriented', 'drafting', 'email', 'floor plans', 'frame', '3dsMax', 'mechanical', 'messaging', 'Microsoft Office applications', 'Multi-tasking', 'painting', 'problem solving skills', 'reading', 'renovation', 'Revit', 'self-motivated', 'supervisor']",['ITT Technical Institute'],['A.A.S'],['June 2015'],['3.4'],['GPA'],['Drafting and Design'],"['Company Name', 'Company Name', 'Company Name', 'Company Name']","[None, None, None, None]","['July 2015', 'July 2014', 'June 2013', 'June 2010']","['June 2017', 'December 2014', 'August 2013', 'August 2011']","[['creating and finalizing drawings', 'Review projects', 'Assisting customers', 'Multi-tasking'], ['Loaded and unloaded packages'], ['Maintained campus upkeep', 'Repaired, Replaced, and installed signs'], ['Maintained building appearance', 'Involved in renovation projects', 'Janitorial work']]","['Engineering Technician', 'Material Handler', 'Laborer', 'Janitorial/Construction Laborer']","['City, State', 'City, State', 'City, State', 'City, State']","Trade Marketing Executive
+Brand Visibility, Sales Targets
+Field Marketing, Campaigns, Product Distribution
+Brand Head
+Excel, KPIs Tracking",,,,,,,,,"https://github.com/invalid-user-xyz, https://leetcode.com/beginner_coder",,,"Executive/ Senior Executive- Trade Marketing, Hygiene Products",Master of Business Administration (MBA),At least 3 years,,"Trade Marketing Executive
+Brand Visibility, Sales Targets
+Field Marketing, Campaigns, Product Distribution
+Brand Head
+Excel, KPIs Tracking","Brand Promotion
+Campaign Management
+Field Supervision
+Merchandising
+promotional activities
+Trade Marketing",0.85
+,"I am looking for an opportunity to work as a Data Scientist. Possessing right and accurate skills at collecting, analyzing, interpreting large datasets and performing data management tasks. Under the guidance of company's professionals I can contribute to company's success using my extensive analytical skills.","['Business Analytics', 'Data Analysis', 'Machine Learning', 'SQL', 'Firebase', 'AWS', 'GCP', 'Cloud Infrastructure', 'Python', 'Text Mining', 'Database Management and Processing', 'Time Series Analysis', 'Research Analysis']",['Lucknow University'],['B.Sc'],['2019'],['N/A'],['N/A'],['Statistics'],['E Express'],['N/A'],['Aug 2020'],['Till Date'],[['big data analytics']],['Associate Data Scientist'],['N/A'],"Mushak Forms Maintenance
+VAT Software & MS Office Maintenance
+VAT Ledger Management
+VAT Challan Coordination
+Liaison with VAT Office
+VAT Documentation
+Other Assigned Tasks",,,,,,,,,"https://github.com/hackathon-test, https://leetcode.com/newuser2024",,,Executive - VAT,BBA in Accounting and Finance,1 to 3 years,,"Mushak Forms Maintenance
+VAT Software & MS Office Maintenance
+VAT Ledger Management
+VAT Challan Coordination
+Liaison with VAT Office
+VAT Documentation
+Other Assigned Tasks",VAT and Tax,0.623333333
+,,"['Architecting best practice technical solutions', 'Technical program management', 'QA/QM', 'Client management', 'Vendor management', 'Testing and commissioning planning and execution', 'Team leadership / cross-team collaboration', 'Engineering cost estimating', 'Engineering resource management and forecasting', 'Process improvement']",['University of California at Santa Barbara'],['Bachelor of Science'],['1990'],['N/A'],['N/A'],['Electrical and Computer Engineering'],"['Company Name', 'Company Name', 'Company Name', 'Company Name', 'Company Name', 'Company Name']","[None, None, None, None, None, None]","['01/2014', '01/2011', '07/2003', '07/1999', '07/1992', '06/1991']","['Current', '12/2013', '12/2010', '06/2003', '06/1999', '06/1992']","[None, None, None, None, None, None]","['Regional Engineering Manager', 'Engineering Supervisor', 'Senior Engineer', 'Systems Engineer II', 'Control Systems Engineer I / II', 'Associate Systems Engineer']","['City, State', 'City, State', 'City, State', 'City, State', 'City, State', 'City, State']","Trade Marketing Executive
+Brand Visibility, Sales Targets
+Field Marketing, Campaigns, Product Distribution
+Brand Head
+Excel, KPIs Tracking",,,,,,,,,"https://github.com/hansenwithaj, https://leetcode.com/Um_nik",,,"Executive/ Senior Executive- Trade Marketing, Hygiene Products",Master of Business Administration (MBA),At least 3 years,,"Trade Marketing Executive
+Brand Visibility, Sales Targets
+Field Marketing, Campaigns, Product Distribution
+Brand Head
+Excel, KPIs Tracking","Brand Promotion
+Campaign Management
+Field Supervision
+Merchandising
+promotional activities
+Trade Marketing",0.816666667
+,,"['budget', 'hardware', 'network systems', 'database', 'Dec', 'documentation', 'inspection', 'logistics', 'meetings', 'MS Excel', 'Microsoft Office', 'Outlook', 'PowerPoint', 'network', 'networking', 'Operating Systems', 'Oracle', 'personnel', 'presentations', 'progress', 'quality', 'Maintain documentation', 'routers', 'safety', 'scheduling', 'shipping', 'spreadsheets', 'supervision']",['University of Phoenix Texas'],['Business Administration'],['2019'],['N/A'],['N/A'],['Business Administration'],"['Company Name', 'Company Name', 'Company Name', 'Company Name']","['N/A', 'N/A', 'N/A', 'N/A']","['01/2014', '12/2012', '01/2011', '07/2004']","['Current', None, '12/2013', '12/2010']","[['MS Excel', 'PowerPoint', 'Oracle'], ['networking'], ['documentation', 'shipping', 'production'], ['Microsoft Office', 'database', 'network systems', 'production']]","['Engineering Technician', 'Consultant', 'Engineering Technician', 'Manufacturing Lead']","['City, State', 'City, State', 'City, State', 'City, State']","Hardware & Network Installation
+Troubleshooting & Diagnostics
+User Training & Capacity Building
+Hardware Replacement
+Fault Repair & System Setup
+Software License & Account Management
+Backup Management
+System Updates & Maintenance
+Server & Storage Management
+Documentation & Technical Specifications
+Data Protection & Disaster Recovery
+Storage & Database Planning
+Power & Disk Backup
+Incident Management & Escalation
+Service Restoration
+User Communication & Verification
+Incident Classification & Resolution
+Major Incident Escalation
+Problem & Error Management
+Task Assignment & Execution",,,,,,,,,"https://github.com/hackathon-test, https://leetcode.com/Um_nik",,,"System Administrator (Operation & Maintenance of Server, Storage & Service Desk System)",Bachelor/Honors,4 to 5 years,,"Hardware & Network Installation
+Troubleshooting & Diagnostics
+User Training & Capacity Building
+Hardware Replacement
+Fault Repair & System Setup
+Software License & Account Management
+Backup Management
+System Updates & Maintenance
+Server & Storage Management
+Documentation & Technical Specifications
+Data Protection & Disaster Recovery
+Storage & Database Planning
+Power & Disk Backup
+Incident Management & Escalation
+Service Restoration
+User Communication & Verification
+Incident Classification & Resolution
+Major Incident Escalation
+Problem & Error Management
+Task Assignment & Execution","Cisco
+Linux
+Operation & Maintenance of Server",0.85
+,,"['Project Management', 'Secret Clearance', 'Risk management', 'Performance tracking and evaluation', 'Team building', 'Project analysis', 'Leadership mentoring', 'Business and requirements analysis', 'Operations management', 'Decisive leader']","['University of Maryland University College', 'Strayer University', 'Strayer University']","['Graduate Certificate', 'MBA', 'Bachelor of Science']","['2010', '2004', '2003']","['N/A', 'N/A', 'N/A']","['N/A', 'N/A', 'N/A']","['Project Management', 'Management', 'Internetworking Technologies']","['Company Name', 'Company Name', 'Company Name']","[None, None, None]","['01/2004', '01/2002', '07/1991']","['Current', '01/2004', '01/2002']","[['Project management', 'Leadership', 'Risk management', 'Business development', 'Process improvement'], ['Technical support', 'Project management', 'Risk management'], ['Leadership', 'Training', 'Logistics']]","['Engineering Specialist', 'Senior Technical Support Specialist', 'Tank Platoon Sergeant']","['City , State', 'City , State', 'City , State']","Hardware & Software Installation
+System Monitoring
+IT Support
+Networking Expertise
+Mail Server Administration
+Security Management
+Troubleshooting & Repair
+Operations Support",,,,,,,['N/A'],[None],"https://github.com/ghost, https://leetcode.com/nickwhite",['2011'],[None],Executive/ Sr. Executive -IT,Bachelor of Science (BSc) in Computer Science & Engineering,3 to 5 years,Age at most 40 years,"Hardware & Software Installation
+System Monitoring
+IT Support
+Networking Expertise
+Mail Server Administration
+Security Management
+Troubleshooting & Repair
+Operations Support",,0.783333333
+,,"['Machine Learning', 'Software Development', 'Text Analysis', 'Natural Language Processing', 'Image Processing', 'Python', 'Data Management', 'Scikit Learn', 'C', 'C#', '.NET', 'SQL']",['Punjab Technical University'],['B.Tech'],['2020'],['N/A'],['N/A'],['Computer Science'],['HS Institute'],[None],['May 2019'],['Oct 2019'],"[['Data Management', 'Machine Learning']]",['Trainee'],['N/A'],"Full Stack Development
+Front-end: ReactJS, NextJS
+Backend: Python, Django
+API Design
+Server-Side Logic
+DRF (Django REST Framework)
+Database Management (PostgreSQL, MySQL)
+Version Control (Git)
+AWS (ECR, RDS, ECS, ALB, EC2, etc.)
+Linux, Docker, CI/CD, GitLab
+Terraform, Shell Scripting",,,,,,,,,"https://github.com/beginner-dev, https://leetcode.com/takeuforward",,,"Full Stack Developer (Python,React js)",Bachelor/Honors,3 to 7 years,,"Full Stack Development
+Front-end: ReactJS, NextJS
+Backend: Python, Django
+API Design
+Server-Side Logic
+DRF (Django REST Framework)
+Database Management (PostgreSQL, MySQL)
+Version Control (Git)
+AWS (ECR, RDS, ECS, ALB, EC2, etc.)
+Linux, Docker, CI/CD, GitLab
+Terraform, Shell Scripting",,0.85
+,,"['assembly', 'AutoCAD', 'automation', 'budgets', 'budget', 'CNC', 'electronics', 'layout', 'machine tools', 'machinery', 'market', 'materials', 'mathematics', 'mechanical', 'networks', 'packaging', 'PLC', 'policies', 'presentations', 'programming', 'Project management', 'quality', 'recording', 'sales', 'spreadsheet', 'team work']","['Penn State', 'Faith Christian Academy']","[None, 'General Diploma']","['2001', '1991']","[None, None]","[None, None]","['AutoCad', None]","['Company Name', 'Company Name', 'Company Name']","[None, None, None]","['January 2001', 'January 1997', 'January 1993']","['January 2015', 'January 2001', 'January 1997']","[['AutoCAD', 'project management', 'mechanical design', 'team building'], ['project management', 'automation', 'production', 'quality'], ['mechanical', 'precision machining', 'G-Code programming', 'production control']]","['Engineering Manager/Senior Mechanical Designer', 'Plant Manager/Project Manager', 'Precision Machinist']","['City, State', 'City, State', 'City, State']","iOS Lifecycle
+Requirement Analysis
+Native Frameworks
+iOS Development
+API Integration
+Technical Communication
+UI Design
+Performance Optimization
+Feature Collaboration
+Bug Fixing
+Code Translation
+High-Performance Development
+Task Management
+Cross-Team Collaboration
+Code Quality",,,,,,,,,"https://github.com/wesbos, https://leetcode.com/happygirlzt",,,Senior iOS Engineer,Bachelor of Science (BSc) in Computer Science,At least 4 years,,"iOS Lifecycle
+Requirement Analysis
+Native Frameworks
+iOS Development
+API Integration
+Technical Communication
+UI Design
+Performance Optimization
+Feature Collaboration
+Bug Fixing
+Code Translation
+High-Performance Development
+Task Management
+Cross-Team Collaboration
+Code Quality","iOS
+iOS App Developer
+iOS Application Development
+iOS Development
+Mobile apps Developer (iOS)
+Native IOS
+Swift (iOS)
+Swift UI",0.783333333
+,I am currently looking for an opportunity as a Data Science or Machine Learning Engineer.,"['Business analyst', 'Data modeling', 'Business intelligence', 'ERP implementation', 'html', 'Requirement Gathering', 'Power Bi', 'Project Management']","['SP University', 'SP University']","['BBA', 'MBA']","['2018', '2020']","[None, None]","[None, None]","['Management', 'Information Technology']",['JVV IT Solutions'],[None],['Feb 2020'],['till date'],[[]],['Business Analyst'],[None],"Mushak Forms Maintenance
+VAT Software & MS Office Maintenance
+VAT Ledger Management
+VAT Challan Coordination
+Liaison with VAT Office
+VAT Documentation
+Other Assigned Tasks",,,,,,,,,"https://github.com/tenderlove, https://leetcode.com/jiangly",,,Executive - VAT,BBA in Accounting and Finance,1 to 3 years,,"Mushak Forms Maintenance
+VAT Software & MS Office Maintenance
+VAT Ledger Management
+VAT Challan Coordination
+Liaison with VAT Office
+VAT Documentation
+Other Assigned Tasks",VAT and Tax,0.65
+,,"['accounting', 'accounts payable', 'Accounts Receivable', 'ADP', 'advertising', 'AR', 'balance sheet', 'balance', 'bank reconciliations', 'benefits', 'billing', 'billings', 'book keeping', 'budget', 'cash flow projections', 'cash flow', 'controller', 'Credit', 'clients', 'data collection', 'delivery', 'documentation', 'email', 'Finance', 'financial', 'financial reporting', 'financial statements', 'fixed assets', 'General Ledger', 'inventory', 'job costing', 'ledger', 'legal', 'materials', 'meetings', 'Microsoft Access', 'Microsoft Excel', 'Excel', 'Microsoft Word', 'negotiating', 'DBA', 'Payables', 'payroll', 'Peachtree', 'processes', 'coding', 'purchasing', 'Express', 'Quick Books', 'QuickBooks', 'Research', 'Sage', 'Sales', 'Spreadsheet', 'Tax', 'software support', 'valuation', 'year-end']","['University of North Carolina', 'N/A']","['Bachelor of Science', 'Bachelor of Science']","['2010', '2010']","['N/A', 'N/A']","['N/A', 'N/A']","['Accounting', 'Business Administration Finance']","['Company Name', 'Company Name', 'Company Name', 'Company Name']","[None, None, None, None]","['January 2014', 'March 2013', 'April 2012', 'July 2010']","['October 2014', 'January 2014', 'March 2013', 'August 2011']","[['financial statements', 'reconciliation', 'sales tax', 'payables', 'rent rates', 'leasing', 'cash flow'], ['collections', 'PO entry', 'payables', 'cash flow projections', 'ordering', 'unit valuation'], ['reconciliation', 'ledger', 'spreadsheet design', 'accounts reconciliation'], ['accounting processes', 'bank reconciliations', 'software transition', 'client analysis']]","['Staff Accountant', 'Staff Accountant', 'Staff Accountant', 'Financial Management Partner']","['City , State', 'City , State', 'State', 'City , State']","Generative AI Development
+Evolutionary Computation
+Deep Learning Optimization
+Expert Systems Design
+Knowledge Representation
+Data Preprocessing
+Model Training
+Research & Integration","['Officer and Chair positions', 'Bike-a-thon']","['Alpha Sigma Phi', 'Livestrong Foundation']","[None, None]","['Vice President, Social Chair, Greek Week Delegate', 'Participant']",,,,,"https://github.com/invalid-user-xyz, https://leetcode.com/student_dev",,,Intern (Generative AI Engineering - 2D/3D Image Generation),Bachelor of Science (BSc),,Age 20 to 35 years,"Generative AI Development
+Evolutionary Computation
+Deep Learning Optimization
+Expert Systems Design
+Knowledge Representation
+Data Preprocessing
+Model Training
+Research & Integration",,0.226666667
+,,"['Microsoft Office (Word, Excel, Power Point, Outlook)', 'Abila MIP Fund Accounting Software', 'QuickBooks, QuickBooks Pro, Quicken', 'ADP, Paychex, Payroll Experts, QuickBooks Payroll Systems']",['Arizona State University'],['Bachelor of Science'],['N/A'],['N/A'],['N/A'],['Business Management'],"['Company Name', 'Company Name', 'Company Name', 'Company Name']","[None, None, None, None]","['08/2012', '08/2008', '02/2007', '05/2002']","['Current', '08/2012', '06/2010', '02/2007']","[['Financial statement analysis', 'Account reconciliation', 'General ledger accounting', 'Time management', 'Organizational skills', 'Process Receivables', 'Process Retail Sales Revenue', 'Monthly financial statements and budget analysis', 'Monthly bank reconciliations', 'Prepare monthly Use Tax returns', 'General Ledger review', 'Streamline Procedures', 'Accounts Payable'], ['QuickBooks, QuickBooks Pro, Quicken', ""Worker's Compensation Audits"", 'Payroll functions', 'Sales Tax Reporting', 'Financial Statement Preparation', 'Bank Statement Reconciliations'], ['Accounts Receivable', 'Monthly billing', 'Accounts Payable verification', 'Payroll processing', 'Employee benefits management', 'COBRA documentation', 'Accounting duties'], ['Accounting Department management', 'Financial statement production', 'Payroll processing', 'Payroll tax reporting', 'Software implementation', 'Employee benefits program', 'Recruitment', 'Personnel management']]","['Staff Accountant', 'Independent Accounting Consultant', 'Accounting Manager/Human Resources', 'Accounting and Human Resources Manager']","['City , State', 'City , State', 'City , State', 'City , State']","Design Creation
+CAD Drawings
+Design Optimization
+Team Collaboration
+Compliance Assurance
+Design Reviews
+Manufacturing Support
+Documentation",,,,,,,,,"https://github.com/hackathon-test, https://leetcode.com/student_dev",,,Mechanical Designer,Bachelor’s degree in Mechanical Engineering from a reputed institute.,At least 5 years,Age at least 24 years,"Design Creation
+CAD Drawings
+Design Optimization
+Team Collaboration
+Compliance Assurance
+Design Reviews
+Manufacturing Support
+Documentation","AutoCAD
+Solidworks",0.34
+,"Machine Learning Engineer seeking assignments Deep Learning, Reinforcement Learning, Tensorflow. Keras.","['Artificial Intelligence', 'Deep Learning', 'Reinforcement Learning', 'Tensorflow Keras', 'Scikit learn', 'Numpy', 'Pandas', 'Matplotlib']","['IIIT D&M Kancheepuram, Chennai']",['B.Tech(IT)'],['2019'],['N/A'],['N/A'],['Information Technology'],['Larsen & Toubro'],['N/A'],['Dec 2019'],['Till Date'],"[['OCR', 'Machine Learning']]",['Analyst Intern'],['N/A'],"iOS Lifecycle
+Requirement Analysis
+Native Frameworks
+iOS Development
+API Integration
+Technical Communication
+UI Design
+Performance Optimization
+Feature Collaboration
+Bug Fixing
+Code Translation
+High-Performance Development
+Task Management
+Cross-Team Collaboration
+Code Quality",['Scholarship'],['KSST'],['N/A'],['Scholar'],,,,,"https://github.com/fireship-io, https://leetcode.com/testuser123",,,Senior iOS Engineer,Bachelor of Science (BSc) in Computer Science,At least 4 years,,"iOS Lifecycle
+Requirement Analysis
+Native Frameworks
+iOS Development
+API Integration
+Technical Communication
+UI Design
+Performance Optimization
+Feature Collaboration
+Bug Fixing
+Code Translation
+High-Performance Development
+Task Management
+Cross-Team Collaboration
+Code Quality","iOS
+iOS App Developer
+iOS Application Development
+iOS Development
+Mobile apps Developer (iOS)
+Native IOS
+Swift (iOS)
+Swift UI",0.75
+"Vancouver, BC","Senior Computer Vision Scientist with 10+ years of experience working with data and data sets of varying size and complexity. As a seasoned Computer Scientist, I am looking to continue my career in a senior or director-level position with AbCellera.","['Snowflake', 'Python', 'C++', 'R', 'SQL', 'Tableau', 'PyTorch']",['University of British Columbia'],['B.S.'],['2013'],['N/A'],['N/A'],['Engineering'],"['AbCellera', 'Microsoft', 'Swiss Re']","['N/A', 'N/A', 'N/A']","['July 2014', 'January 2012', 'May 2012']","['current', 'June 2014', 'May 2014']","[['Computer Vision', 'Machine Learning', 'Data Collection', 'KPI Reports'], ['Predictive Modeling', 'Data Analysis', 'Algorithm Development', 'Data Visualization'], ['Data Science', 'Algorithm Development', 'Strategic Insights', 'Business Communication']]","['Computer Vision Scientist', 'IT Data Scientist', 'Associate Data Scientist']","['Remote', 'Vancouver, BC', 'Toronto, Canada']","Hardware & Software Installation
+System Monitoring
+IT Support
+Networking Expertise
+Mail Server Administration
+Security Management
+Troubleshooting & Repair
+Operations Support",,,,,,,"['N/A', 'N/A']","[None, None]","https://github.com/invalid-user-xyz, https://leetcode.com/fishercoder","[None, None]","[None, None]",Executive/ Sr. Executive -IT,Bachelor of Science (BSc) in Computer Science & Engineering,3 to 5 years,Age at most 40 years,"Hardware & Software Installation
+System Monitoring
+IT Support
+Networking Expertise
+Mail Server Administration
+Security Management
+Troubleshooting & Repair
+Operations Support",,0.816666667
+,,"['Django', 'Python', 'Relational databases', 'RestAPI', 'Github', 'Jira', 'PostgreSQL', 'Software development', 'Debugging', 'Machine learning', 'Natural language Processing', 'Artificial Intelligence', 'Data Analysis', 'Docker', 'Tornado', 'Software Developer', 'Project Management']","['Dr. Virendra Swaroop Institute of Computer Studies, Kanpur', 'Pranveer Singh Institute of Technology, Kanpur']","['BCA', 'MCA']","['2016', '2019']","[None, None]","[None, None]","['Computers', 'Computers']",['Daffodil Software Pvt Ltd'],[None],['Jan 2019'],['Till Date'],"[['Developing', 'designing', 'optimizing automation script', 'crons', 'managing database conflicts', 'executing solution']]",['Software Developer'],['N/A'],"Apparel Sourcing
+Quality Garment Sourcing
+Reliable Partner
+Buyer/Vendor Communication",,,,,,,,,"https://github.com/test-account-123, https://leetcode.com/striver_79",,,Business Development Executive,Bachelor/Honors,1 to 3 years,Age 22 to 30 years,"Apparel Sourcing
+Quality Garment Sourcing
+Reliable Partner
+Buyer/Vendor Communication","Fast typing skill
+IELTSInternet browsing & online work ability.",0.383333333
+"Sunnyvale, CA","Soon-to-be Computer Science graduate eager to continue exploring the inspiring, innovative field of Android Development. As a seasoned intern, I am looking to join an Android Development team with AT&T as a junior developer.","['Java', 'Spring', 'Javascript', 'CSS', 'HTML', 'REST APIs', 'React Native', 'Kotlin', 'PostgreSQL', 'MySQL']",['University of Santa Clara'],['Bachelor of Science'],['current'],['3.6'],['GPA'],['Computer Science'],"['Genesis10', 'Novalsys, Inc']","[None, None]","['May 2021', 'January 2021']","['current', 'May 2021']","[['Java', 'Kotlin', 'Android Development', 'Performance Monitoring', 'Quality Assurance', 'Problem Solving', 'Team Collaboration'], ['Android Development', 'Bug Fixing', 'Performance Improvement', 'Cross-Functional Collaboration', 'Data Integrity', 'Feature Development']]","['Android Developer Intern', 'Android Developer Intern']","['San Jose, CA', 'Milpitas, CA']","Project Design
+Data Analysis
+ACCORD/Alliance Knowledge
+BNBC Standards
+Cost Estimation
+Feasibility Studies
+Documentation
+Compliance
+Site Monitoring
+Policy Enforcement
+Legal Compliance
+Data Management
+Team Collaboration",,,,,,,"['AWS', 'OWASP']","[None, None]","https://github.com/test-account-123, https://leetcode.com/practice2024","[None, None]","[None, None]",Project Coordinator (Civil),•Bachelor of Business Administration (BBA) in Human Resource Management,5 to 10 years,Age 30 to 40 years,"Project Design
+Data Analysis
+ACCORD/Alliance Knowledge
+BNBC Standards
+Cost Estimation
+Feasibility Studies
+Documentation
+Compliance
+Site Monitoring
+Policy Enforcement
+Legal Compliance
+Data Management
+Team Collaboration","Auto CAD 2D 3D
+Civil 3D
+Civil Construction
+Civil Engineering",0.333333333
+"Greer, SC",,"['Computer System Building and Repair', 'Hardware and Software Installation', 'Diagnostic Software Utilities', 'Remote Access', 'Networking', 'Computer Management', 'CNNs', 'LSTMs', 'PyTorch']",['Bob Jones University'],['B.S.'],['2018'],['3.8'],['GPA'],['Computer Science'],"['Collins Aerospace', 'Aeronix Inc.', 'Netalytics']","['N/A', 'N/A', 'N/A']","['December 2020', 'November 2019', 'June 2018']","['current', 'December 2020', 'November 2019']","[['System and Network Procurement', 'Installation', 'Administration', 'Security', 'Troubleshooting', 'Machine Learning'], ['Deep Learning', 'Computer Vision', 'Algorithm Design', 'Machine Learning Models', 'Data Quality Evaluation'], ['Problem Analysis', 'Troubleshooting', 'System Tracking', 'Communication', 'Inventory Management']]","['Computer Scientist', 'Machine Learning Scientist', 'Entry-Level Computer Support Specialist']","['Remote', 'Greenville, SC', 'Greer, SC']","Application Development
+Object-Oriented Design
+Collaboration
+Problem-Solving
+Software Lifecycle
+Innovation
+Software Testing
+System Analysis
+Performance Monitoring
+Plugin Development
+Documentation
+Integration Support",,,,,,,,,"https://github.com/donnemartin, https://leetcode.com/newuser2024",,,Data Science Engineer,Bachelor of Science (BSc) in Computer Science & Engineering,At least 2 years,Age 25 to 32 years,"Application Development
+Object-Oriented Design
+Collaboration
+Problem-Solving
+Software Lifecycle
+Innovation
+Software Testing
+System Analysis
+Performance Monitoring
+Plugin Development
+Documentation
+Integration Support","Business Analysis
+Effective communication skills
+Java
+REST API Design
+Soft Skills
+Software Development",0.75
+,,"['assembly', 'ATM', 'Cadence', 'calibration', 'CA', 'hardware', 'DC', 'de-bugging', 'Ethernet', 'Graphic', 'ISO 9000', 'LabView', 'layout', 'Linux OS', 'Logic', 'Mentor', 'Access', 'MS Office', 'Windows', 'multimeters', 'network', 'networking', 'ORCAD', 'oscilloscopes', 'power supplies', 'procurement', 'purchasing', 'Quality Assurance', 'Routers', 'schematics', 'signal generators', 'SONET', 'Switches', 'T1', 'test equipment', 'trouble shooting', 'troubleshooting', 'validation', 'View']",['Solano College'],['Associate Degree'],['N/A'],['N/A'],['N/A'],['Electronics Engineering Technology'],"['Company Name', 'Company Name', 'Company Name']","[None, None, None]","['August 2007', 'January 2002', 'April 1995']","['October 2014', 'June 2007', 'November 2001']","[['testing', 'troubleshooting', 'ISO 9000', 'schematics', 'PCB rework'], ['testing', 'troubleshooting', 'ISO 9000', 'schematics', 'PCB rework'], ['testing', 'troubleshooting', 'ISO 9000', 'schematics', 'PCB layout']]","['Electrical Engineering Lab Technician', 'Electrical Engineering Lab Technician', 'Electrical Engineering Technician and PCB Layout Designer']","['City, State', 'City, State', 'City, State']","Machine Learning Leadership
+Cross-Functional Collaboration
+Strategy Development
+ML/NLP Infrastructure
+Prototype Transformation
+ML System Design
+Algorithm Research
+Application Development
+Dataset Selection
+ML Testing
+Statistical Analysis
+R&D in ML/NLP
+Text Representation
+Data Pipeline Design
+Statistical Data Analysis
+Model Training
+Team Collaboration
+Research Reporting
+Algorithm Analysis",,,,,,,,,"https://github.com/dhh, https://leetcode.com/beginner_coder",,,Machine Learning (ML) Engineer,M.Sc in Computer Science & Engineering or in any relevant discipline from a reputed University,At least 5 year(s),,"Machine Learning Leadership
+Cross-Functional Collaboration
+Strategy Development
+ML/NLP Infrastructure
+Prototype Transformation
+ML System Design
+Algorithm Research
+Application Development
+Dataset Selection
+ML Testing
+Statistical Analysis
+R&D in ML/NLP
+Text Representation
+Data Pipeline Design
+Statistical Data Analysis
+Model Training
+Team Collaboration
+Research Reporting
+Algorithm Analysis",,0.85
+,Experienced product development Engineer and manager able to collaborate with cross functional team as well as customers and sales to bring brand new offerings to new markets. Skilled at managing cross functional team for continuous improvements and meeting project deadlines. Offering 6 years of experience in the field.,"['Microsoft Office', 'Microsoft Project', 'Product development', 'Quality', 'Research', 'Six Sigma Green Belt', 'Solid Works', 'Visio', 'Prioritization', 'Personnel management', 'Critical thinking skills', 'Team management', 'Analyst', 'Agency', 'Consulting', 'Cost analysis', 'Critical thinking', 'Designing', 'Dialysis', 'Direction', 'Develop drug', 'Functional', 'IIa', 'ISO', 'Leadership', 'Market and development', 'Design process', 'Product management', 'Researching', 'Sales', 'Six Sigma', 'Validation']",['Temple University'],['Bachelor of Science'],['05/2013'],['N/A'],['N/A'],['Mechanical Engineering'],"['N/A', 'Company Name', 'Company Name']","[None, None, None]","['03/2018', '03/2017', '06/2013']","['Current', '03/2018', '03/2017']","[['Team management', 'Personnel management', 'Quality', 'Product development', 'Research', 'ISO', 'Leadership'], ['Design process', 'Validation', 'Solid Works', 'ISO', 'Product management', 'Quality', 'Research'], ['Design process', 'Validation', 'Research', 'ISO', 'Leadership', 'Product management', 'Quality']]","['Engineering Manager', 'Project Engineer II', 'Engineer I']","['City, State', 'City, State', 'City, State']","Supervision
+Monitoring
+Construction
+Estimation
+Planning
+Material Management
+Project Coordination
+Quality Assurance
+Cost Control
+Inventory
+Operations
+Safety
+Error Escalation
+Miscellaneous Tasks
+
+
+
+
+",,,,,,,"['Management Leadership Certification', 'Six Sigma Greenbelt certification']","[None, None]","https://github.com/hansenwithaj, https://leetcode.com/tmwilliamlin168","[None, None]","[None, None]",Site Engineer,Bachelor of Science (BSc) in Civil Engineering,1 to 2 years,Age 25 to 30 years,"Supervision
+Monitoring
+Construction
+Estimation
+Planning
+Material Management
+Project Coordination
+Quality Assurance
+Cost Control
+Inventory
+Operations
+Safety
+Error Escalation
+Miscellaneous Tasks
+
+
+
+
+","AutoCAD
+Communication and negotiation skills
+Internet
+MS Office",0.816666667
+,"A challenging position in a Manufacturing, Engineering, or Research & Development environment where my overall technical background, along with my leadership and decision making capabilities will be combined to contribute to company goals, enlargement, & productivity.","['Data entry', 'Employee training', 'Equipment maintenance', 'ERP : Microsoft AX Dynamics', 'Failure analysis', 'Inspection', 'Lean manufacturing', 'Mechanical processes', 'protocols execution', 'Supervisory', 'System integration', 'Team player', 'Troubleshooting']",['East Boston High School'],['Diploma'],['1999'],[None],[None],[None],"['Company Name', 'Company Name', 'Company Name', 'Company Name', 'Company Name', 'Company Name']","[None, None, None, None, None, None]","['April 2015', 'February 2015', 'February 2004', 'September 1999', 'April 2003', 'March 2001']","['Current', 'April 2015', 'June 2014', 'January 2004', 'September 2003', 'January 2002']","[None, None, None, None, None, None]","['Engineering Technician', 'Sr. Repair Technician', 'Lead Manufacturing Technician Production Supervisor', 'Wafer Fab Technician', 'Assembler/Operator', 'Test Technician']","['City , State', 'City , State', 'City , State', 'City , State', 'City , State', 'City , State']","Trade Marketing Executive
+Brand Visibility, Sales Targets
+Field Marketing, Campaigns, Product Distribution
+Brand Head
+Excel, KPIs Tracking",,,,,,,,,"https://github.com/tj, https://leetcode.com/kevin_naughton_jr",,,"Executive/ Senior Executive- Trade Marketing, Hygiene Products",Master of Business Administration (MBA),At least 3 years,,"Trade Marketing Executive
+Brand Visibility, Sales Targets
+Field Marketing, Campaigns, Product Distribution
+Brand Head
+Excel, KPIs Tracking","Brand Promotion
+Campaign Management
+Field Supervision
+Merchandising
+promotional activities
+Trade Marketing",0.826666667
+,,"['API', 'Approach', 'ATL', 'audio', 'backup', 'broadcast', 'C++', 'CLI', 'com', 'CA', 'Hardware', 'concept', 'Content', 'clients', 'documentation', 'dynamic HTML5', 'editing', 'XML', 'FTP', 'functional', 'drawing', 'GUI', 'http', 'IDs', 'Innovation', 'explorer', 'IP', 'JavaScript', 'json', 'LAN', 'MB', 'C#', 'MFC', 'office', 'Win', 'Windows', '2000', 'migration', 'NAS', 'OOP', 'page', 'Proxy', 'rendering', 'SAN', 'Scrum', 'servers', 'specification', 'team management', 'threads', 'troubleshoot', 'Video', 'Video Editing', 'Visual C++', 'workflow', 'writer']","['Illinois Institute of Technology', 'National Institute of Technology']","['M.S', 'B.E']","['N/A', 'N/A']","['N/A', 'N/A']","['N/A', 'N/A']","['Computer Science', 'Electronics and Communication Engineering']","['Company Name', 'Company Name', 'Company Name', 'Company Name']","[None, None, None, None]","['September 2009', 'November 2005', 'August 1997', 'August 1994']","['Current', 'August 2009', 'October 2005', 'July 1997']","[['Visual C++', 'Windows', 'STL', 'OOP', 'MFC', 'threads', 'file maps', 'ATL', 'IPC', 'FTP', 'TCP', 'HTTP', 'XML', 'JSON', 'services', 'web services', 'REST API', 'SOA', 'media formats and standards', 'codec SDK and integration', 'MPEG-DASH', 'API design and documentation'], ['team management', 'development process document', 'peer code review', 'crash dump analysis'], ['C++', 'Win32', 'threads', 'GUI'], ['Project media management tools', 'Render Bank', 'video effects']]","['Software Engineering Manager', 'Software Engineering Manager', 'Principal Software Engineer', 'Software Engineer']","['City , State', 'City , State', 'City , State', 'City , State']","Supervision
+Monitoring
+Construction
+Estimation
+Planning
+Material Management
+Project Coordination
+Quality Assurance
+Cost Control
+Inventory
+Operations
+Safety
+Error Escalation
+Miscellaneous Tasks
+
+
+
+
+",,,,,,,,,"https://github.com/donnemartin, https://leetcode.com/Benq",,,Site Engineer,Bachelor of Science (BSc) in Civil Engineering,1 to 2 years,Age 25 to 30 years,"Supervision
+Monitoring
+Construction
+Estimation
+Planning
+Material Management
+Project Coordination
+Quality Assurance
+Cost Control
+Inventory
+Operations
+Safety
+Error Escalation
+Miscellaneous Tasks
+
+
+
+
+","AutoCAD
+Communication and negotiation skills
+Internet
+MS Office",0.266666667
+,Interested in helping businesses take best decisions using Machine learning and Deep learning solutions.,"['Data Analysis', 'Data Mining', 'Deep Learning', 'Machine Learning', 'Artificial Intelligence']",['Jaipur University'],['B.Tech'],['2018'],['N/A'],['N/A'],['CSE'],"['Empryean Data Consultant', 'Oclosia']","['N/A', 'N/A']","['Jan 2019', 'May 2018']","['Apr 2020', 'Nov 2018']","[['NLP', 'Linear Dirichlet Allocation'], ['SQL', 'AWS Redshift']]","['N/A', 'Data Consultant']","['N/A', 'N/A']","Design Review
+Coordination
+Proposal Preparation
+Feasibility Analysis
+Software Utilization
+Supervision
+Technical Support
+Submission Review
+Progress Reporting
+Compliance
+Site Visits",,,,,,,,,"https://github.com/sample-dev, https://leetcode.com/anuragsri96",,,Civil Engineer,B.Sc in Civil Engineering from a reputed university.,At least 5 years,Age at least 30 years,"Design Review
+Coordination
+Proposal Preparation
+Feasibility Analysis
+Software Utilization
+Supervision
+Technical Support
+Submission Review
+Progress Reporting
+Compliance
+Site Visits","AutoCAD
+ETABS
+Microsoft Office Suite
+MS Project",0.583333333
+,,"['Microsoft Windows 10', 'Memtest86', 'TeamViewer', 'McAfee Endpoint Security', 'Acronis True Image', 'Recuva', 'Wireshark', 'HWiNFO', 'VMware Workstation', 'PowerShell']",['University of Washington'],['Bachelor of Science'],['2015'],['N/A'],['N/A'],['Computer Science'],"['Expedia Group', 'Nordstrom', 'Tableau Software']","['N/A', 'N/A', 'N/A']","['2021', '2018', '2015']","['current', '2021', '2018']","[['Hardware troubleshooting', 'Software troubleshooting', 'McAfee Endpoint Security', 'Acronis True Image'], ['Technical support', 'Microsoft Windows 10', 'IT infrastructure management', 'Memtest86'], ['Software troubleshooting', 'Wireshark', 'Network analysis', 'Customer support']]","['Computer Technician', 'IT Support Specialist', 'Help Desk Technician']","['Seattle, WA', 'Seattle, WA', 'Seattle, WA']","Technical Support
+Troubleshooting
+Collaboration
+Documentation
+System Monitoring
+Software Deployment
+Training & Mentorship
+Industry Trends
+Field Visits
+
+
+
+
+",,,,,,,,,"https://github.com/cassidoo, https://leetcode.com/kefaa2",,,Senior Software Engineer,B.Sc in Computer Science & Engineering from a reputed university.,At least 1 year,,"Technical Support
+Troubleshooting
+Collaboration
+Documentation
+System Monitoring
+Software Deployment
+Training & Mentorship
+Industry Trends
+Field Visits
+
+
+
+
+",,0.75
+,"Seeking Roles In Machine Learning, Natural Language Processing, Deep Learning. Previously worked as a Data Processing intern. Having good knowledge in using Python Libraries and different data processing tools.","['Machine Learning', 'Natural Language Processing', 'Deep Learning', 'Business Analysis', 'Python', 'Numpy', 'Pandas', 'Scikit Learn', 'Tensorflow', 'Keras', 'PySpark']",['Sl Thala Model college'],['B.Tech'],['2020'],['N/A'],['N/A'],['N/A'],['SaiKo Computation'],[None],['May 2019'],['August 2019'],[['Data Processing']],['Data Processing Junior Intern'],['N/A'],"Machine Learning Leadership
+Cross-Functional Collaboration
+Strategy Development
+ML/NLP Infrastructure
+Prototype Transformation
+ML System Design
+Algorithm Research
+Application Development
+Dataset Selection
+ML Testing
+Statistical Analysis
+R&D in ML/NLP
+Text Representation
+Data Pipeline Design
+Statistical Data Analysis
+Model Training
+Team Collaboration
+Research Reporting
+Algorithm Analysis",['Course'],['ML Artistry'],[None],['Participant'],,,,,"https://github.com/addyosmani, https://leetcode.com/kefaa2",,,Machine Learning (ML) Engineer,M.Sc in Computer Science & Engineering or in any relevant discipline from a reputed University,At least 5 year(s),,"Machine Learning Leadership
+Cross-Functional Collaboration
+Strategy Development
+ML/NLP Infrastructure
+Prototype Transformation
+ML System Design
+Algorithm Research
+Application Development
+Dataset Selection
+ML Testing
+Statistical Analysis
+R&D in ML/NLP
+Text Representation
+Data Pipeline Design
+Statistical Data Analysis
+Model Training
+Team Collaboration
+Research Reporting
+Algorithm Analysis",,0.826666667
+,"A curiosity-driven data scientist, eager to leverage machine learning and data analytics to extract meaningful insights, make informed decisions and solve challenging business problems. I ensure to contribute with my knowledge, logical thinking and analytical skills towards the consistent growth and development of the organization, and enhance my experience through continuous learning and teamwork.","['Data Analysis', 'Machine learning', 'Data Mining', 'Natural Language Processing', 'Linear Regression', 'Cluster Analysis', 'Correlation Analysis', 'Logistic Regression', 'Principal Component Analysis', 'Anova', 'Neural Networks', 'R', 'Python', 'MySQL', 'Tableau', 'Excel', 'SPSS', 'Decision tree']","['MamCO University', 'MamCO University']","['BSc(CA)', 'MSc(CA)']","['2018', '2020']","['N/A', 'N/A']","['N/A', 'N/A']","['Computer Applications', 'Computer Applications']",['KPMMC Inc.'],['N/A'],['Aug 2020'],['Ongoing'],"[['Natural Language Processing', 'Python', 'Machine learning']]",['Machine Learning Junior Developer'],['N/A'],"Administrative Support
+Scheduling
+Filing & Documentation
+Communication
+Team Support
+Equipment Maintenance
+Information Provision
+Inventory Management
+Team Collaboration
+OHS Policy Development
+Safety Advice
+Risk Assessment
+Policy Review
+OHS Training
+Safety Inspections
+Unsafe Act Prevention
+Incident Investigation
+Report Preparation",['Training'],['N/A'],[None],['Big Data Analysis Hadoop A-1 Level Certificate'],,,['N/A'],"[['Big Data Analysis', 'Hadoop']]","https://github.com/armon, https://leetcode.com/student_dev",['N/A'],[None],Asst. Manager/ Manger (Administrative),Bachelor/Honors,At least 5 years,Age at least 28 years,"Administrative Support
+Scheduling
+Filing & Documentation
+Communication
+Team Support
+Equipment Maintenance
+Information Provision
+Inventory Management
+Team Collaboration
+OHS Policy Development
+Safety Advice
+Risk Assessment
+Policy Review
+OHS Training
+Safety Inspections
+Unsafe Act Prevention
+Incident Investigation
+Report Preparation","•Administration
+•Health Safety and Environment
+•Safety and Security Management",0.75
+,,"['Accounting operations', 'Complex problem solving', 'Effective time management', 'Strong organizational skills', 'General ledger accounting', 'Account reconciliation expert', 'Flexible team player', 'Strong communication skills', 'NetSuite', 'Epicor', 'Sage', 'Quickbooks', 'Office Master System', 'Peachtree', 'GLACIER Tax Prep', 'Intuit Payroll', 'ChasePaymentech', 'Word', 'Excel', 'Outlook']","['Ball State University', 'Ball State University']","['Master of Science', 'Bachelor of Science']","['2012', '2010']","['3.5', '3.2']","['GPA', 'GPA']","['Accounting', 'Business Administration']","['Company Name', 'Company Name', 'Company Name', 'Company Name']","[None, None, None, None]","['August 2013', 'May 2012', 'August 2011', 'January 2010']","['Current', 'July 2013', 'May 2012', 'April 2010']","[['General ledger', 'Payroll', 'Financial performance', 'Bank reconciliations', 'Cost accounting'], ['Financial analysis', 'Internal controls', 'Cost accounting', 'ERP software'], None, None]","['Senior Accountant', 'Corp. Accountant', 'Graduate Assistant of Economic Department', 'Income Tax Preparer']","['City, State', 'City, State', 'City, State', 'City, State']","Design Creation
+CAD Drawings
+Design Optimization
+Team Collaboration
+Compliance Assurance
+Design Reviews
+Manufacturing Support
+Documentation",,,,,"['English', 'Mandarin', 'Cantonese']","['Fluent', 'Fluent', 'Fluent']","['Internal Revenue Service, Department of the Treasury']",[None],"https://github.com/addyosmani, https://leetcode.com/beginner_coder",['N/A'],[None],Mechanical Designer,Bachelor’s degree in Mechanical Engineering from a reputed institute.,At least 5 years,Age at least 24 years,"Design Creation
+CAD Drawings
+Design Optimization
+Team Collaboration
+Compliance Assurance
+Design Reviews
+Manufacturing Support
+Documentation","AutoCAD
+Solidworks",0.316666667
+"City, State Zip Code",,"['CPR & First Aid Certified', 'Proficient in Microsoft Word', 'Basic knowledge of Microsoft PowerPoint and Excel']",['Southeastern Louisiana University'],['Bachelor of Science'],['2025'],['3.1'],['GPA'],['Biological Sciences'],"['SLU Food Services', 'Self-Employed']","[None, None]","['August 2020', 'August 2019']","['March 2021', 'June 2020']","[['Communication', 'Safety', 'Management'], ['Safety', 'Organizational', 'Educational Support']]","['Dining Room Attendant', 'Babysitter']","['Hammond, LA', 'Covington, LA']","Data Platform Design
+Data Pipeline Development
+ETL Processes
+SQL Query Optimization
+Data Integration & Transformation
+Data Modeling
+Stakeholder Collaboration
+Data Quality Monitoring
+Continuous Learning","['Student Athlete', 'Volleyball Representative', 'Basketball Camp Coach/Coordinator']","['Volleyball Team, Southeastern Louisiana University', 'Student-Athlete Advisory Committee, Southeastern Louisiana University', 'Parks and Recreation, Hammond, LA']","[None, None, None]","['Your Role/Position', None, None]",,,[None],[['CPR & First Aid']],"https://github.com/dhh, https://leetcode.com/jiangly",[None],[None],Data Engineer,Bachelor of Science (BSc),5 to 8 years,,"Data Platform Design
+Data Pipeline Development
+ETL Processes
+SQL Query Optimization
+Data Integration & Transformation
+Data Modeling
+Stakeholder Collaboration
+Data Quality Monitoring
+Continuous Learning","Azure
+Big Data
+Data Analytics
+ETL Tools
+Power BI
+SQL",0.716666667
+,Expertise EDA modeler. I like to learn what my data contains and how well I can model it depending on the problem. I can also leverage different visualization tools to aid the understanding of the extracted data and finally use the required ML algorithm to get an outcome.,"['Data Analysis', 'Business Analysis', 'Machine Learning', 'Regression Analysis', 'Time Series Analysis', 'SQL', 'Base SAS', 'Python', 'NLP', 'Credit Risk', 'Tableau', 'Statistical Analysis', 'Data Visualization', 'Data Science', 'R', 'Power Bi']","['KVoCT, Pune', 'KVoCT, Pune']","['B.CA', 'M.CA']","['2018', '2020']","[None, None]","[None, None]","[None, None]",['Passionate Solution'],[None],['Feb 2020'],['Ongoing'],"[['EDA', 'Data Cleaning', 'Data Modeling']]",['Jr. Data Scientist'],[None],"Mushak Forms Maintenance
+VAT Software & MS Office Maintenance
+VAT Ledger Management
+VAT Challan Coordination
+Liaison with VAT Office
+VAT Documentation
+Other Assigned Tasks",,,,,,,,,"https://github.com/mitchellh, https://leetcode.com/newuser2024",,,Executive - VAT,BBA in Accounting and Finance,1 to 3 years,,"Mushak Forms Maintenance
+VAT Software & MS Office Maintenance
+VAT Ledger Management
+VAT Challan Coordination
+Liaison with VAT Office
+VAT Documentation
+Other Assigned Tasks",VAT and Tax,0.65
+,Currently seeking the next career challenge of continuing the path of accounting management in a small to medium-sized company that needs an involved professional with demonstrated leadership experience.,"['Proactive', 'self-motivated', 'team player', 'AP', 'AR', 'bank reconciliations', 'billings', 'budgets', 'cash flow projections', 'government contracting', 'financial statements', 'Quickbooks', 'Peachtree', 'JDE', 'Great Plains', 'LabView', 'Matlab', 'Access', 'Excel', 'Word']","['University of Maryland, University College', 'University of Maryland', 'University of Maryland']","['Master of Science', 'M. Eng', 'Bachelor of Science']","['2012', '2001', 'N/A']","['N/A', 'N/A', 'N/A']","['N/A', 'N/A', 'N/A']","['Accounting and Finance', 'Aerospace Engineering', 'Aerospace Engineering']","['Company Name', 'Company Name', 'Company Name', 'Company Name']","[None, None, None, None]","['August 2011', 'July 2006', 'July 1995', 'January 1992']","['Current', 'August 2011', 'July 2006', 'July 1995']","[['financial integration', 'problem-solving', 'project management', 'mentoring'], ['accounting system', 'Quickbooks Pro', 'financial audit', 'staff supervision'], ['simulation tool', 'US Navy analysis', 'technical proposal writing'], ['sensing and actuator technologies', 'DARPA project', 'engineering project management']]","['Engineering Supervisor', 'Vice President', 'Assistant Program Manager', 'Project Engineer']","['City, State', 'City, State', 'City, State', 'City, State']","iOS Lifecycle
+Requirement Analysis
+Native Frameworks
+iOS Development
+API Integration
+Technical Communication
+UI Design
+Performance Optimization
+Feature Collaboration
+Bug Fixing
+Code Translation
+High-Performance Development
+Task Management
+Cross-Team Collaboration
+Code Quality",['Affiliation'],['American Institute of Certified Public Accountants (AICPA)'],[None],['N/A'],,,['CPA'],[None],"https://github.com/armon, https://leetcode.com/neal_wu",['2013'],[None],Senior iOS Engineer,Bachelor of Science (BSc) in Computer Science,At least 4 years,,"iOS Lifecycle
+Requirement Analysis
+Native Frameworks
+iOS Development
+API Integration
+Technical Communication
+UI Design
+Performance Optimization
+Feature Collaboration
+Bug Fixing
+Code Translation
+High-Performance Development
+Task Management
+Cross-Team Collaboration
+Code Quality","iOS
+iOS App Developer
+iOS Application Development
+iOS Development
+Mobile apps Developer (iOS)
+Native IOS
+Swift (iOS)
+Swift UI",0.716666667
+"Vancouver, BC","Senior Computer Vision Scientist with 10+ years of experience working with data and data sets of varying size and complexity. As a seasoned Computer Scientist, I am looking to continue my career in a senior or director-level position with AbCellera.","['Snowflake', 'Python', 'C++', 'R', 'SQL', 'Tableau', 'PyTorch']",['University of British Columbia'],['B.S.'],['2013'],['N/A'],['N/A'],['Engineering'],"['AbCellera', 'Microsoft', 'Swiss Re']","['N/A', 'N/A', 'N/A']","['July 2014', 'January 2012', 'May 2012']","['current', 'June 2014', 'May 2014']","[['Computer Vision', 'Machine Learning', 'Data Collection', 'KPI Reports'], ['Predictive Modeling', 'Data Analysis', 'Algorithm Development', 'Data Visualization'], ['Data Science', 'Algorithm Development', 'Strategic Insights', 'Business Communication']]","['Computer Vision Scientist', 'IT Data Scientist', 'Associate Data Scientist']","['Remote', 'Vancouver, BC', 'Toronto, Canada']","Generative AI Development
+Evolutionary Computation
+Deep Learning Optimization
+Expert Systems Design
+Knowledge Representation
+Data Preprocessing
+Model Training
+Research & Integration",,,,,,,"['N/A', 'N/A']","[None, None]","https://github.com/cassidoo, https://leetcode.com/tourist","[None, None]","[None, None]",Intern (Generative AI Engineering - 2D/3D Image Generation),Bachelor of Science (BSc),,Age 20 to 35 years,"Generative AI Development
+Evolutionary Computation
+Deep Learning Optimization
+Expert Systems Design
+Knowledge Representation
+Data Preprocessing
+Model Training
+Research & Integration",,0.85
+,,"['Machine Learning', 'Method Development', 'Artificial Intelligence', 'Data Modeling', 'Data Visualization', 'Data Validation', 'Deep Learning', 'MySQL', 'MongoDB', 'Python', 'Plotly', 'Seaborn', 'Matplotlib']",['CDAC ACTS'],['B.Tech'],['2020'],['N/A'],['N/A'],['Electronics and Telecommunication'],['BlueM Solutions'],[None],['Jun 2020'],['till date'],"[['Machine Learning', 'Python']]",['Associate Software Engineer and Analyst'],['N/A'],"Machine Learning Design
+Data Analysis
+Model Training
+AI Integration
+Innovation
+Cross-Functional Collaboration
+Model Deployment
+Documentation
+Analytical Skills
+Communication
+Team Collaboration",,,,,,,['AWS'],[None],"https://github.com/practice-account, https://leetcode.com/newuser2024",['N/A'],[None],AI Engineer,"Bachelors or Masters degree in Computer Science, Engineering, or a related field.",,,"Machine Learning Design
+Data Analysis
+Model Training
+AI Integration
+Innovation
+Cross-Functional Collaboration
+Model Deployment
+Documentation
+Analytical Skills
+Communication
+Team Collaboration","Python
+R or Java
+TensorFlow
+PyTorch
+Scikit-learn.",0.75
+,,"['Machine learning', 'Data Science', 'Deep Learning', 'Decision Trees', 'Random Forest', 'XGBoost', 'CATBoost', 'Classification', 'Regression', 'Scikit Learn', 'Numpy', 'Pandas', 'OpenCV', 'Python', 'Matplotlib', 'Loss Optimization']","['Raja Birsimbal College, Ranchi']",['B.Tech'],['2019'],['N/A'],['N/A'],['CSE'],['TML Infotech'],['N/A'],['Mar 2019'],['till date'],"[['Machine learning', 'Deep Learning', 'Data Science']]",['Junior Machine Learning And Deep Learning Engineer'],['N/A'],"Hardware & Software Installation
+System Monitoring
+IT Support
+Networking Expertise
+Mail Server Administration
+Security Management
+Troubleshooting & Repair
+Operations Support",['Specialization'],['DeepLearning.ai'],['N/A'],['N/A'],,,,,"https://github.com/sample-dev, https://leetcode.com/williamfiset",,,Executive/ Sr. Executive -IT,Bachelor of Science (BSc) in Computer Science & Engineering,3 to 5 years,Age at most 40 years,"Hardware & Software Installation
+System Monitoring
+IT Support
+Networking Expertise
+Mail Server Administration
+Security Management
+Troubleshooting & Repair
+Operations Support",,0.65
+,,"['Mechanically-inclined', 'Diagnosis and repair', 'Skilled concrete finisher', 'Preventative maintenance', 'Dexterous with hand tools', 'Suspension and alignment', 'Strong attention to detail', 'Brake systems expertise', 'Troubleshooting', 'Brake repair and replacement', 'Responsible and reliable', 'Strategic thinker', 'Excellent problem solver', 'Self-starter', 'Decisive', 'Critical thinker', 'customer service', 'documentation', 'forklift', 'forms', 'legal', 'materials', 'policies', 'problem solving skills', 'progress', 'quality assurance', 'read', 'repairs', 'safety', 'struts', 'supervisor', 'tear']","['Maury High School', 'Lamar Institute of Technology']","['Diploma', None]","['1986', None]","[None, '4.0']","[None, None]","['General Studies', 'Industrial Maintenance Industrial Engineering, Production Engineering, Mechanical Engineering and Engineering Welding Fabrication, Industrial and Tool Manufacturing Technology and Process Technology']","['Company Name', 'Company Name', 'Company Name', 'Company Name']","[None, None, None, None]","['12/2006', '08/2004', '05/1997', '05/1989']","['04/2009', '12/2006', '07/2004', '06/1996']","[None, None, None, None]","['Engineering Aide', 'Service Technician', 'Concrete Finisher', None]","['City, State', 'City, State', 'City, State', None]","Mikrotik Router Configuration
+OLT Device Setup & Management
+Integration with Billing Software
+Network Monitoring Tools Integration
+Connectivity Troubleshooting
+Technical Support & Escalation
+Installation & Configuration
+GPON/EPON Expertise
+Cisco, OLT, MikroTik Knowledge",,,,,,,,,"https://github.com/trekhleb, https://leetcode.com/tmwilliamlin168",,,Network Support Engineer,"Diploma, Bachelor/Honors",At least 3 years,Age 25 to 35 years,"Mikrotik Router Configuration
+OLT Device Setup & Management
+Integration with Billing Software
+Network Monitoring Tools Integration
+Connectivity Troubleshooting
+Technical Support & Escalation
+Installation & Configuration
+GPON/EPON Expertise
+Cisco, OLT, MikroTik Knowledge","CCNA (Cisco Certified Network Associate)
+GPON
+Hardware & Networking
+IIG
+ISP
+IT Enabled services
+OLT and ONU",0.816666667
+,"A versatile and dynamic manager and marketing professional with more than (20) years of sales, management, marketing and promotional experience. A goal oriented and trusted leader, able to communicate effectively with people of all ages and backgrounds, to work collaboratively to resolve problems and to motivate team members to achieve personal and organizational objectives.","['Seasoned Leadership', 'Experienced Manager', 'Motivated', 'Balanced']",['Stephen F. Austin State University'],['Bachelor of Arts Degree'],[None],"[""Dean's List recognition""]",[None],['Communications'],"['Company Name', 'Company Name', 'Company Name', 'Company Name', 'Company Name']","[None, None, None, None, None]","['11/2011', '06/2009', '05/2002', '05/1998', '02/1992']","['05/2014', '10/2011', '06/2009', '05/2002', '05/1998']","[None, None, None, None, None]","['Partner; Business Development', 'Regional Manager; Consumer Engagement', 'Regional Event Marketing Manager', 'One-on-One Marketing Supervisor', 'Sales Representative']","['City , State', 'City , State', 'City , State', 'City , State', 'City , State']","15+ Years Banking Experience
+Audit/Inspection/ICC Leadership
+Internal Audit & Compliance
+Risk-Based Operational Reviews
+System-Based Audit Expertise
+Knowledge of Bangladeshi Laws",,,,,,,,,"https://github.com/matz, https://leetcode.com/anuragsri96",,,Head of Internal Control & Compliance (ICC) - SEVP/DMD,"Masters, Master of Business Administration (MBA), Master of Business Management (MBM)",At least 15 years,Age at most 52 years,"15+ Years Banking Experience
+Audit/Inspection/ICC Leadership
+Internal Audit & Compliance
+Risk-Based Operational Reviews
+System-Based Audit Expertise
+Knowledge of Bangladeshi Laws","AUDIT AND INSPECTION
+Banking
+Internal Audit",0.75
+,"To obtain a position in a fast-paced business office environment, demanding a strong organizational, technical, and interpersonal position utilizing my skills and attributes.","['accounts payables', 'accounts receivables', 'Accounts Payable', 'Accounts Receivable', 'administrative functions', 'trial balance', 'banking', 'budget', 'bi', 'closing', 'Computer Applications', 'Credit', 'clients', 'Customer Service', 'data entry', 'delivery', 'driving', 'email', 'insurance', 'inventory', 'ledger', 'Access', 'Excel', 'Outlook', 'PowerPoint', 'Word', 'mortgage loan', 'Enterprise', 'policies', 'QuickBooks', 'Sales', 'sales reports', 'telecommunications', 'phone', 'workflow', 'written']","['Martinez Adult Education, Business Training Center ï¼ City , State']",['Computer Applications Specialist Certificate Program'],['2008'],[None],[None],['Computer Applications'],"['Company Name ï¼ City , State', 'Company Name ï¼ City , State', 'Company Name ï¼ City , State', 'Company Name ï¼ City , State', 'Company Name ï¼ City , State', 'N/A']","[None, None, None, None, None, None]","['January 2011', 'January 2008', 'January 2006', 'January 2004', 'January 2001', 'N/A']","['November 2015', 'January 2010', 'January 2008', 'January 2006', 'January 2004', None]","[['accounts receivables', 'banking', 'G/L Accounts', 'accounts payables', 'credit cards', 'reconcile', 'commission reports', 'credit checks', 'customer service', 'international travel'], ['data entry', 'accounts receivable', 'cash handling', 'customer communication', 'inventory reports', 'problem-solving'], ['mortgage processing', 'analytical aptitude', 'credit reports', 'customer communication'], ['commercial auto underwriting', 'data entry', 'application review', 'customer communication'], ['personal auto underwriting', 'data entry', 'policy review', 'customer service'], ['training', 'medical record review', 'data entry', 'document design', 'customer service', 'team performance']]","['Accountant', 'Accounts Receivable Clerk', 'Mortgage Underwriter', 'Commercial Auto Underwriter', 'Personal Auto Underwriter', 'Claims Examiner']","['City, State', 'City, State', 'City, State', 'City, State', 'City, State', 'N/A']","Machine Learning Design
+Data Analysis
+Model Training
+AI Integration
+Innovation
+Cross-Functional Collaboration
+Model Deployment
+Documentation
+Analytical Skills
+Communication
+Team Collaboration",,,,,,,,,"https://github.com/ghost, https://leetcode.com/Benq",,,AI Engineer,"Bachelors or Masters degree in Computer Science, Engineering, or a related field.",,,"Machine Learning Design
+Data Analysis
+Model Training
+AI Integration
+Innovation
+Cross-Functional Collaboration
+Model Deployment
+Documentation
+Analytical Skills
+Communication
+Team Collaboration","Python
+R or Java
+TensorFlow
+PyTorch
+Scikit-learn.",0.75
+,,"['Machine Learning', 'Cloud Architecture', 'Conversational AI', 'Natural Language Processing', 'Transformers', 'HuggingFace', 'RNN', 'LSTM', 'GRU']","['SJU College, Karnataka']",['B.Tech'],['2020'],['N/A'],['N/A'],['ECE'],['Tech Mahindra'],[None],['Feb 2020'],['Ongoing'],"[['Conversational AI', 'NLP']]",['Associate System Engineer Intern'],['N/A'],"Data Platform Design
+Data Pipeline Development
+ETL Processes
+SQL Query Optimization
+Data Integration & Transformation
+Data Modeling
+Stakeholder Collaboration
+Data Quality Monitoring
+Continuous Learning","['N/A', 'N/A']","['N/A', 'NPTEL']","[None, None]","['Cloud Infrastructure for advanced Computing', 'Machine Learning']",,,,,"https://github.com/antirez, https://leetcode.com/nickwhite",,,Data Engineer,Bachelor of Science (BSc),5 to 8 years,,"Data Platform Design
+Data Pipeline Development
+ETL Processes
+SQL Query Optimization
+Data Integration & Transformation
+Data Modeling
+Stakeholder Collaboration
+Data Quality Monitoring
+Continuous Learning","Azure
+Big Data
+Data Analytics
+ETL Tools
+Power BI
+SQL",0.683333333
+,"To secure an IT specialist, desktop support, network administration, database administrator, technical support specialist or related position with a growing organization where my Microsoft certification, technical aptitude, networking, Windows and Mac OS, Apple and Android IOS, web development, application development, Linux, Microsoft applications, managing, testing, client support, help desk, technical support, troubleshooting, and leadership skills can benefit those who I work for as well as myself.","['Microsoft Applications', 'Network Security', 'Networking', 'PC hardware and software installation, configuration, and troubleshooting', 'Remote Desktop and Help Desk Management', 'Verbal Communication', 'Technical Support', 'Team Leadership', 'Programming Languages', 'On-call tech support', 'Windows & Mac OS', 'Wiring/Wire Spicing: Cat3, Cat5, Cat5e, Coaxial', 'Management', 'VoIP, TCP/IP, IPSec, ATM, SS7, IPX, DNS, BIND, DHCP, HSRP and LAN/WAN architecture', 'Application Development', 'Voice Over IP Telephone', 'Inventory Management']","['Glen Oaks High School', 'Glen Oaks High School']","['Bachelor Degree', 'Associate Degree']","[None, None]","[None, None]","[None, None]","['Electronics and Communications Engineering Technology', 'Software Development']","['N/A', 'Company Name', 'Company Name']","[None, None, None]","['August 2006', 'August 2013', 'July 2014']","['January 2013', 'September 2014', 'Current']","[['Microsoft Applications', 'Windows Applications', 'Mac OS and IOS', 'Network routers', 'Cisco ASA firewall', 'Juniper Net-screen', 'LANs, WANs', 'Cloud Experience'], ['Microsoft applications', 'Windows and Mac OS', 'Linux', 'Web Development'], ['Customer Support', 'Technical Support', 'Network Administration', 'Inventory Management']]","['Engineering Systems Installer', 'IT Technician/QA Tester', 'Installation/Service Technician']","['City, State', 'City, State', 'N/A']","Machine Learning Design
+Data Analysis
+Model Training
+AI Integration
+Innovation
+Cross-Functional Collaboration
+Model Deployment
+Documentation
+Analytical Skills
+Communication
+Team Collaboration",,,,,,,['Microsoft Certification'],[None],"https://github.com/torvalds, https://leetcode.com/Um_nik",['May 2013'],[None],AI Engineer,"Bachelors or Masters degree in Computer Science, Engineering, or a related field.",,,"Machine Learning Design
+Data Analysis
+Model Training
+AI Integration
+Innovation
+Cross-Functional Collaboration
+Model Deployment
+Documentation
+Analytical Skills
+Communication
+Team Collaboration","Python
+R or Java
+TensorFlow
+PyTorch
+Scikit-learn.",0.85
+,,"['Econometrics', 'Problem Solving', 'Data Analytics', 'Data Modeling', 'Data Validation', 'Data Reporting', 'Business Intelligence', 'Data Manipulation', 'Data Mining', 'Machine Learning', 'R Programming', 'SQL', 'Oracle', 'Scorecard', 'IFRS']","['Shaheed Bhagat Singh College (M), University of Delhi', 'Indian Statistical Institute (ISI), Delhi']","['B.A (Economics)', 'MSc (Economics)']","['2017', '2019']","['N/A', 'Gold Medalist']","['N/A', 'N/A']","['Economics', 'Economics']",['Home Credit India Finance'],['N/A'],['Nov 2019'],['Till Date'],"[['Data Analytics', 'Machine Learning']]",['Finance Technology Expert'],['N/A'],"Generative AI Development
+Evolutionary Computation
+Deep Learning Optimization
+Expert Systems Design
+Knowledge Representation
+Data Preprocessing
+Model Training
+Research & Integration",['Award'],"['Indian Statistical Institute (ISI), Delhi']",['N/A'],['Gold Medalist'],,,,,"https://github.com/nicowillis, https://leetcode.com/takeuforward",,,Intern (Generative AI Engineering - 2D/3D Image Generation),Bachelor of Science (BSc),,Age 20 to 35 years,"Generative AI Development
+Evolutionary Computation
+Deep Learning Optimization
+Expert Systems Design
+Knowledge Representation
+Data Preprocessing
+Model Training
+Research & Integration",,0.85
+"160 Bleecker Street, Apartment 4DW New York, NY 10012",,"['Game Theory', 'Bounded Rationality', 'Cryptography', 'Algorithms', 'Social Networks', 'Analysis of Algorithms', 'Combinatorial Optimizations']","['Cornell University, Department of Computer Science', 'Tel Aviv University, Israel']","['PhD Candidate, Computer Science', 'B.Sc., Double major in Computer Science and Management']","['Present', '2008']","['4.1', 'Summa cum laude']","['GPA', 'N/A']","['Computer Science', 'Computer Science and Management']","['Google, AdX group', 'Google, Google Research', 'Intel, Mobile Wireless Group']","[None, None, None]","['Summer 2013', 'Summer 2012', '2007']","[None, None, '2010']","[['Product Development', 'Algorithm Design', 'Front-end Development'], ['Theoretical Research', 'Data Experiments'], ['Firmware Development', 'Design and Implementation', 'Integration Testing']]","['Summer Intern', 'Summer Intern', 'FW Developer']","['New York, NY', 'Mountain View, CA', 'Petach Tikva, Israel']","Machine Learning Leadership
+Cross-Functional Collaboration
+Strategy Development
+ML/NLP Infrastructure
+Prototype Transformation
+ML System Design
+Algorithm Research
+Application Development
+Dataset Selection
+ML Testing
+Statistical Analysis
+R&D in ML/NLP
+Text Representation
+Data Pipeline Design
+Statistical Data Analysis
+Model Training
+Team Collaboration
+Research Reporting
+Algorithm Analysis","['Volunteering', 'Volunteering']","['Intel Israel volunteer network', 'Tel Aviv University']","[None, None]","['Math tutor', 'CCNA teacher']","['English', 'Hebrew']","['Fluent', 'Native']",,,"https://github.com/jwasham, https://leetcode.com/fishercoder",,,Machine Learning (ML) Engineer,M.Sc in Computer Science & Engineering or in any relevant discipline from a reputed University,At least 5 year(s),,"Machine Learning Leadership
+Cross-Functional Collaboration
+Strategy Development
+ML/NLP Infrastructure
+Prototype Transformation
+ML System Design
+Algorithm Research
+Application Development
+Dataset Selection
+ML Testing
+Statistical Analysis
+R&D in ML/NLP
+Text Representation
+Data Pipeline Design
+Statistical Data Analysis
+Model Training
+Team Collaboration
+Research Reporting
+Algorithm Analysis",,0.893333333
+,"Graduate analyst currently working as business analyst consultant. As an individual, I always try to overcome problems in the most analytical manner. I want to work on Machine Learning application problems that deal with real life scenarios.","['Business Analysis', 'Machine Learning', 'Requirement Gathering', 'Data Analysis', 'Artificial Intelligence', 'Predictive Modeling', 'Deep Learning', 'Data Modeling', 'Manual Testing', 'Quality Assurance', 'Python', 'R', 'SQL', 'HTML', 'Numpy', 'Tensorflow']","['Indian Institute of Technology (IIT), Mumbai']",['B.Tech'],['2020'],['N/A'],['N/A'],['Mechanical'],['Loyalty Rewards Management. Pvt. Ltd.'],['N/A'],['Aug 2020'],['Till Date'],"[['Business Analysis', 'Data Analysis', 'Designing', 'Predictive Modeling']]",['Business Analyst'],['N/A'],"Hardware & Software Installation
+System Monitoring
+IT Support
+Networking Expertise
+Mail Server Administration
+Security Management
+Troubleshooting & Repair
+Operations Support",['Open Source Projects'],['N/A'],[None],['N/A'],,,,,"https://github.com/getify, https://leetcode.com/practice2024",,,Executive/ Sr. Executive -IT,Bachelor of Science (BSc) in Computer Science & Engineering,3 to 5 years,Age at most 40 years,"Hardware & Software Installation
+System Monitoring
+IT Support
+Networking Expertise
+Mail Server Administration
+Security Management
+Troubleshooting & Repair
+Operations Support",,0.826666667
+,"I am a recent graduate who is interested and fascinated by Machine learning. I want to join this industry and be a part of it, learn and contribute towards both the growth of the company and me as an Individuals in terms of skills.","['Machine Learning', 'Deep Learning', 'Neural Networks', 'ML Algorithms', 'Python', 'NumPy', 'Scikit Learn', 'Matplotlib', 'Keras', 'Pandas', 'TensorFlow', 'Seaborn', 'Java', 'ReactJS', 'NodeJS']","['KTM College, Nashik (affiliated with Lucknow University)', 'SPP University, Pune']","['B.Sc', 'MCA']","['2019', '2021']","['N/A', 'N/A']","['N/A', 'N/A']","['Computer Science', 'Computers']",['E-Novate Labs'],['N/A'],['Aug 2020'],['Dec 2020'],"[['Neural Networks', 'Machine Learning', 'Image recognition']]",['Intern Trainee'],['N/A'],"Apparel Sourcing
+Quality Garment Sourcing
+Reliable Partner
+Buyer/Vendor Communication",,,,,,,"['N/A', 'N/A']","[['Python Programming'], ['Python Programming']]","https://github.com/practice-account, https://leetcode.com/nickwhite","[None, None]","[None, None]",Business Development Executive,Bachelor/Honors,1 to 3 years,Age 22 to 30 years,"Apparel Sourcing
+Quality Garment Sourcing
+Reliable Partner
+Buyer/Vendor Communication","Fast typing skill
+IELTSInternet browsing & online work ability.",0.466666667
+,,"['Project Management', 'Quality Management System Implementation', 'Production and Engineering Management', 'Staff development', 'Cost reduction', 'Process development and documentation', 'Process improvement/simplification', 'Source evaluation and selection', 'Experience with AutoCAD', 'Microsoft Office', 'Various ERP systems', 'ISO9001 and AS9100 auditing']",['Rose-Hulman Institute of Technology'],['Bachelor of Science'],['1978'],['N/A'],['N/A'],['Mechanical Engineering'],"['Company Name', 'Company Name']","[None, None]","['May 2000', 'April 1980']","['December 2015', 'May 2000']","[['Project Management', 'Quality Management System Implementation', 'Production and Engineering Management', 'Staff development', 'Cost reduction', 'Process development and documentation', 'Process improvement/simplification', 'Source evaluation and selection'], ['Project Management', 'Quality Management System Implementation', 'Production and Engineering Management', 'Staff development', 'Cost reduction', 'Process development and documentation', 'Process improvement/simplification', 'Source evaluation and selection']]","['Engineering Manager/Quality Manager', 'Manufacturing Engineer, Project Engineer, Sales Engineer, Product Development Engineer, and Manufacturing Engineering Manager']","['DeLand, FL', 'City, State']","Hardware & Software Installation
+System Monitoring
+IT Support
+Networking Expertise
+Mail Server Administration
+Security Management
+Troubleshooting & Repair
+Operations Support",,,,,,,,,"https://github.com/donnemartin, https://leetcode.com/student_dev",,,Executive/ Sr. Executive -IT,Bachelor of Science (BSc) in Computer Science & Engineering,3 to 5 years,Age at most 40 years,"Hardware & Software Installation
+System Monitoring
+IT Support
+Networking Expertise
+Mail Server Administration
+Security Management
+Troubleshooting & Repair
+Operations Support",,0.65
+,,"['GIS', 'lighting designs using Visual Professional', 'Access', 'Excel', 'Microsoft Office', 'Power Point']","['University of South Florida', 'Hillsborough Community College']","['Bachelors', 'Associates Degree']","['June 2017', 'February 2014']","['3.4', '3.7']","['GPA', 'GPA']","['Information Technology', 'N/A']","['Company Name', 'Company Name', 'Company Name', 'Company Name']","[None, None, None, None]","['10/2014', '06/2013', '08/2012', '06/2011']","['01/2016', '10/2014', '06/2013', '08/2012']","[None, None, None, None]","['Lighting Field Engineering Technician', 'Administrative Technical Aide', 'Customer Service Professional', 'Business Cooperative Education Student- Customer Care']","['City , State', 'City , State', 'City , State', 'City , State']","Hardware & Software Installation
+System Monitoring
+IT Support
+Networking Expertise
+Mail Server Administration
+Security Management
+Troubleshooting & Repair
+Operations Support",,,,,,,,,"https://github.com/mrdoob, https://leetcode.com/tmwilliamlin168",,,Executive/ Sr. Executive -IT,Bachelor of Science (BSc) in Computer Science & Engineering,3 to 5 years,Age at most 40 years,"Hardware & Software Installation
+System Monitoring
+IT Support
+Networking Expertise
+Mail Server Administration
+Security Management
+Troubleshooting & Repair
+Operations Support",,0.716666667
+,"Committed and motivated professional with exceptional customer service and decision making skills. Extensive experience working with a diverse client base and delivering results. High-achieving professional possessing excellent communication, organizational and analytical capabilities. Background in business development, customer service and project management.","['Problem resolution', 'Results-oriented', 'Meticulous attention to detail', 'Managing multiple priorities', 'Active Learning', 'Client Relations', 'Computer Proficiency', 'Creative Problem Solving', 'Critical Thinking', 'Data Collection', 'Data Entry', 'Documentation', 'Email', 'Executive Management Support', 'Filing', 'Internet Research', 'Letters and Memos', 'Minute Taking', 'Multi-Task Management', 'Organizational Skills', 'Research', 'Scheduling', 'Service Orientation', 'Speaking', 'Spreadsheets', 'Travel Arrangements']","['Denver High School', 'Front Range Community College']","['High School Diploma', None]","['1996', None]","[None, None]","[None, None]","[None, 'General Studies']","['Company Name', 'Company Name', 'Company Name', 'Company Name', 'Company Name', 'Company Name']","[None, None, None, None, None, None]","['February 2015', 'November 2014', 'November 2012', 'April 2012', 'April 2011', 'September 2006']","['September 2015', 'February 2015', 'January 2014', 'November 2012', 'December 2011', 'December 2011']","[None, None, None, ['Microsoft Office proficiency', 'Customer relations specialist', 'Employee training and development'], None, None]","['Business Development', 'Service Manager', 'System Technology Specialist', 'Project Manager', 'Support Manager', 'Project Administrator']","['City , State', 'City , State', 'City , State', 'City , State', 'City , State', 'City , State']","Project Design
+Data Analysis
+ACCORD/Alliance Knowledge
+BNBC Standards
+Cost Estimation
+Feasibility Studies
+Documentation
+Compliance
+Site Monitoring
+Policy Enforcement
+Legal Compliance
+Data Management
+Team Collaboration",,,,,,,,,"https://github.com/getify, https://leetcode.com/Benq",,,Project Coordinator (Civil),•Bachelor of Business Administration (BBA) in Human Resource Management,5 to 10 years,Age 30 to 40 years,"Project Design
+Data Analysis
+ACCORD/Alliance Knowledge
+BNBC Standards
+Cost Estimation
+Feasibility Studies
+Documentation
+Compliance
+Site Monitoring
+Policy Enforcement
+Legal Compliance
+Data Management
+Team Collaboration","Auto CAD 2D 3D
+Civil 3D
+Civil Construction
+Civil Engineering",0.85
+,Data Science Explorer with a keen interest in application models of Machine learning.,"['SAAS', 'Data Analyst', 'SQL', 'SPSS', 'Statistical Analysis', 'Microsoft Azure', 'Power Bi', 'MySQL', 'Excel', 'Data Visualization', 'Data Interpretation', 'Data Extraction', 'Cloud Computing', 'Business Intelligence']",['Pune university'],['B.Tech'],['2019'],['N/A'],['N/A'],['Electrical'],['DTSl Software Services'],['N/A'],['Jul 2019'],['Ongoing'],"[['Business Intelligence', 'Data Analysis', 'Report Synthesis', 'Solution Documentation']]",['Associate Data Engineer'],['N/A'],"Recruitment Coordination
+Appointment Management
+Selection Criteria
+Employee Orientation
+Performance Evaluation
+HR Database Management
+Report Compilation
+Documentation
+Event Coordination
+Task Execution",,,,,,,['N/A'],[None],"https://github.com/newbie-coder, https://leetcode.com/nickwhite",['N/A'],[None],"Manager- Human Resource Management (HRM)
+","Masters degree in any discipline, Bachelor of Business Administration (BBA)",5 to 6 years,Age 25 to 40 years,"Recruitment Coordination
+Appointment Management
+Selection Criteria
+Employee Orientation
+Performance Evaluation
+HR Database Management
+Report Compilation
+Documentation
+Event Coordination
+Task Execution","HRM Report
+Human Resource Management
+NGO",0.35
+,"I'm passionate learner with a knack for Artificial Intelligence. The kind of problems AI can solve, fills me with enthusiasm to learn more and contribute more. I have dedicated more than a year developing and training Machine learning Models across several projects.","['Data Science', 'Data Analysis', 'Deep Learning', 'Machine Learning', 'Artificial Intelligence', 'Python', 'MATLAB', 'NLP', 'Computer Vision', 'Keras', 'Pytorch', 'RNN']","['IIT Kharagpur', 'IIT Kharagpur']","['B.Tech', 'M.Tech']","['2017', '2019']","['N/A', 'N/A']","['N/A', 'N/A']","['N/A', 'N/A']",['IIT Labs'],['N/A'],['May 2019'],['till date'],"[['Artificial Intelligence', 'Machine Learning', 'Publication', 'Model Development', 'Model Tuning']]",['Associate Researcher'],['N/A'],"Mikrotik Router Configuration
+OLT Device Setup & Management
+Integration with Billing Software
+Network Monitoring Tools Integration
+Connectivity Troubleshooting
+Technical Support & Escalation
+Installation & Configuration
+GPON/EPON Expertise
+Cisco, OLT, MikroTik Knowledge",['Developer'],['Pytorch Academy'],['N/A'],['PyTorch Developer'],,,,,"https://github.com/newbie-coder, https://leetcode.com/ksun48",,,Network Support Engineer,"Diploma, Bachelor/Honors",At least 3 years,Age 25 to 35 years,"Mikrotik Router Configuration
+OLT Device Setup & Management
+Integration with Billing Software
+Network Monitoring Tools Integration
+Connectivity Troubleshooting
+Technical Support & Escalation
+Installation & Configuration
+GPON/EPON Expertise
+Cisco, OLT, MikroTik Knowledge","CCNA (Cisco Certified Network Associate)
+GPON
+Hardware & Networking
+IIG
+ISP
+IT Enabled services
+OLT and ONU",0.85
+,"Computer Science graduate with 2+ years of experience in systems management, information technology, and data administration. Demonstrated exceptional knowledge in all phases of multiple framework application infrastructures, development, technical process improvement, and system integration.","['C++', 'Python', '.Ney(VB, ASP)', 'CSS', 'Javascript', 'Visual Basic', 'Visual FoxPro', 'Analytical Process Improvement', 'Risk Assessment & Tracking', 'Data & Network Management', 'Scrum & Agile']",['New York University'],['Bachelor of Science'],['2017'],['N/A'],['N/A'],['Computer Science'],"['Beckman Coulter', 'BlueOcean Biomedical', 'MathWorks']","['N/A', 'N/A', 'N/A']","['2/2019', '1/2018', '5/2016']","['6/2020', '1/2019', '8/2016']","[None, None, None]","['Information Systems Assistant', 'IT Associate', 'Web Developer Intern']","['N/A', 'N/A', 'N/A']","Open-Source Technologies
+CI/CD Culture & Tooling
+Product Availability & Scalability
+Automation (Build & Deploy)
+Monitoring & Reliability
+Infrastructure Innovation
+Software Engineering Velocity
+Infrastructure Resiliency
+Security & Data Availability",,,,,,,,,"https://github.com/donnemartin, https://leetcode.com/newuser2024",,,DevOps Engineer,Bachelor/Honors,At least 3 years,,"Open-Source Technologies
+CI/CD Culture & Tooling
+Product Availability & Scalability
+Automation (Build & Deploy)
+Monitoring & Reliability
+Infrastructure Innovation
+Software Engineering Velocity
+Infrastructure Resiliency
+Security & Data Availability","Ansible
+AWS Cloud
+Cloud Platform
+DevOps
+Dockers and Kubernetes
+Java
+ReactJS
+Terraform",0.85
+,,"['Data Analytics', 'Linear Regression', 'Logistic Regression', 'Business Intelligence', 'Business Analysis', 'GraphQL', 'Python']",['Raja Kashwant Singh General College'],['B.A'],['2020'],['N/A'],['N/A'],['Economics'],"['D&D Consultancy', 'Tanisha Quromba Brokerage']","['N/A', 'N/A']","['Jul 2020', 'Dec 2019']","['till date', 'May 2020']","[None, None]","['Associate Consultant', 'Junior Analyst Intern']","['N/A', 'N/A']","Machine Learning Leadership
+Cross-Functional Collaboration
+Strategy Development
+ML/NLP Infrastructure
+Prototype Transformation
+ML System Design
+Algorithm Research
+Application Development
+Dataset Selection
+ML Testing
+Statistical Analysis
+R&D in ML/NLP
+Text Representation
+Data Pipeline Design
+Statistical Data Analysis
+Model Training
+Team Collaboration
+Research Reporting
+Algorithm Analysis","['Award', 'Competition', 'Competition']","['N/A', 'N/A', 'Young Economist Innovation']","[None, None, None]","['Silver Medal For Economics Junior Award', 'Finalist at business solution PAN India', 'Winner and Runner-Up for 2018 and 2019 respectively']",,,,,"https://github.com/sindresorhus, https://leetcode.com/beginner_coder",,,Machine Learning (ML) Engineer,M.Sc in Computer Science & Engineering or in any relevant discipline from a reputed University,At least 5 year(s),,"Machine Learning Leadership
+Cross-Functional Collaboration
+Strategy Development
+ML/NLP Infrastructure
+Prototype Transformation
+ML System Design
+Algorithm Research
+Application Development
+Dataset Selection
+ML Testing
+Statistical Analysis
+R&D in ML/NLP
+Text Representation
+Data Pipeline Design
+Statistical Data Analysis
+Model Training
+Team Collaboration
+Research Reporting
+Algorithm Analysis",,0.65
+,I am an assistant software engineer working on cloud-based solutions. After working on a couple of Machine Learning application evaluations and deployment I got really engrossed into the domain and would like to work more towards improving myself.,"['Machine Learning Engineer', 'C++', 'Technical Documentation', 'Natural Language Processing', 'SQL', 'Tableau', 'Python', 'AWS', 'Azure', 'SAP', 'OracleDB', 'Heroku']","['KLE College of Engineering, Belagavi']",['B.Tech'],['2018'],['N/A'],['N/A'],['Telecommunication'],['VoyaGenius Labs'],['N/A'],['Dec 2018'],['Ongoing'],"[['Machine Learning', 'Geocoding']]",['Software Developer (ML)'],['N/A'],"Hardware & Network Installation
+Troubleshooting & Diagnostics
+User Training & Capacity Building
+Hardware Replacement
+Fault Repair & System Setup
+Software License & Account Management
+Backup Management
+System Updates & Maintenance
+Server & Storage Management
+Documentation & Technical Specifications
+Data Protection & Disaster Recovery
+Storage & Database Planning
+Power & Disk Backup
+Incident Management & Escalation
+Service Restoration
+User Communication & Verification
+Incident Classification & Resolution
+Major Incident Escalation
+Problem & Error Management
+Task Assignment & Execution",,,,,,,,,"https://github.com/ghost, https://leetcode.com/maroonrk",,,"System Administrator (Operation & Maintenance of Server, Storage & Service Desk System)",Bachelor/Honors,4 to 5 years,,"Hardware & Network Installation
+Troubleshooting & Diagnostics
+User Training & Capacity Building
+Hardware Replacement
+Fault Repair & System Setup
+Software License & Account Management
+Backup Management
+System Updates & Maintenance
+Server & Storage Management
+Documentation & Technical Specifications
+Data Protection & Disaster Recovery
+Storage & Database Planning
+Power & Disk Backup
+Incident Management & Escalation
+Service Restoration
+User Communication & Verification
+Incident Classification & Resolution
+Major Incident Escalation
+Problem & Error Management
+Task Assignment & Execution","Cisco
+Linux
+Operation & Maintenance of Server",0.75
+"160 Bleecker Street, Apartment 4DW New York, NY 10012",,"['Game Theory', 'Bounded Rationality', 'Cryptography', 'Algorithms', 'Social Networks', 'Analysis of Algorithms', 'Combinatorial Optimizations']","['Cornell University, Department of Computer Science', 'Tel Aviv University, Israel']","['PhD Candidate, Computer Science', 'B.Sc., Double major in Computer Science and Management']","['Present', '2008']","['4.1', 'Summa cum laude']","['GPA', 'N/A']","['Computer Science', 'Computer Science and Management']","['Google, AdX group', 'Google, Google Research', 'Intel, Mobile Wireless Group']","[None, None, None]","['Summer 2013', 'Summer 2012', '2007']","[None, None, '2010']","[['Product Development', 'Algorithm Design', 'Front-end Development'], ['Theoretical Research', 'Data Experiments'], ['Firmware Development', 'Design and Implementation', 'Integration Testing']]","['Summer Intern', 'Summer Intern', 'FW Developer']","['New York, NY', 'Mountain View, CA', 'Petach Tikva, Israel']","Project Design
+Data Analysis
+ACCORD/Alliance Knowledge
+BNBC Standards
+Cost Estimation
+Feasibility Studies
+Documentation
+Compliance
+Site Monitoring
+Policy Enforcement
+Legal Compliance
+Data Management
+Team Collaboration","['Volunteering', 'Volunteering']","['Intel Israel volunteer network', 'Tel Aviv University']","[None, None]","['Math tutor', 'CCNA teacher']","['English', 'Hebrew']","['Fluent', 'Native']",,,"https://github.com/learner2024, https://leetcode.com/striver_79",,,Project Coordinator (Civil),•Bachelor of Business Administration (BBA) in Human Resource Management,5 to 10 years,Age 30 to 40 years,"Project Design
+Data Analysis
+ACCORD/Alliance Knowledge
+BNBC Standards
+Cost Estimation
+Feasibility Studies
+Documentation
+Compliance
+Site Monitoring
+Policy Enforcement
+Legal Compliance
+Data Management
+Team Collaboration","Auto CAD 2D 3D
+Civil 3D
+Civil Construction
+Civil Engineering",0.65
+,"To design, develop and manage products in the field of consumer electronics devices, networking protocols, internet applications and connected devices. Vision to create personalized experiences based on machine learning.","['Lead Development', 'build teams', 'mentor', 'interface with customers and vendors', 'architect end to end', 'Develop products in consumer electronics', 'digital TV', 'industrial automation', 'control systems', 'C', 'C++', 'JAVA', 'JVM', 'Embedded Linux', 'LXC', 'Device Drivers', 'Socs', 'RTOS - OS9', 'VXWorks', 'DVB', 'MPEG', 'H.264', 'HLS', 'MP4', 'JSON', 'REST', 'SOAP', 'XML', 'SNMP', 'TR069', 'Microcontrollers', 'hardware', 'Matlab', 'Octave', 'Mathematical modeling', 'Integrating content protection systems', 'Agile Methodologies', 'Scrum', 'SDLC', 'project planning and management', 'leadership']","['Indian Institute of Technology', 'Devi Ahilya University', 'Coursera - Stanford']","['M.Tech', 'B.E', 'Course']","['1988', '87', '2016']","['N/A', 'N/A', 'N/A']","['N/A', 'N/A', 'N/A']","['Control Systems', 'Electrical Engineering', 'Machine learning']","['Company Name', 'Company Name', 'Company Name']","[None, None, None]","['November 2010', 'January 2004', 'April 2000']","['May 2016', 'November 2010', 'January 2004']","[['platform software development', 'middleware solution', 'JSON APIs'], ['consumer electronics', 'BD-J stack', 'OCAP middleware', 'embedded systems'], ['interactive TV', 'set-top boxes', 'Java based TVGuide', 'IPGateway']]","['Engineering Manager', 'Engineering Manager, Architect', 'Senior Software Engineer']","['City , State', 'City , State', 'City , State']","15+ Years Banking Experience
+Audit/Inspection/ICC Leadership
+Internal Audit & Compliance
+Risk-Based Operational Reviews
+System-Based Audit Expertise
+Knowledge of Bangladeshi Laws",,,,,,,,,"https://github.com/kamranahmedse, https://leetcode.com/ksun48",,,Head of Internal Control & Compliance (ICC) - SEVP/DMD,"Masters, Master of Business Administration (MBA), Master of Business Management (MBM)",At least 15 years,Age at most 52 years,"15+ Years Banking Experience
+Audit/Inspection/ICC Leadership
+Internal Audit & Compliance
+Risk-Based Operational Reviews
+System-Based Audit Expertise
+Knowledge of Bangladeshi Laws","AUDIT AND INSPECTION
+Banking
+Internal Audit",0.55
+,"Passionate Data Engineer with a zeal to excel forward and produce promising outcomes. Hands-on knowledge in various Machine Learning Algorithms. Also experienced in data mining, warehouse maintaining, and visualization. In search of a role where I can nurture my skills and contribute to the growth of the company and myself.","['Data Science', 'Data Analysis', 'Data Structures', 'Data Warehousing', 'Data Visualization', 'Data Mining', 'Machine Learning', 'Artificial Intelligence', 'Linear Regression', 'MongoDB', 'Python', 'Django', 'Java', 'SQL', 'C++']","['Anna University', 'Imarticus Learning']","['B.Tech', ""Master's Diploma""]","['2019', '2021']","[None, None]","[None, None]","['Computers', 'Analytics And Artificial Intelligence']",['Impiger Technologies'],[None],['Jul 2019'],['Apr 2020'],"[['Data Pipeline', 'Data Cleaning', 'Data Analysis', 'Data Visualization', 'Large-Scale Models']]",['Junior Research Fellow'],['N/A'],"Mushak Forms Maintenance
+VAT Software & MS Office Maintenance
+VAT Ledger Management
+VAT Challan Coordination
+Liaison with VAT Office
+VAT Documentation
+Other Assigned Tasks",['Research Fellowship'],['N/A'],[None],['N/A'],,,,,"https://github.com/getify, https://leetcode.com/ecnerwala",,,Executive - VAT,BBA in Accounting and Finance,1 to 3 years,,"Mushak Forms Maintenance
+VAT Software & MS Office Maintenance
+VAT Ledger Management
+VAT Challan Coordination
+Liaison with VAT Office
+VAT Documentation
+Other Assigned Tasks",VAT and Tax,0.65
+,,"['Mechanically-inclined', 'Diagnosis and repair', 'Skilled concrete finisher', 'Preventative maintenance', 'Dexterous with hand tools', 'Suspension and alignment', 'Strong attention to detail', 'Brake systems expertise', 'Troubleshooting', 'Brake repair and replacement', 'Responsible and reliable', 'Strategic thinker', 'Excellent problem solver', 'Self-starter', 'Decisive', 'Critical thinker', 'customer service', 'documentation', 'forklift', 'forms', 'legal', 'materials', 'policies', 'problem solving skills', 'progress', 'quality assurance', 'read', 'repairs', 'safety', 'struts', 'supervisor', 'tear']","['Maury High School', 'Lamar Institute of Technology']","['Diploma', None]","['1986', None]","[None, '4.0']","[None, None]","['General Studies', 'Industrial Maintenance Industrial Engineering, Production Engineering, Mechanical Engineering and Engineering Welding Fabrication, Industrial and Tool Manufacturing Technology and Process Technology']","['Company Name', 'Company Name', 'Company Name', 'Company Name']","[None, None, None, None]","['12/2006', '08/2004', '05/1997', '05/1989']","['04/2009', '12/2006', '07/2004', '06/1996']","[None, None, None, None]","['Engineering Aide', 'Service Technician', 'Concrete Finisher', None]","['City, State', 'City, State', 'City, State', None]","Open-Source Technologies
+CI/CD Culture & Tooling
+Product Availability & Scalability
+Automation (Build & Deploy)
+Monitoring & Reliability
+Infrastructure Innovation
+Software Engineering Velocity
+Infrastructure Resiliency
+Security & Data Availability",,,,,,,,,"https://github.com/bradtraversy, https://leetcode.com/Benq",,,DevOps Engineer,Bachelor/Honors,At least 3 years,,"Open-Source Technologies
+CI/CD Culture & Tooling
+Product Availability & Scalability
+Automation (Build & Deploy)
+Monitoring & Reliability
+Infrastructure Innovation
+Software Engineering Velocity
+Infrastructure Resiliency
+Security & Data Availability","Ansible
+AWS Cloud
+Cloud Platform
+DevOps
+Dockers and Kubernetes
+Java
+ReactJS
+Terraform",0.65
+,,"['assisted living', 'interpersonal and communication', 'insurance', 'internal medicine', 'managing', 'marketing', 'marketing/sales', 'meetings', 'mentor', 'office', 'networking', 'organizing', 'orthopedics', 'outside sales', 'physical therapy', 'rehabilitation', 'sales', 'seminars', 'Team player', 'time management']",['ARIZONA STATE UNIVERSITY'],['B.A'],['N/A'],['Cum Laude'],['N/A'],['Organizational Communication Business Management'],"['Company Name', 'Company Name', 'Company Name', 'Company Name']","[None, None, None, None]","['May 2011', 'January 2007', 'March 2003', 'January 1999']","['November 2014', 'May 2011', 'January 2007', 'January 2001']","[['building referral relationships', 'management', 'networking', 'customer needs', 'organizing seminars'], ['same store growth', 'relationship building', 'market analysis', 'representation', 'mentoring'], ['growth management', 'relationship building', 'leadership', 'recognition'], ['promotion', 'networking', 'customer facilitation', 'census maintenance']]","['Business Development Manager', 'Marketing/Outside Physician Rep', 'Marketing Director', 'Resident Liaison']","['City , State', 'City , State', 'City , State', 'City , State']","Internal Audit Assistance
+Voucher & Bill Verification
+Cost Sheet Analysis
+L/C Voucher Verification
+Expense Verification
+Salary & Wages Verification
+Market Rate Verification",,,,,,,,,"https://github.com/emmabostian, https://leetcode.com/happygirlzt",,,Sr.Officer / Executive - Internal Audit,"Master of Commerce (MCom) in Accounting, Must have CACC certification from any CA firm",2 to 4 years,,"Internal Audit Assistance
+Voucher & Bill Verification
+Cost Sheet Analysis
+L/C Voucher Verification
+Expense Verification
+Salary & Wages Verification
+Market Rate Verification","Having CACC from reputed CA Firm
+Internal Audit and Compliance",0.783333333
+,,"['streamline', 'approach', 'balance sheet', 'bonds', 'budgeting', 'business development', 'cash flow', 'clinical research', 'clinical trials', 'com', 'consulting', 'corporate finance', 'CRM', 'database', 'email', 'English', 'equities', 'Fast', 'financials', 'financing', 'financial', 'fundraising', 'funds', 'graphical user interface', 'information systems', 'Innovation', 'inventory', 'marketing', 'network', 'neural', 'next', 'presentations', 'Speaker', 'sales', 'scientific', 'Spanish', 'strategy', 'strategic', 'websites']","['McCallum Graduate School at Bentley University', 'Bentley University']","[""Master's in Finance"", 'Bachelor of Science']","['December 2012', 'May 2011']","['N/A', 'Cum Laude']","['N/A', 'Honors']","['Finance', 'Economics & Finance']","['PainQx', 'LSN', 'Abpro']","[None, None, None]","['01/2016', '06/2012', '02/2011']","['Current', '01/2016', '07/2012']","[['business development', 'CRM', 'financials', 'presentations', 'consulting', 'strategy'], ['business development', 'financial projections', 'sales', 'database', 'consulting', 'fundraising'], ['business development', 'sales', 'inventory', 'financial model', 'database', 'strategy']]","['VP of Business Development', 'Co-Founder VP of Business Development', 'N/A']","['City, State', 'City, State', 'City, State']","Administrative Support
+Scheduling
+Filing & Documentation
+Communication
+Team Support
+Equipment Maintenance
+Information Provision
+Inventory Management
+Team Collaboration
+OHS Policy Development
+Safety Advice
+Risk Assessment
+Policy Review
+OHS Training
+Safety Inspections
+Unsafe Act Prevention
+Incident Investigation
+Report Preparation",,,,,"['English', 'Spanish']","['Native Speaker', 'Native Speaker']",,,"https://github.com/mitchellh, https://leetcode.com/kevin_naughton_jr",,,Asst. Manager/ Manger (Administrative),Bachelor/Honors,At least 5 years,Age at least 28 years,"Administrative Support
+Scheduling
+Filing & Documentation
+Communication
+Team Support
+Equipment Maintenance
+Information Provision
+Inventory Management
+Team Collaboration
+OHS Policy Development
+Safety Advice
+Risk Assessment
+Policy Review
+OHS Training
+Safety Inspections
+Unsafe Act Prevention
+Incident Investigation
+Report Preparation","•Administration
+•Health Safety and Environment
+•Safety and Security Management",0.783333333
+,,"['python', 'C++', 'Haskell', 'PyTorch', 'JAX', 'Pandas', 'scikit-learn', 'matplotlib', 'Linux', 'bash', 'Unity', 'HPC', 'git']","['University of Southern California, Viterbi School of Engineering, CACS Research Group', 'The University of Tokyo, User Interface Research Group', 'The University of Tokyo']","['Ph.D. in Computer Science', 'Master in Computer Science', 'Bachelor in Physics']","['2023', '2017', '2015']","[None, None, None]","[None, None, None]","['Computer Science', 'Computer Science', 'Physics']","['Meta Inc.', 'Cepton Inc.', 'Meta Inc.', 'Cepton Inc.', 'USC Vision & Graphics Lab', 'Institute of Science and Technology Austria', 'University of Tokyo']","[None, None, None, None, None, None, None]","['Nov 2023', 'May 2023', 'June 2022', 'Jan. 2022', 'Aug. 2017', 'Jul. 2016', 'Mar. 2015']","['present', 'Oct 2023', 'Aug. 2022', 'Apr. 2022', 'Dec. 2017', 'Jan. 2017', 'Jan. 2016']","[[], ['C++', 'C', 'Python', 'Machine Learning'], ['PyTorch', 'Caffe 2'], ['Python', 'C++'], ['PyTorch'], ['C++'], ['Unity', 'Oculus VR']]","['Research Scientist', 'Software Engineer', 'Machine Learning Engineer Intern', 'Software Engineer Intern', 'Research Assistant', 'Research Intern', 'Research Assistant']","[None, None, None, None, None, None, None]","Mushak Forms Maintenance
+VAT Software & MS Office Maintenance
+VAT Ledger Management
+VAT Challan Coordination
+Liaison with VAT Office
+VAT Documentation
+Other Assigned Tasks",,,,,"['Japanese', 'English']","['Native', 'Professional working proficiency']",,,"https://github.com/test-account-123, https://leetcode.com/practice2024",,,Executive - VAT,BBA in Accounting and Finance,1 to 3 years,,"Mushak Forms Maintenance
+VAT Software & MS Office Maintenance
+VAT Ledger Management
+VAT Challan Coordination
+Liaison with VAT Office
+VAT Documentation
+Other Assigned Tasks",VAT and Tax,0.383333333
+,,"['budget', 'business strategy', 'consultation', 'Customer Relationship Management', 'delivery', 'direct mail', 'directing', 'Driving', 'email', 'senior management', 'Forecasting', 'graphic design', 'graphic', 'image', 'inside sales', 'inventory', 'Marketing Strategy', 'marketing', 'market', 'Marketing & Sales', 'mentor', 'New Business Development', 'Optimization', 'policies', 'presentations', 'Sales', 'strategy']",['Wichita State University'],['Associate of Arts'],['N/A'],['N/A'],['N/A'],['Advertising & Public Relations'],"['Company Name', 'Company Name', 'Company Name']","[None, None, None]","['02/2014', '06/2010', '09/2006']","['Current', '01/2014', '06/2010']","[['sales', 'marketing', 'consultation', 'inventory'], ['marketing', 'strategy', 'sales', 'presentation'], ['sales', 'graphic design', 'management']]","['New Business Development Manager', 'Inside Sales Manager', 'Inside Sales Manager']","['City, State', 'City, State', 'City, State']","Machine Learning Leadership
+Cross-Functional Collaboration
+Strategy Development
+ML/NLP Infrastructure
+Prototype Transformation
+ML System Design
+Algorithm Research
+Application Development
+Dataset Selection
+ML Testing
+Statistical Analysis
+R&D in ML/NLP
+Text Representation
+Data Pipeline Design
+Statistical Data Analysis
+Model Training
+Team Collaboration
+Research Reporting
+Algorithm Analysis","['Ambassador', 'Tourism']","['South Chamber', 'Certified Tourism Ambassador for Oklahoma']","[None, None]","['Ambassador of the Month', 'Certified Tourism Ambassador']",,,"['Promotional Products Industry', 'PPAI - Industry Specific Program']","[None, ['business', 'marketing', 'sales']]","https://github.com/flaviocopes, https://leetcode.com/nickwhite","['N/A', 'November 2015']","[None, None]",Machine Learning (ML) Engineer,M.Sc in Computer Science & Engineering or in any relevant discipline from a reputed University,At least 5 year(s),,"Machine Learning Leadership
+Cross-Functional Collaboration
+Strategy Development
+ML/NLP Infrastructure
+Prototype Transformation
+ML System Design
+Algorithm Research
+Application Development
+Dataset Selection
+ML Testing
+Statistical Analysis
+R&D in ML/NLP
+Text Representation
+Data Pipeline Design
+Statistical Data Analysis
+Model Training
+Team Collaboration
+Research Reporting
+Algorithm Analysis",,0.816666667
+,"Machine Learning engineer who has worked on multiple projects with knowledge in big data handling and business analytics. As someone who is always learning, I would love to use my knowledge to provide the best solutions.","['Neural Networks', 'Python', 'Postgresql', 'Django', 'Microsoft Azure', 'Flask', 'Hive', 'Kafka', 'Business Analysis', 'Machine Learning', 'Deep Learning']","['SSGM, Maharashtra', 'International Institute of Information Technology (IIIT), Bangalore']","['B.Tech', 'MSc']","['2017', '2019']","[None, None]","[None, None]","['Electronics/Telecommunication', 'Data Science']",['Tata Consultancy Services'],[None],['Dec 2019'],['N/A'],"[['NLP', 'statistical approach', 'ML modeling', 'data extraction', 'feature generation', 'orchestration', 'deployments']]",['Machine Learning Engineer'],['N/A'],"Hardware & Software Installation
+System Monitoring
+IT Support
+Networking Expertise
+Mail Server Administration
+Security Management
+Troubleshooting & Repair
+Operations Support",,,,,,,,,"https://github.com/invalid-user-xyz, https://leetcode.com/testuser123",,,Executive/ Sr. Executive -IT,Bachelor of Science (BSc) in Computer Science & Engineering,3 to 5 years,Age at most 40 years,"Hardware & Software Installation
+System Monitoring
+IT Support
+Networking Expertise
+Mail Server Administration
+Security Management
+Troubleshooting & Repair
+Operations Support",,0.716666667
+,,"['Statistical Analysis', 'C', 'OpenCV', 'Deep Learning', 'Computer Vision', 'R', 'Exploratory Data Analysis', 'Linear Regression', 'Logistic Regression', 'Risk Analyst', 'Machine Learning', 'Financial Risk Management']","['DBB University, Himachal']",['B.Tech'],['2020'],[None],[None],['IT'],['HSBC Bank'],[None],['Apr 2020'],['till Date'],"[['Data Analysis', 'Financial Services', 'Fiat Currency Stabilities']]",['Data Analyst'],[None],"Internal Audit Assistance
+Voucher & Bill Verification
+Cost Sheet Analysis
+L/C Voucher Verification
+Expense Verification
+Salary & Wages Verification
+Market Rate Verification",['Introduction to R Deep Learning and Neural network'],['N/A'],[None],['N/A'],,,,,"https://github.com/trekhleb, https://leetcode.com/fishercoder",,,Sr.Officer / Executive - Internal Audit,"Master of Commerce (MCom) in Accounting, Must have CACC certification from any CA firm",2 to 4 years,,"Internal Audit Assistance
+Voucher & Bill Verification
+Cost Sheet Analysis
+L/C Voucher Verification
+Expense Verification
+Salary & Wages Verification
+Market Rate Verification","Having CACC from reputed CA Firm
+Internal Audit and Compliance",0.65
+,,"['Army', 'basic', 'bridges', 'inspection', 'Inspects', 'Marconi', 'Office', 'Radar', 'multi-meters', 'oscilloscopes', 'personnel', 'radio', 'Read', 'Safety', 'signal generators', 'Telephone', 'troubleshooting', 'VHF']","['University of *Strong Vincent HS', 'Intermediate Electronic Principles, Keesler AFB, MS', '*Telephone Central Office Repair', '*HAZMAT Familiarization/Safety Transport', '*Forward Area Alerting Radar Repairer']","['Diploma', 'N/A', 'N/A', 'N/A', 'N/A']","['2001', '2010', '1987', '2007', '1990']","['N/A', 'N/A', 'N/A', 'N/A', 'N/A']","['N/A', 'N/A', 'N/A', 'N/A', 'N/A']","['N/A', 'N/A', 'N/A', 'N/A', 'N/A']","['Company Name', 'Company Name', 'Company Name']","[None, None, None]","['January 2012', 'January 2000', 'January 1992']","['January 2013', 'Current', 'January 2000']","[['Supervised construction', 'Read and interpret construction drawings', 'Estimate material, time, labor, and equipment', 'Inspect structures'], ['Circuit analysis', 'Complex test instruments', 'Engineering tools'], ['Circuit analysis', 'Complex test instruments', 'Engineering tools']]","['Construction Engineering Supervisor', 'Combat Engineer', 'Combat Engineer']","['City, State', 'City, State', 'N/A']","Hardware & Network Installation
+Troubleshooting & Diagnostics
+User Training & Capacity Building
+Hardware Replacement
+Fault Repair & System Setup
+Software License & Account Management
+Backup Management
+System Updates & Maintenance
+Server & Storage Management
+Documentation & Technical Specifications
+Data Protection & Disaster Recovery
+Storage & Database Planning
+Power & Disk Backup
+Incident Management & Escalation
+Service Restoration
+User Communication & Verification
+Incident Classification & Resolution
+Major Incident Escalation
+Problem & Error Management
+Task Assignment & Execution",,,,,,,,,"https://github.com/cassidoo, https://leetcode.com/student_dev",,,"System Administrator (Operation & Maintenance of Server, Storage & Service Desk System)",Bachelor/Honors,4 to 5 years,,"Hardware & Network Installation
+Troubleshooting & Diagnostics
+User Training & Capacity Building
+Hardware Replacement
+Fault Repair & System Setup
+Software License & Account Management
+Backup Management
+System Updates & Maintenance
+Server & Storage Management
+Documentation & Technical Specifications
+Data Protection & Disaster Recovery
+Storage & Database Planning
+Power & Disk Backup
+Incident Management & Escalation
+Service Restoration
+User Communication & Verification
+Incident Classification & Resolution
+Major Incident Escalation
+Problem & Error Management
+Task Assignment & Execution","Cisco
+Linux
+Operation & Maintenance of Server",0.65
+,,"['Econometrics', 'Problem Solving', 'Data Analytics', 'Data Modeling', 'Data Validation', 'Data Reporting', 'Business Intelligence', 'Data Manipulation', 'Data Mining', 'Machine Learning', 'R Programming', 'SQL', 'Oracle', 'Scorecard', 'IFRS']","['Shaheed Bhagat Singh College (M), University of Delhi', 'Indian Statistical Institute (ISI), Delhi']","['B.A (Economics)', 'MSc (Economics)']","['2017', '2019']","['N/A', 'Gold Medalist']","['N/A', 'N/A']","['Economics', 'Economics']",['Home Credit India Finance'],['N/A'],['Nov 2019'],['Till Date'],"[['Data Analytics', 'Machine Learning']]",['Finance Technology Expert'],['N/A'],"Internal Audit Assistance
+Voucher & Bill Verification
+Cost Sheet Analysis
+L/C Voucher Verification
+Expense Verification
+Salary & Wages Verification
+Market Rate Verification",['Award'],"['Indian Statistical Institute (ISI), Delhi']",['N/A'],['Gold Medalist'],,,,,"https://github.com/fireship-io, https://leetcode.com/happygirlzt",,,Sr.Officer / Executive - Internal Audit,"Master of Commerce (MCom) in Accounting, Must have CACC certification from any CA firm",2 to 4 years,,"Internal Audit Assistance
+Voucher & Bill Verification
+Cost Sheet Analysis
+L/C Voucher Verification
+Expense Verification
+Salary & Wages Verification
+Market Rate Verification","Having CACC from reputed CA Firm
+Internal Audit and Compliance",0.85
+,"Software developer focused in the areas of Machine learning application development. Motivated to learn, grow and excel my experience by challenging myself.","['Software Engineer', 'Data Analyst', 'Machine Learning', 'Text Analytics', 'Software Development', 'Object Oriented Programming', 'Pandas', 'Numpy', 'Java', 'Python', 'SpringBoot', 'Laravel']",['Dr. Jagjiban Rao Engineering College'],['B.Tech'],['2019'],[None],[None],['ECE'],['KLP Technology Solutions'],[None],['Jan 2019'],['till date'],"[['Machine Learning', 'Software Engineering', 'Feature Engineering', 'Evaluation Methods']]",['Software Engineer'],['N/A'],"Design Review
+Coordination
+Proposal Preparation
+Feasibility Analysis
+Software Utilization
+Supervision
+Technical Support
+Submission Review
+Progress Reporting
+Compliance
+Site Visits",['UI/UX Development'],['OnDevice Machine Learning'],[None],[None],,,,,"https://github.com/jwasham, https://leetcode.com/beginner_coder",,,Civil Engineer,B.Sc in Civil Engineering from a reputed university.,At least 5 years,Age at least 30 years,"Design Review
+Coordination
+Proposal Preparation
+Feasibility Analysis
+Software Utilization
+Supervision
+Technical Support
+Submission Review
+Progress Reporting
+Compliance
+Site Visits","AutoCAD
+ETABS
+Microsoft Office Suite
+MS Project",0.483333333
+,"Fresher with excellent communication, good analyzing, and problem-solving skills. Proficient and well-armed at Debugging and Bug fixing. Strong C, C++ coding background and well informed in OOPs concepts.","['Embedded Software Development', 'Embedded Systems', 'Project Management', 'Chain Management', 'Defect Detection', 'Machine Learning', 'Unit Testing']",['Manipal University'],['B.Tech'],['2021'],['N/A'],['N/A'],['Electronics'],['Titli Foundation'],['N/A'],['Jun 2020'],['Dec 2020'],[None],['System Developer'],['N/A'],"Machinery Maintenance
+Troubleshooting
+Report Preparation
+Log Maintenance",['Elocution'],['College'],['N/A'],['Best College Elocutioner'],,,,,"https://github.com/hackathon-test, https://leetcode.com/kevin_naughton_jr",,,Mechanical Engineer,"Bachelor of Science (BSc) in Mechanical Engineering, Diploma in Mechanical",2 to 5 years,Age 25 to 40 years,"Machinery Maintenance
+Troubleshooting
+Report Preparation
+Log Maintenance","Maintenance  and Troubleshooting
+Mechanical",0.65
+,"As a recent graduate, I am looking for roles that challenge me and feed my craving for learning. I can easily adapt to new technologies, understand and work with a variety of people, and always looking to solving business problems in much more technology sophisticated ways.","['Machine Learning', 'Deep learning', 'Logistic Regression', 'k-means clustering', 'LSTM', 'Emperical Modelling']",['Inderprastha Engineering College Ghaziabad'],['B.Tech(Computers)'],['2020'],['N/A'],['N/A'],['Computers'],['Absolutdata Research & Analytics'],['N/A'],['Jan 2020'],['Till Date'],"[['Machine Learning', 'Empirical Mode Decomposition', 'LSTM']]",['Machine Learning Intern'],['N/A'],"Machinery Maintenance
+Troubleshooting
+Report Preparation
+Log Maintenance",,,,,,,,,"https://github.com/wesbos, https://leetcode.com/kefaa2",,,Mechanical Engineer,"Bachelor of Science (BSc) in Mechanical Engineering, Diploma in Mechanical",2 to 5 years,Age 25 to 40 years,"Machinery Maintenance
+Troubleshooting
+Report Preparation
+Log Maintenance","Maintenance  and Troubleshooting
+Mechanical",0.65
+,,"['Software Development', 'Machine Learning', 'Deep Learning', 'Risk Assessment', 'Requirement Gathering', 'Application Support', 'JavaScript', 'Python', 'Docker', 'HTML', 'Hive', 'CSS', 'C', 'C++']","['Birla Institute of Technology (BIT), Ranchi']",['B.Tech'],['2018'],['N/A'],['N/A'],['Electronics/Telecommunication'],['Axis Bank Limited'],['N/A'],['June 2018'],['Till Date'],"[['Unified Payment Interface', 'Risk Prediction', 'Big Data', 'Spark', 'PySpark']]",['Software Developer (Machine Learning Engineer)'],['N/A'],"Trade Marketing Executive
+Brand Visibility, Sales Targets
+Field Marketing, Campaigns, Product Distribution
+Brand Head
+Excel, KPIs Tracking",,,,,,,,,"https://github.com/nicolewhite, https://leetcode.com/williamfiset",,,"Executive/ Senior Executive- Trade Marketing, Hygiene Products",Master of Business Administration (MBA),At least 3 years,,"Trade Marketing Executive
+Brand Visibility, Sales Targets
+Field Marketing, Campaigns, Product Distribution
+Brand Head
+Excel, KPIs Tracking","Brand Promotion
+Campaign Management
+Field Supervision
+Merchandising
+promotional activities
+Trade Marketing",0.416666667
+,,"['Net, photo, agile, analyst', 'Apple', 'automation', 'banking', 'budgets', 'business plan', 'closing', 'com', 'consulting', 'content', 'contracts', 'credit', 'encryption', 'client', 'customer satisfaction', 'data migration', 'database administration', 'driving', 'e-commerce', 'features', 'financial', 'hiring', 'imaging', 'information technology', 'insurance', 'interpretation', 'inventory', 'managing', 'market planning', 'marketing', 'market', 'marketing and sales', 'messaging', 'office', 'new product development', 'developer', 'order management', 'camera', 'policies', 'presenting', 'pricing', 'procurement', 'product development', 'Product manager', 'product management', 'product marketing', 'program management', 'quality', 'quality assurance', 'QA', 'radio', 'real-time', 'receiving', 'retail', 'sales', 'sales management', 'shipping', 'software development', 'stories', 'strategy', 'supply chain', 'technical support', 'television', 'upgrades', 'UI design', 'utilities', 'venture capital', 'vision', 'workflow', 'year-end']","['Georgia Institute of Technology', 'Rutgers University']","['Master of Science', 'Bachelor of Science']","['2006', '1992']","[None, None]","[None, None]","['Management of Technology', 'Computer Science']","['Calero', 'CLA', 'PictureU', 'Ticket Alternative', 'Triplingo', 'Deposco', 'SVG (Servigistics)', 'Commerce Science', 'N/A', 'MediaOcean']","['https://www.calero.com', 'https://www.clacorp.com', 'https://www.pictureu.com', 'https://www.ticketalternative.com', 'https://www.triplingo.com', 'https://www.deposco.com', 'https://www.servigistics.com', 'https://www.commercescience.com', None, 'https://www.mediaocean.com']","['04/2018', '04/2016', '08/2013', '02/2012', '01/2011', '01/2009', '09/2006', '04/2004', '01/2003', '10/1999']","['05/2018', '04/2018', '04/2016', '08/2013', '02/2012', '12/2010', '12/2008', '09/2006', '04/2004', '11/2002']","[['communication', 'networks'], ['agile', 'UI design', 'mobile development'], ['imaging', 'product management'], ['e-commerce', 'UI design'], ['mobile development', 'UI design'], ['software development', 'technology development'], ['product marketing', 'sales'], ['product management', 'program management'], ['technical consulting', 'web services design'], ['electronic sales management', 'venture capital']]","['Director of Engineering', 'Sr. Director Software Development', 'VP of Engineering and Operations', 'CTO', 'Co-Founder and COO', 'VP of Engineering', 'VP Solutions Sales', 'CTO', 'Independent Consultant', 'CTO & Founder']","['N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A']","Application Development
+Object-Oriented Design
+Collaboration
+Problem-Solving
+Software Lifecycle
+Innovation
+Software Testing
+System Analysis
+Performance Monitoring
+Plugin Development
+Documentation
+Integration Support",,,,,,,,,"https://github.com/fireship-io, https://leetcode.com/striver_79",,,Data Science Engineer,Bachelor of Science (BSc) in Computer Science & Engineering,At least 2 years,Age 25 to 32 years,"Application Development
+Object-Oriented Design
+Collaboration
+Problem-Solving
+Software Lifecycle
+Innovation
+Software Testing
+System Analysis
+Performance Monitoring
+Plugin Development
+Documentation
+Integration Support","Business Analysis
+Effective communication skills
+Java
+REST API Design
+Soft Skills
+Software Development",0.76
+,,"['advertising', 'competitive', 'content', 'contracts', 'customer satisfaction', 'customer service', 'customer support', 'fashion', 'fast', 'functional', 'marketing strategies', 'marketing', 'market', 'marketing material', 'networking', 'payroll', 'progress', 'promotion', 'quality', 'selling', 'sales', 'script', 'strategic', 'telephone', 'phone', 'training manuals']",['Mesa High School'],['High School Diploma'],['2012'],['4.0'],['GPA'],['N/A'],"['Company Name', 'Company Name', 'Company Name', 'Company Name']","[None, None, None, None]","['08/2015', '03/2015', '06/2014', '04/2014']","[None, '08/2015', '03/2015', '06/2014']","[['networking', 'content marketing', 'sales', 'customer service', 'marketing'], ['promotion', 'advertising', 'marketing', 'sales', 'cross-functional work'], ['customer support', 'training manuals', 'communication', 'product knowledge', 'service quality'], ['customer service', 'communication', 'problem solving']]","['Business Development Manager', 'Event Manager', 'Customer Service Call Center Manager', 'Customer Service Representative / Call Center']","['City, State', 'City, State', 'City, State', 'City, State']","Data Platform Design
+Data Pipeline Development
+ETL Processes
+SQL Query Optimization
+Data Integration & Transformation
+Data Modeling
+Stakeholder Collaboration
+Data Quality Monitoring
+Continuous Learning",,,,,,,,,"https://github.com/yukihiro-matz, https://leetcode.com/takeuforward",,,Data Engineer,Bachelor of Science (BSc),5 to 8 years,,"Data Platform Design
+Data Pipeline Development
+ETL Processes
+SQL Query Optimization
+Data Integration & Transformation
+Data Modeling
+Stakeholder Collaboration
+Data Quality Monitoring
+Continuous Learning","Azure
+Big Data
+Data Analytics
+ETL Tools
+Power BI
+SQL",0.716666667
+,Fresher Computer vision and Machine Learning Engineer looking for a job that is both challenging and fun in terms of problem-solving. Also an expert in maintaining and managing Tableau and Power BI dashboards to address business.,"['Machine learning', 'Deep learning', 'Computer vision', 'Image processing', 'Neural networks', 'Contextual Reasoning']",['IIT Guwahati'],['B.Tech'],['2021'],['N/A'],['N/A'],['Computer Science'],,,,,,,,"Full Stack Development
+Front-end: ReactJS, NextJS
+Backend: Python, Django
+API Design
+Server-Side Logic
+DRF (Django REST Framework)
+Database Management (PostgreSQL, MySQL)
+Version Control (Git)
+AWS (ECR, RDS, ECS, ALB, EC2, etc.)
+Linux, Docker, CI/CD, GitLab
+Terraform, Shell Scripting","['Club Membership', 'Competition']","['Student Council', 'IIT Conjugation']","['N/A', 'N/A']","['Honorary member', 'Innovator of the year runner up']",,,,,"https://github.com/wesbos, https://leetcode.com/testuser123",,,"Full Stack Developer (Python,React js)",Bachelor/Honors,3 to 7 years,,"Full Stack Development
+Front-end: ReactJS, NextJS
+Backend: Python, Django
+API Design
+Server-Side Logic
+DRF (Django REST Framework)
+Database Management (PostgreSQL, MySQL)
+Version Control (Git)
+AWS (ECR, RDS, ECS, ALB, EC2, etc.)
+Linux, Docker, CI/CD, GitLab
+Terraform, Shell Scripting",,0.65
+,,"['QA Engineering software expertise - Design, Estimate, Execute, Maintain and Document.', 'Technical communication skills - Bug Triage, reporting, technical reviews, Root cause analysis', 'Automation tools - Design and Implement', 'Collaborating with stakeholders - Roadmap, Managing releases, Demos, Risk mitigation planning', 'Test Methodologies: Regression Testing, Black box testing, Sanity testing, boundary analysis, requirement analysis (Static testing), Performance Testing, system integration testing, functional testing, manual testing.', 'Test Artifacts: Test Estimation, Test plan, Test coverage, Traceability matrix, bug tracking, automation design, Test scenario engineering', 'Programming Tools: Python, Katalon studio, XLS data input, UNIX Shell/PERL scripting, Groovy, REST, JSON, XML, ISO 8583, EMV tags, TCP, HTTP, POSTMAN, curl-siege, Jmeter, COBOL, JCL, CICS, Postman', 'Operating Systems: Unix-AIX, Unix-Solaris, Linux, Windows, IBM-AIX', 'Virtual Systems: VMWare, VSphere, Proxmox', 'Payment terminals: VeriFone, Ingenico, Equinox, PAX and Innowi, Key Management, KPI, DUKPT, Key Injection, KEK', 'Version Control Tools: Git-bash, Git-stash, Git-lab, TorquiseSVN, SourceTree, VSS', 'Database and Tools: Oracle 11g, Oracle 12c, PostgreSQL, MongoDB, PGAdmin 4, SQL Developer, SQL management studio, Toad, DB2', 'Project Management: Confluence, Jira, Microsoft Office Suite, Bugzilla, redmine, HP Quality center', 'Project Management Methodologies: Agile, Scrum, Waterfall, Iterative', 'Talent Management tools: HireRight, iCIMS', 'POS Systems: Micros, Restaurant Manager, Symphony, positouch, broadPOS', 'EMV Systems : BTT (UL), ICCVerify, VCMS, VTS, Astrex, Discover RCT, ATS, MAS, MDFS, ACI-Interchange, ACI-PRM, ACI- ADM, TSYS CertifyNow, FirstData CertPro and more']","['Devi Ahilya University', 'Devi Ahilya University']","['Master of Computer Applications (MCA)', 'Bachelors of Science']","['2005', '2002']","[None, None]","[None, None]","['Computer Applications, Software Engineering, Databases, Networking, and Operating Systems', 'Electronics']","['Company Name', 'Company Name', 'Company Name']","[None, None, None]","['01/2016', '04/2015', '09/2005']","['Current', '01/2016', '04/2015']","[None, None, None]","['QA Engineering Manager', 'Software Certification Analyst', 'Project Lead']","['City , State', 'City , State', 'City , State']","Digital Marketing Strategy
+Brand Awareness, Online Traffic
+Social Media Management
+Google Analytics
+Cross-functional Teams
+Campaign Execution, SEO",,,,,,,"['Certified Scrum Master (CSM)', 'Certified Tester Foundation Level (CTFL)', 'Agile Scrum Foundation', 'LinkedIn', 'LinkedIn', 'LinkedIn']","[None, None, None, ['Python'], ['Python: XML, JSON, and the Web'], ['SQL for Testers']]","https://github.com/funfunfunction, https://leetcode.com/anuragsri96","[None, None, None, None, None, None]","['May 2022', None, None, None, None, None]",Marketing Officer,Bachelor/Honors,At least 1 year,,"Digital Marketing Strategy
+Brand Awareness, Online Traffic
+Social Media Management
+Google Analytics
+Cross-functional Teams
+Campaign Execution, SEO","Corporate Marketing
+Facebook Ads Manager
+Facebook campaign
+Facebook marketing
+Google Ads
+Google analytics
+Market Researc
+Marketing
+Search Engine Optimization (SEO)",0.35
+"Euclid, OH",Computer Repair Technician,"['iFixit Pro Tech Toolkit', 'PassMark MemTest86', 'Malwarebytes', 'Recuva', 'Ultimate Boot CD (UBCD)', 'Windows Installation USB/DVD', 'TeamViewer', 'Driver Booster', 'Falcon Dust-Off Compressed Gas Duster', 'Fluke 115 Compact True-RMS Digital Multimeter']",['DeVry University'],['Associate of Applied Science'],['2018'],[None],[None],['Electronics and Computer Technology'],"['YZA Technologies', 'Sherwin-Williams', 'OhioHealth']","[None, None, None]","['2022', '2020', '2018']","['current', '2022', '2020']","[['iFixit Pro Tech Toolkit', 'Fluke 115 Compact True-RMS Digital Multimeter', 'Windows Installation USB/DVD', 'Recuva'], ['Driver Booster', 'PassMark MemTest86', 'Falcon Dust-Off Compressed Gas Duster', 'Ultimate Boot CD (UBCD)'], ['TeamViewer', 'iFixit Pro Tech Toolkit', 'Malwarebytes']]","['Computer Repair Technician', 'Computer Technician', 'Help Desk Technician']","['Euclid, OH', 'Cleveland, OH', 'Columbus, OH']","Application Development
+Object-Oriented Design
+Collaboration
+Problem-Solving
+Software Lifecycle
+Innovation
+Software Testing
+System Analysis
+Performance Monitoring
+Plugin Development
+Documentation
+Integration Support",,,,,,,,,"https://github.com/funfunfunction, https://leetcode.com/neetcode",,,Data Science Engineer,Bachelor of Science (BSc) in Computer Science & Engineering,At least 2 years,Age 25 to 32 years,"Application Development
+Object-Oriented Design
+Collaboration
+Problem-Solving
+Software Lifecycle
+Innovation
+Software Testing
+System Analysis
+Performance Monitoring
+Plugin Development
+Documentation
+Integration Support","Business Analysis
+Effective communication skills
+Java
+REST API Design
+Soft Skills
+Software Development",0.55
+,"To obtain a position in a fast-paced business office environment, demanding a strong organizational, technical, and interpersonal position utilizing my skills and attributes.","['accounts payables', 'accounts receivables', 'Accounts Payable', 'Accounts Receivable', 'administrative functions', 'trial balance', 'banking', 'budget', 'bi', 'closing', 'Computer Applications', 'Credit', 'clients', 'Customer Service', 'data entry', 'delivery', 'driving', 'email', 'insurance', 'inventory', 'ledger', 'Access', 'Excel', 'Outlook', 'PowerPoint', 'Word', 'mortgage loan', 'Enterprise', 'policies', 'QuickBooks', 'Sales', 'sales reports', 'telecommunications', 'phone', 'workflow', 'written']","['Martinez Adult Education, Business Training Center ï¼ City , State']",['Computer Applications Specialist Certificate Program'],['2008'],[None],[None],['Computer Applications'],"['Company Name ï¼ City , State', 'Company Name ï¼ City , State', 'Company Name ï¼ City , State', 'Company Name ï¼ City , State', 'Company Name ï¼ City , State', 'N/A']","[None, None, None, None, None, None]","['January 2011', 'January 2008', 'January 2006', 'January 2004', 'January 2001', 'N/A']","['November 2015', 'January 2010', 'January 2008', 'January 2006', 'January 2004', None]","[['accounts receivables', 'banking', 'G/L Accounts', 'accounts payables', 'credit cards', 'reconcile', 'commission reports', 'credit checks', 'customer service', 'international travel'], ['data entry', 'accounts receivable', 'cash handling', 'customer communication', 'inventory reports', 'problem-solving'], ['mortgage processing', 'analytical aptitude', 'credit reports', 'customer communication'], ['commercial auto underwriting', 'data entry', 'application review', 'customer communication'], ['personal auto underwriting', 'data entry', 'policy review', 'customer service'], ['training', 'medical record review', 'data entry', 'document design', 'customer service', 'team performance']]","['Accountant', 'Accounts Receivable Clerk', 'Mortgage Underwriter', 'Commercial Auto Underwriter', 'Personal Auto Underwriter', 'Claims Examiner']","['City, State', 'City, State', 'City, State', 'City, State', 'City, State', 'N/A']","Hardware & Network Installation
+Troubleshooting & Diagnostics
+User Training & Capacity Building
+Hardware Replacement
+Fault Repair & System Setup
+Software License & Account Management
+Backup Management
+System Updates & Maintenance
+Server & Storage Management
+Documentation & Technical Specifications
+Data Protection & Disaster Recovery
+Storage & Database Planning
+Power & Disk Backup
+Incident Management & Escalation
+Service Restoration
+User Communication & Verification
+Incident Classification & Resolution
+Major Incident Escalation
+Problem & Error Management
+Task Assignment & Execution",,,,,,,,,"https://github.com/bradtraversy, https://leetcode.com/Um_nik",,,"System Administrator (Operation & Maintenance of Server, Storage & Service Desk System)",Bachelor/Honors,4 to 5 years,,"Hardware & Network Installation
+Troubleshooting & Diagnostics
+User Training & Capacity Building
+Hardware Replacement
+Fault Repair & System Setup
+Software License & Account Management
+Backup Management
+System Updates & Maintenance
+Server & Storage Management
+Documentation & Technical Specifications
+Data Protection & Disaster Recovery
+Storage & Database Planning
+Power & Disk Backup
+Incident Management & Escalation
+Service Restoration
+User Communication & Verification
+Incident Classification & Resolution
+Major Incident Escalation
+Problem & Error Management
+Task Assignment & Execution","Cisco
+Linux
+Operation & Maintenance of Server",0.76
+,Post Graduate Analyst experienced in Business Management and Statistical Analysis. I have a very good grasp on finding the best solution for a business and applying them.,"['Data Analysis', 'Business Analysis', 'Statistical Analysis', 'Regression Analysis', 'Natural Language Processing', 'Machine Learning', 'Numerical Analysis']","['IISc', 'IIIT Bangalore']","['BSc', 'MSc']","['2018', '2020']","['N/A', 'N/A']","['N/A', 'N/A']","['Statistics', 'Data Analysis and Statistical Computation']",['BVB'],['N/A'],['Jan 2020'],['Oct 2020'],"[['NLP', 'ML', 'Amazon Comprehend Medical API']]",['Statistical Analyst'],['N/A'],"Machine Learning Design
+Data Analysis
+Model Training
+AI Integration
+Innovation
+Cross-Functional Collaboration
+Model Deployment
+Documentation
+Analytical Skills
+Communication
+Team Collaboration",,,,,,,['Tableau'],[['Natural Learning Processing']],"https://github.com/torvalds, https://leetcode.com/practice2024",['2020'],['N/A'],AI Engineer,"Bachelors or Masters degree in Computer Science, Engineering, or a related field.",,,"Machine Learning Design
+Data Analysis
+Model Training
+AI Integration
+Innovation
+Cross-Functional Collaboration
+Model Deployment
+Documentation
+Analytical Skills
+Communication
+Team Collaboration","Python
+R or Java
+TensorFlow
+PyTorch
+Scikit-learn.",0.816666667
+,,"['accounting', 'balance sheet', 'budgets', 'client', 'clients', 'derivatives', 'drafting', 'equity', 'financial', 'financial accounting', 'financial statements', 'fixed assets', 'Funds', 'Government', 'Information Technology', 'inventory', 'investments', 'ledger', 'MA', 'Microsoft Excel', 'natural', 'page', 'payables', 'processes', 'programming', 'Real Estate', 'research', 'sales', 'scheme', 'telephone', 'writing skills']","['EMORY UNIVERSITY, Goizueta Business School']",['Bachelor of Business Administration'],['2007'],['3.63/4.0'],['GPA'],['Accounting'],"['Company Name', 'Company Name', 'Company Name', 'Sole Proprietorship']","[None, None, None, None]","['June 2011', 'March 2010', 'June 2007', 'August 2006']","['Current', 'June 2011', 'March 2010', 'May 2007']","[['financial statements', 'reconcile', 'audit', 'budgets'], ['financial statements', 'management fee', 'MSREF', 'cash movement', 'Excel', 'programming'], ['research', 'fraud detection', 'audit', 'analysis', 'memorandums', 'FBI'], ['teaching', 'financial accounting', 'question creation', 'private sessions']]","['Senior Accountant', 'Associate Fund Controller', 'Advisory, Forensic and Audit Associate', 'Accounting Tutor']","['City , State', 'City , State', 'City , State', 'City , State']","Relationship Building
+HR Collaboration
+Policy Development
+Training Management
+Record Keeping
+Compliance
+Employee Development
+Policy Enforcement
+Communication
+Task Execution",['Community Service'],['Fulton County CASA Board of Directors'],[None],"['Member, Treasurer']",,,"['CPA', 'CFE (Certified Fraud Examiner)']","[['accounting'], ['fraud detection']]","https://github.com/kennethreitz, https://leetcode.com/tmwilliamlin168","['N/A', 'N/A']","[None, None]",HR Officer,"•Bachelor of Business Administration (BBA) in Human Resource Management
+•BBA/MBA in HRM/Management from any reputed university.",,Age 18 to 30 years,"Relationship Building
+HR Collaboration
+Policy Development
+Training Management
+Record Keeping
+Compliance
+Employee Development
+Policy Enforcement
+Communication
+Task Execution",Human Resource Management,0.693333333
+,Recently graduated fresher experienced in Machine Learning and Natural Language Processing looking for roles that involve projects in the same.,"['Python Programming', 'Machine Learning', 'Natural language Processing', 'Numpy', 'NLTK', 'Text Analysis', 'Transformers', 'Series Analysis', 'Conversational AI']",['KCCE University'],['B.Tech'],['2019'],['N/A'],['N/A'],['Computers'],['eLevaTe LtD.'],[None],['Apr 2019'],['till date'],"[['Machine Learning', 'Natural Language Processing']]",['Machine Learning Developer'],['N/A'],"Application Development
+Object-Oriented Design
+Collaboration
+Problem-Solving
+Software Lifecycle
+Innovation
+Software Testing
+System Analysis
+Performance Monitoring
+Plugin Development
+Documentation
+Integration Support","['Machine Learning', 'Big Data Analytics']","['Py-Thonist', None]","[None, None]","[None, None]",,,,,"https://github.com/sample-dev, https://leetcode.com/ecnerwala",,,Data Science Engineer,Bachelor of Science (BSc) in Computer Science & Engineering,At least 2 years,Age 25 to 32 years,"Application Development
+Object-Oriented Design
+Collaboration
+Problem-Solving
+Software Lifecycle
+Innovation
+Software Testing
+System Analysis
+Performance Monitoring
+Plugin Development
+Documentation
+Integration Support","Business Analysis
+Effective communication skills
+Java
+REST API Design
+Soft Skills
+Software Development",0.693333333
+,Extremely motivated to constantly develop my skills and grow professionally. I am confident in my ability to come up with innovative solutions and maintain better software development practices.,"['Python', 'Machine Learning', 'Deep Learning', 'Data Analysis', 'Computer Vision', 'AWS', 'Scikit-Learn', 'Numpy', 'Java', 'C++', 'SAP']",['V.V.I.T'],['B.TECH'],['2018'],['N/A'],['N/A'],['N/A'],['ACS Solutions Pvt. Ltd.'],['N/A'],['May 2018'],['Ongoing'],"[['Machine Learning', 'React', 'MQTT', 'Cloud']]",['SOFTWARE ENGINEER - MACHINE LEARNING'],['N/A'],"Trade Marketing Executive
+Brand Visibility, Sales Targets
+Field Marketing, Campaigns, Product Distribution
+Brand Head
+Excel, KPIs Tracking",['Competition'],['BITS GOA'],['N/A'],"['RUNNER-UP, SOLINOVATE']",,,,,"https://github.com/hackathon-test, https://leetcode.com/takeuforward",,,"Executive/ Senior Executive- Trade Marketing, Hygiene Products",Master of Business Administration (MBA),At least 3 years,,"Trade Marketing Executive
+Brand Visibility, Sales Targets
+Field Marketing, Campaigns, Product Distribution
+Brand Head
+Excel, KPIs Tracking","Brand Promotion
+Campaign Management
+Field Supervision
+Merchandising
+promotional activities
+Trade Marketing",0.65
+,"Leadership and team building oriented mentality. Working towards of being a better professional, someone on whom a company can easily rely on. Looking for roles where I can learn and grow my skillset.","['DBMS', 'RDBMS', 'Software Developer', 'Software Engineer', 'Java', 'SAS', 'SQL', 'Business Intelligence', 'Learning Algorithm', 'Machine Learning', 'Python']",['Vellore Institute of Technology (VIT)'],['Integrated B.Tech & M.Tech'],['2021'],['N/A'],['N/A'],['Software Engineering'],['Cognibot'],['N/A'],['May 2020'],['Dec 2020'],"[['Software Development', 'Teamwork']]",['Intern'],['N/A'],"iOS Lifecycle
+Requirement Analysis
+Native Frameworks
+iOS Development
+API Integration
+Technical Communication
+UI Design
+Performance Optimization
+Feature Collaboration
+Bug Fixing
+Code Translation
+High-Performance Development
+Task Management
+Cross-Team Collaboration
+Code Quality",['Programming'],['N/A'],['N/A'],['Python Programming'],,,,,"https://github.com/nicowillis, https://leetcode.com/takeuforward",,,Senior iOS Engineer,Bachelor of Science (BSc) in Computer Science,At least 4 years,,"iOS Lifecycle
+Requirement Analysis
+Native Frameworks
+iOS Development
+API Integration
+Technical Communication
+UI Design
+Performance Optimization
+Feature Collaboration
+Bug Fixing
+Code Translation
+High-Performance Development
+Task Management
+Cross-Team Collaboration
+Code Quality","iOS
+iOS App Developer
+iOS Application Development
+iOS Development
+Mobile apps Developer (iOS)
+Native IOS
+Swift (iOS)
+Swift UI",0.783333333
+,,"['Army', 'basic', 'bridges', 'inspection', 'Inspects', 'Marconi', 'Office', 'Radar', 'multi-meters', 'oscilloscopes', 'personnel', 'radio', 'Read', 'Safety', 'signal generators', 'Telephone', 'troubleshooting', 'VHF']","['University of *Strong Vincent HS', 'Intermediate Electronic Principles, Keesler AFB, MS', '*Telephone Central Office Repair', '*HAZMAT Familiarization/Safety Transport', '*Forward Area Alerting Radar Repairer']","['Diploma', 'N/A', 'N/A', 'N/A', 'N/A']","['2001', '2010', '1987', '2007', '1990']","['N/A', 'N/A', 'N/A', 'N/A', 'N/A']","['N/A', 'N/A', 'N/A', 'N/A', 'N/A']","['N/A', 'N/A', 'N/A', 'N/A', 'N/A']","['Company Name', 'Company Name', 'Company Name']","[None, None, None]","['January 2012', 'January 2000', 'January 1992']","['January 2013', 'Current', 'January 2000']","[['Supervised construction', 'Read and interpret construction drawings', 'Estimate material, time, labor, and equipment', 'Inspect structures'], ['Circuit analysis', 'Complex test instruments', 'Engineering tools'], ['Circuit analysis', 'Complex test instruments', 'Engineering tools']]","['Construction Engineering Supervisor', 'Combat Engineer', 'Combat Engineer']","['City, State', 'City, State', 'N/A']","Application Development
+Object-Oriented Design
+Collaboration
+Problem-Solving
+Software Lifecycle
+Innovation
+Software Testing
+System Analysis
+Performance Monitoring
+Plugin Development
+Documentation
+Integration Support",,,,,,,,,"https://github.com/yyx990803, https://leetcode.com/takeuforward",,,Data Science Engineer,Bachelor of Science (BSc) in Computer Science & Engineering,At least 2 years,Age 25 to 32 years,"Application Development
+Object-Oriented Design
+Collaboration
+Problem-Solving
+Software Lifecycle
+Innovation
+Software Testing
+System Analysis
+Performance Monitoring
+Plugin Development
+Documentation
+Integration Support","Business Analysis
+Effective communication skills
+Java
+REST API Design
+Soft Skills
+Software Development",0.343333333
+,,"['Data Analytics', 'Natural Language Processing', 'Production Engineering', 'Production Analytics', 'Tableau', 'Machine Learning', 'Python', 'NLTK']",['SMV Institute of Technology'],['B.Tech'],['2019'],['N/A'],['N/A'],['Electrical and Electronics'],['Mahindra Ltd'],['N/A'],['2019'],['TILL DATE'],"[['Data Analytics', 'Production Engineering', 'Machine Learning']]",['Assistant Analyst'],['N/A'],"iOS Lifecycle
+Requirement Analysis
+Native Frameworks
+iOS Development
+API Integration
+Technical Communication
+UI Design
+Performance Optimization
+Feature Collaboration
+Bug Fixing
+Code Translation
+High-Performance Development
+Task Management
+Cross-Team Collaboration
+Code Quality",['Course'],['Google'],['N/A'],['Beginner'],,,,,"https://github.com/academind, https://leetcode.com/striver_79",,,Senior iOS Engineer,Bachelor of Science (BSc) in Computer Science,At least 4 years,,"iOS Lifecycle
+Requirement Analysis
+Native Frameworks
+iOS Development
+API Integration
+Technical Communication
+UI Design
+Performance Optimization
+Feature Collaboration
+Bug Fixing
+Code Translation
+High-Performance Development
+Task Management
+Cross-Team Collaboration
+Code Quality","iOS
+iOS App Developer
+iOS Application Development
+iOS Development
+Mobile apps Developer (iOS)
+Native IOS
+Swift (iOS)
+Swift UI",0.65
+,,"['R', 'Python', 'Tableau', 'Power BI', 'SQL', 'SAS', 'Deep Learning', 'Neural Networks', 'Artificial Intelligence']",['NARSEE MONJEE INSTITUTE'],['BCA'],['2020'],['N/A'],['N/A'],['N/A'],['DENA FUNDS'],['N/A'],['APR 2020'],['TILL DATE'],"[['predictive data analysis', 'large scale data handling']]",['BUSINESS ANALYST'],['N/A'],"Administrative Support
+Scheduling
+Filing & Documentation
+Communication
+Team Support
+Equipment Maintenance
+Information Provision
+Inventory Management
+Team Collaboration
+OHS Policy Development
+Safety Advice
+Risk Assessment
+Policy Review
+OHS Training
+Safety Inspections
+Unsafe Act Prevention
+Incident Investigation
+Report Preparation",['N/A'],['N/A'],['N/A'],['N/A'],,,['N/A'],[None],"https://github.com/kentcdodds, https://leetcode.com/ecnerwala",['N/A'],['N/A'],Asst. Manager/ Manger (Administrative),Bachelor/Honors,At least 5 years,Age at least 28 years,"Administrative Support
+Scheduling
+Filing & Documentation
+Communication
+Team Support
+Equipment Maintenance
+Information Provision
+Inventory Management
+Team Collaboration
+OHS Policy Development
+Safety Advice
+Risk Assessment
+Policy Review
+OHS Training
+Safety Inspections
+Unsafe Act Prevention
+Incident Investigation
+Report Preparation","•Administration
+•Health Safety and Environment
+•Safety and Security Management",0.65
+,"Software developer focused in the areas of Machine learning application development. Motivated to learn, grow and excel my experience by challenging myself.","['Software Engineer', 'Data Analyst', 'Machine Learning', 'Text Analytics', 'Software Development', 'Object Oriented Programming', 'Pandas', 'Numpy', 'Java', 'Python', 'SpringBoot', 'Laravel']",['Dr. Jagjiban Rao Engineering College'],['B.Tech'],['2019'],[None],[None],['ECE'],['KLP Technology Solutions'],[None],['Jan 2019'],['till date'],"[['Machine Learning', 'Software Engineering', 'Feature Engineering', 'Evaluation Methods']]",['Software Engineer'],['N/A'],"Administrative Support
+Scheduling
+Filing & Documentation
+Communication
+Team Support
+Equipment Maintenance
+Information Provision
+Inventory Management
+Team Collaboration
+OHS Policy Development
+Safety Advice
+Risk Assessment
+Policy Review
+OHS Training
+Safety Inspections
+Unsafe Act Prevention
+Incident Investigation
+Report Preparation",['UI/UX Development'],['OnDevice Machine Learning'],[None],[None],,,,,"https://github.com/sample-dev, https://leetcode.com/tourist",,,Asst. Manager/ Manger (Administrative),Bachelor/Honors,At least 5 years,Age at least 28 years,"Administrative Support
+Scheduling
+Filing & Documentation
+Communication
+Team Support
+Equipment Maintenance
+Information Provision
+Inventory Management
+Team Collaboration
+OHS Policy Development
+Safety Advice
+Risk Assessment
+Policy Review
+OHS Training
+Safety Inspections
+Unsafe Act Prevention
+Incident Investigation
+Report Preparation","•Administration
+•Health Safety and Environment
+•Safety and Security Management",0.65
+,,"['Visual Basic', 'SQL', 'C', 'C++', 'Java', 'Windows NT', 'Windows 2000', 'Windows XP', 'Windows Vista', 'Linux', 'Unix', 'SQL Server', 'Microsoft (MS) Access', 'Oracle', 'JCL', 'DB2', 'MS Visio', 'MS Excel', 'MS FrontPage', 'MS Word']",['Southeastern Louisiana University (SLU)'],['Bachelor of Science'],[None],['3.84'],['GPA'],['Computer Science'],"['SLU Computer Science Department', 'Financial Network Services, Pty Ltd.']","[None, None]","['August 2020', 'June 2019']","['Present', 'August 2019']","[['Web Development', 'Content Creation'], ['Unix Administration', 'Team Leadership']]","['Blog Writer', 'Unix Administrator Assistant']","['Hammond, LA', 'Sydney, Australia']","15+ Years Banking Experience
+Audit/Inspection/ICC Leadership
+Internal Audit & Compliance
+Risk-Based Operational Reviews
+System-Based Audit Expertise
+Knowledge of Bangladeshi Laws","['Club Membership', 'Sports']","['Women in Technology', 'Intramural Soccer']","[None, None]","['Member', 'Participant']",,,,,"https://github.com/practice-account, https://leetcode.com/jiangly",,,Head of Internal Control & Compliance (ICC) - SEVP/DMD,"Masters, Master of Business Administration (MBA), Master of Business Management (MBM)",At least 15 years,Age at most 52 years,"15+ Years Banking Experience
+Audit/Inspection/ICC Leadership
+Internal Audit & Compliance
+Risk-Based Operational Reviews
+System-Based Audit Expertise
+Knowledge of Bangladeshi Laws","AUDIT AND INSPECTION
+Banking
+Internal Audit",0.75
+,,"['Machine Learning', 'Linear Regression', 'Ridge Regression', 'Lasso Regression', 'Tableau', 'Time Series Analysis']",['DJR College and University'],['B.Tech'],['2020'],['N/A'],['N/A'],['IT'],['Remiro Amio'],['N/A'],['Jan 2019'],['Sep 2019'],[None],['Intern'],['N/A'],"iOS Lifecycle
+Requirement Analysis
+Native Frameworks
+iOS Development
+API Integration
+Technical Communication
+UI Design
+Performance Optimization
+Feature Collaboration
+Bug Fixing
+Code Translation
+High-Performance Development
+Task Management
+Cross-Team Collaboration
+Code Quality",,,,,,,,,"https://github.com/kennethreitz, https://leetcode.com/tmwilliamlin168",,,Senior iOS Engineer,Bachelor of Science (BSc) in Computer Science,At least 4 years,,"iOS Lifecycle
+Requirement Analysis
+Native Frameworks
+iOS Development
+API Integration
+Technical Communication
+UI Design
+Performance Optimization
+Feature Collaboration
+Bug Fixing
+Code Translation
+High-Performance Development
+Task Management
+Cross-Team Collaboration
+Code Quality","iOS
+iOS App Developer
+iOS Application Development
+iOS Development
+Mobile apps Developer (iOS)
+Native IOS
+Swift (iOS)
+Swift UI",0.65
+,,"['Software Development', 'Machine Learning', 'Deep Learning', 'Risk Assessment', 'Requirement Gathering', 'Application Support', 'JavaScript', 'Python', 'Docker', 'HTML', 'Hive', 'CSS', 'C', 'C++']","['Birla Institute of Technology (BIT), Ranchi']",['B.Tech'],['2018'],['N/A'],['N/A'],['Electronics/Telecommunication'],['Axis Bank Limited'],['N/A'],['June 2018'],['Till Date'],"[['Unified Payment Interface', 'Risk Prediction', 'Big Data', 'Spark', 'PySpark']]",['Software Developer (Machine Learning Engineer)'],['N/A'],"Management Trainee
+Mechanical Systems
+Maintenance & Troubleshooting
+Performance Analysis
+Project Support
+Process Improvement
+Training & Development
+Administrative Support",,,,,,,,,"https://github.com/yyx990803, https://leetcode.com/happygirlzt",,,Management Trainee - Mechanical,Fresh graduates with a Bachelor’s degree in Mechanical Engineering or a related field.,,Age at least 22 years,"Management Trainee
+Mechanical Systems
+Maintenance & Troubleshooting
+Performance Analysis
+Project Support
+Process Improvement
+Training & Development
+Administrative Support","Computer skill
+Good communication skills
+Mechanical Engineering
+Quick learner and hard working",0.596666667
+"Westlake, TX",,"['Python', 'LeetCode', 'GDB', 'GitHub', 'HTML', 'MySQL', 'Lucidchart', 'Postman', 'OWASP ZAP', 'Jira']",['University of Texas'],['Bachelor of Science'],['2015'],['N/A'],['N/A'],['Computer Science'],"['Charles Schwab', 'Sysco', 'Accenture']","['N/A', 'N/A', 'N/A']","['2020', '2017', '2015']","['current', '2020', '2017']","[['Python', 'GDB', 'GitHub'], ['PowerShell'], ['OWASP ZAP', 'Jira']]","['Computer Programmer', 'Systems Administrator', 'Help Desk Technician']","['Westlake, TX', 'Houston, TX', 'Austin, TX']","Machine Learning Leadership
+Cross-Functional Collaboration
+Strategy Development
+ML/NLP Infrastructure
+Prototype Transformation
+ML System Design
+Algorithm Research
+Application Development
+Dataset Selection
+ML Testing
+Statistical Analysis
+R&D in ML/NLP
+Text Representation
+Data Pipeline Design
+Statistical Data Analysis
+Model Training
+Team Collaboration
+Research Reporting
+Algorithm Analysis",,,,,,,,,"https://github.com/practice-account, https://leetcode.com/kevin_naughton_jr",,,Machine Learning (ML) Engineer,M.Sc in Computer Science & Engineering or in any relevant discipline from a reputed University,At least 5 year(s),,"Machine Learning Leadership
+Cross-Functional Collaboration
+Strategy Development
+ML/NLP Infrastructure
+Prototype Transformation
+ML System Design
+Algorithm Research
+Application Development
+Dataset Selection
+ML Testing
+Statistical Analysis
+R&D in ML/NLP
+Text Representation
+Data Pipeline Design
+Statistical Data Analysis
+Model Training
+Team Collaboration
+Research Reporting
+Algorithm Analysis",,0.85

@@ -1,0 +1,102 @@
+# =============================================================================
+# VeriHire AI — Docker Compose
+#
+# Services:
+#   springboot  - Spring Boot API gateway (port 8080) — Auth + DB + CRUD
+#   python-ai   - Stateless Python AI service (port 8000) — 3-layer pipeline
+#
+# Prerequisites:
+#   1. Copy .env.example to .env at project root
+#   2. Fill in SUPABASE_JDBC_URL, SUPABASE_DB_PASSWORD, JWT_SECRET, API keys
+#   3. docker compose up --build
+#
+# The frontend (React/Vite) is NOT included here — run separately with:
+#   cd frontend && npm run dev
+# =============================================================================
+
+services:
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # Python AI Service — stateless 3-layer pipeline
+  # ──────────────────────────────────────────────────────────────────────────
+  python-ai:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: verehire-ai
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      # Required API keys
+      GROQ_API_KEY: ${GROQ_API_KEY}
+      GITHUB_TOKEN: ${GITHUB_TOKEN}
+      # ChromaDB configuration
+      CHROMADB_PATH: /app/data/chroma_db
+      # Application settings
+      DEBUG: "false"
+      LOG_LEVEL: INFO
+      # CORS — allow Spring Boot to call this service
+      CORS_ORIGINS: "http://localhost:8080,http://springboot:8080"
+    volumes:
+      # Persist ChromaDB vector store between restarts
+      - chroma_data:/app/data/chroma_db
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s  # ChromaDB init takes time on first run
+    networks:
+      - verehire-internal
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # Spring Boot API Gateway — Auth, DB, CRUD, pipeline orchestration
+  # ──────────────────────────────────────────────────────────────────────────
+  springboot:
+    build:
+      context: ./springboot
+      dockerfile: Dockerfile
+    container_name: verehire-api
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      # Supabase PostgreSQL
+      SUPABASE_JDBC_URL: ${SUPABASE_JDBC_URL}
+      SUPABASE_DB_USERNAME: ${SUPABASE_DB_USERNAME:-postgres}
+      SUPABASE_DB_PASSWORD: ${SUPABASE_DB_PASSWORD}
+      # JWT
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRATION_MS: ${JWT_EXPIRATION_MS:-86400000}
+      # Python AI Service URL (internal Docker network)
+      AI_SERVICE_URL: http://python-ai:8000
+      AI_SERVICE_TIMEOUT_MINUTES: ${AI_SERVICE_TIMEOUT_MINUTES:-30}
+      # CORS — allow React dev server and production frontend
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-http://localhost:5173,http://localhost:5174,http://localhost:3000}
+      # Logging
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      JPA_SHOW_SQL: ${JPA_SHOW_SQL:-false}
+    depends_on:
+      python-ai:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    networks:
+      - verehire-internal
+      - verehire-public
+
+networks:
+  verehire-internal:
+    driver: bridge
+    internal: true   # Python AI is NOT accessible from outside
+  verehire-public:
+    driver: bridge   # Spring Boot is accessible from host machine
+
+volumes:
+  chroma_data:
+    driver: local

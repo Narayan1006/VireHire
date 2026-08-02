@@ -1,0 +1,36 @@
+# =============================================================================
+# VereHire AI — Spring Boot .gitignore
+# =============================================================================
+
+# ── Environment / Secrets ─────────────────────────────────────────────────────
+.env
+*.env.local
+
+# ── Maven ─────────────────────────────────────────────────────────────────────
+target/
+*.jar
+*.war
+*.ear
+.mvn/
+mvnw
+mvnw.cmd
+!.mvn/wrapper/maven-wrapper.properties
+
+# ── IDE ───────────────────────────────────────────────────────────────────────
+.idea/
+*.iml
+.eclipse/
+.classpath
+.project
+.settings/
+*.class
+
+# ── Spring Boot ───────────────────────────────────────────────────────────────
+spring-shell.log
+application-local.yml
+application-local.properties
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp

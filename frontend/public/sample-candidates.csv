@@ -1,0 +1,4 @@
+name,email,role,skills,online_links
+Jane Doe,jane@example.com,Backend Engineer,Python|FastAPI|PostgreSQL,https://github.com/janedoe
+John Smith,john@example.com,Full-Stack Developer,React|TypeScript|Node.js,https://github.com/johnsmith
+Priya Patel,priya@example.com,Data Engineer,Python|Spark|SQL,https://leetcode.com/priyapatel

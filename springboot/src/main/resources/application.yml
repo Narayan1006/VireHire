@@ -1,0 +1,100 @@
+# ============================================================================
+# VereHire AI — Spring Boot Application Configuration
+# All sensitive values MUST come from environment variables.
+# Never hardcode secrets, keys, or connection strings in this file.
+# ============================================================================
+
+server:
+  port: ${SERVER_PORT:8080}
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  application:
+    name: verehire-api
+
+  # ── Jackson JSON Serialization ───────────────────────────────────────────────
+  jackson:
+    property-naming-strategy: SNAKE_CASE   # accessToken -> access_token, prScore -> pr_score
+    default-property-inclusion: NON_NULL    # Omit null fields from responses
+
+  # ── Database (Supabase as plain PostgreSQL) ──────────────────────────────
+  datasource:
+    url: ${SUPABASE_JDBC_URL}
+    username: ${SUPABASE_DB_USERNAME:postgres}
+    password: ${SUPABASE_DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      pool-name: VereHirePool
+      maximum-pool-size: ${DB_POOL_SIZE:10}
+      minimum-idle: 2
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  # ── JPA / Hibernate ───────────────────────────────────────────────────────
+  jpa:
+    hibernate:
+      ddl-auto: none   # Schema is managed manually via database/schema.sql
+    show-sql: ${JPA_SHOW_SQL:false}
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+  # ── Multipart (CSV uploads) ───────────────────────────────────────────────
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 55MB
+      max-request-size: 60MB
+
+# ============================================================================
+# VereHire Custom Configuration
+# ============================================================================
+app:
+
+  # ── App ───────────────────────────────────────────────────────────────────
+  version: "2.0.0"
+
+  # ── JWT ───────────────────────────────────────────────────────────────────
+  jwt:
+    secret: ${JWT_SECRET}                              # Min 32 chars, base64-encoded recommended
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}       # Default: 24 hours
+
+  # ── Python AI Service ─────────────────────────────────────────────────────
+  ai-service:
+    url: ${AI_SERVICE_URL:http://localhost:8000}
+    timeout-minutes: ${AI_SERVICE_TIMEOUT_MINUTES:30}  # Pipeline can be slow (GPU-dependent)
+
+  # ── CORS ─────────────────────────────────────────────────────────────────
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:5173,http://localhost:5174,http://localhost:3000}
+
+# ============================================================================
+# Springdoc / Swagger UI
+# ============================================================================
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+    display-request-duration: true
+  show-actuator: false
+
+# ============================================================================
+# Logging
+# ============================================================================
+logging:
+  level:
+    com.verehire: ${LOG_LEVEL:INFO}
+    org.springframework.security: WARN
+    org.hibernate.SQL: ${SQL_LOG_LEVEL:WARN}
+    org.hibernate.type.descriptor.sql: WARN
