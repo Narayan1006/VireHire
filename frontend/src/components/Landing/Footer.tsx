@@ -1,87 +1,56 @@
-import { Zap } from 'lucide-react'
-import { Link } from 'react-router-dom'
-import { GitHubIcon, TwitterIcon, LinkedInIcon } from '../ui/SocialIcons'
-
-const navLinks = [
-  { label: 'How it works', href: '#how-it-works' },
-  { label: 'Signals', href: '#signals' },
-  { label: 'For Recruiters', to: '/dashboard' },
-]
-
-const socials = [
-  { icon: GitHubIcon, label: 'GitHub', href: 'https://github.com' },
-  { icon: TwitterIcon, label: 'Twitter', href: 'https://twitter.com' },
-  { icon: LinkedInIcon, label: 'LinkedIn', href: 'https://linkedin.com' },
-]
+import { FileText, Book, Code, Zap } from 'lucide-react'
+import { GitHubIcon, LinkedInIcon } from '../ui/SocialIcons'
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-white">
-      <div className="mx-auto max-w-6xl px-6 py-14 md:px-10">
-        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
-          <div>
-            <div className="flex items-center gap-2">
-              <Zap className="h-4 w-4 text-ink" />
-              <span className="font-instrument text-xl text-ink">VeriHire</span>
+    <footer className="border-t border-border bg-white px-6 py-12 md:px-10 lg:py-16">
+      <div className="mx-auto max-w-6xl">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-4 lg:gap-16">
+          <div className="md:col-span-1 text-center md:text-left">
+            <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
+              <Zap className="h-5 w-5 text-ink" />
+              <span className="font-instrument text-2xl text-ink">VeriHire AI</span>
             </div>
-            <p className="mt-3 max-w-xs text-sm text-muted">
-              Evidence-backed hiring intelligence for modern recruiting teams.
+            <p className="text-sm text-muted">
+              An open-source, three-layer AI pipeline for evidence-based candidate ranking.
             </p>
           </div>
 
-          <nav className="flex flex-wrap gap-8">
-            {navLinks.map((link) =>
-              link.to ? (
-                <Link
-                  key={link.label}
-                  to={link.to}
-                  className="text-sm text-muted transition-colors hover:text-ink"
-                >
-                  {link.label}
-                </Link>
-              ) : (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-sm text-muted transition-colors hover:text-ink"
-                >
-                  {link.label}
-                </a>
-              ),
-            )}
-          </nav>
-
-          <div className="flex items-center gap-4">
-            {socials.map(({ icon: Icon, label, href }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className="text-muted transition-colors hover:text-ink"
-              >
-                <Icon className="h-4 w-4" />
+          <div className="md:col-span-3 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="flex flex-col space-y-4">
+              <span className="text-sm font-semibold text-ink uppercase tracking-wider">Repository</span>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-sm text-muted hover:text-ink transition-colors flex items-center gap-2">
+                <GitHubIcon className="h-4 w-4" /> Source Code
               </a>
-            ))}
+              <a href="#" className="text-sm text-muted hover:text-ink transition-colors flex items-center gap-2">
+                <FileText className="h-4 w-4" /> Architecture PDF
+              </a>
+            </div>
+
+            <div className="flex flex-col space-y-4">
+              <span className="text-sm font-semibold text-ink uppercase tracking-wider">Documentation</span>
+              <a href="#" className="text-sm text-muted hover:text-ink transition-colors flex items-center gap-2">
+                <Book className="h-4 w-4" /> Readme
+              </a>
+              <a href="#" className="text-sm text-muted hover:text-ink transition-colors flex items-center gap-2">
+                <Code className="h-4 w-4" /> API Docs (Swagger)
+              </a>
+            </div>
+
+            <div className="flex flex-col space-y-4">
+              <span className="text-sm font-semibold text-ink uppercase tracking-wider">Connect</span>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-sm text-muted hover:text-ink transition-colors flex items-center gap-2">
+                <LinkedInIcon className="h-4 w-4" /> LinkedIn
+              </a>
+            </div>
           </div>
         </div>
 
-        <div className="section-divider mt-12" />
-
-        <p className="mt-8 text-center text-[11px] text-muted/50">
-          Are you a candidate?{' '}
-          <Link
-            to="/candidate"
-            className="text-muted/70 underline-offset-2 transition-colors hover:text-muted hover:underline"
-          >
-            Submit your profile →
-          </Link>
-        </p>
-
-        <p className="mt-4 text-center text-xs text-muted">
-          © {new Date().getFullYear()} VeriHire. All rights reserved.
-        </p>
+        <div className="mt-16 flex flex-col items-center justify-between border-t border-border pt-8 md:flex-row">
+          <p className="text-sm text-muted">
+            © {new Date().getFullYear()} VeriHire AI. Built for the open-source community.
+          </p>
+        </div>
       </div>
     </footer>
   )

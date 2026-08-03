@@ -108,7 +108,7 @@ export async function authLogin(email: string, password: string): Promise<AuthRe
   })
   if (!res.ok) {
     const body = await res.json().catch(() => ({}))
-    throw new Error((body as Record<string, string>)?.detail || 'Login failed')
+    throw new Error(parseApiError(body, 'Login failed'))
   }
   return res.json()
 }
@@ -121,7 +121,7 @@ export async function authSignup(email: string, password: string): Promise<AuthR
   })
   if (!res.ok) {
     const body = await res.json().catch(() => ({}))
-    throw new Error((body as Record<string, string>)?.detail || 'Sign-up failed')
+    throw new Error(parseApiError(body, 'Sign-up failed'))
   }
   return res.json()
 }
@@ -585,4 +585,45 @@ export function pollUntilComplete(
   return () => {
     stopped = true
   }
+}
+
+// ── Settings API ───────────────────────────────────────────────────────────
+
+export interface SettingsPayload {
+  aiProvider: 'groq' | 'ollama'
+  githubToken?: string
+  groqApiKey?: string
+  ollamaBaseUrl?: string
+}
+
+export async function getSettings(): Promise<SettingsPayload> {
+  return apiFetch<SettingsPayload>('/api/settings')
+}
+
+export async function saveSettings(settings: SettingsPayload): Promise<SettingsPayload> {
+  return apiFetch<SettingsPayload>('/api/settings', {
+    method: 'POST',
+    body: JSON.stringify(settings),
+  })
+}
+
+export async function testGithub(token: string): Promise<{ message: string }> {
+  return apiFetch<{ message: string }>('/api/settings/test-github', {
+    method: 'POST',
+    body: JSON.stringify({ token }),
+  })
+}
+
+export async function testGroq(apiKey: string): Promise<{ message: string }> {
+  return apiFetch<{ message: string }>('/api/settings/test-groq', {
+    method: 'POST',
+    body: JSON.stringify({ apiKey }),
+  })
+}
+
+export async function testOllama(url: string): Promise<{ message: string }> {
+  return apiFetch<{ message: string }>('/api/settings/test-ollama', {
+    method: 'POST',
+    body: JSON.stringify({ url }),
+  })
 }

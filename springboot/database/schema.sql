@@ -150,3 +150,26 @@ ALTER TABLE public.candidates DISABLE ROW LEVEL SECURITY;
 GRANT ALL ON TABLE public.users      TO anon, authenticated, service_role, postgres;
 GRANT ALL ON TABLE public.jobs       TO anon, authenticated, service_role, postgres;
 GRANT ALL ON TABLE public.candidates TO anon, authenticated, service_role, postgres;
+
+-- =============================================================================
+-- STEP 6: Create user_settings table for BYOK
+-- =============================================================================
+CREATE TABLE public.user_settings (
+    id                     UUID         PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id                UUID         NOT NULL UNIQUE REFERENCES public.users(id) ON DELETE CASCADE,
+    github_token_encrypted TEXT,
+    ai_provider            TEXT         NOT NULL DEFAULT 'groq'
+                                        CHECK (ai_provider IN ('groq', 'ollama')),
+    groq_api_key_encrypted TEXT,
+    ollama_base_url        TEXT,
+    created_at             TIMESTAMPTZ  NOT NULL DEFAULT NOW(),
+    updated_at             TIMESTAMPTZ  NOT NULL DEFAULT NOW()
+);
+
+CREATE TRIGGER update_user_settings_updated_at
+    BEFORE UPDATE ON public.user_settings
+    FOR EACH ROW
+    EXECUTE FUNCTION update_updated_at_column();
+
+ALTER TABLE public.user_settings DISABLE ROW LEVEL SECURITY;
+GRANT ALL ON TABLE public.user_settings TO anon, authenticated, service_role, postgres;

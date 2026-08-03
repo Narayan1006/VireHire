@@ -60,11 +60,17 @@ public class AiServiceClient {
      * @param filename original filename
      * @return List of parsed candidate output maps from Python JSON response
      */
-    public List<Map<String, Object>> callPipeline(String jobDescription, byte[] csvBytes, String filename) {
+    public List<Map<String, Object>> callPipeline(String jobDescription, byte[] csvBytes, String filename,
+                                                  String provider, String githubToken, String groqApiKey, String ollamaBaseUrl) {
         log.info("Calling Python AI service: filename={}, bytes={}, jd_length={}", filename, csvBytes.length, jobDescription.length());
 
         MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
         body.add("job_description", jobDescription);
+        
+        if (provider != null) body.add("provider", provider);
+        if (githubToken != null) body.add("github_token", githubToken);
+        if (groqApiKey != null) body.add("groq_api_key", groqApiKey);
+        if (ollamaBaseUrl != null) body.add("ollama_base_url", ollamaBaseUrl);
 
         // Named ByteArrayResource so Spring sends correct filename parameter in multipart header
         ByteArrayResource fileResource = new ByteArrayResource(csvBytes) {

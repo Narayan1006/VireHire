@@ -5,7 +5,7 @@
 # ============================================================================
 
 server:
-  port: ${SERVER_PORT:8080}
+  port: ${SERVER_PORT:8081}
   error:
     include-message: always
     include-binding-errors: always
@@ -71,6 +71,8 @@ app:
   ai-service:
     url: ${AI_SERVICE_URL:http://localhost:8000}
     timeout-minutes: ${AI_SERVICE_TIMEOUT_MINUTES:30}  # Pipeline can be slow (GPU-dependent)
+  encryption:
+    key: ${APP_ENCRYPTION_KEY:virehire-default-insecure-key-32}
 
   # ── CORS ─────────────────────────────────────────────────────────────────
   cors:

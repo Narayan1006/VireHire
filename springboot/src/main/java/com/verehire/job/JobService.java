@@ -17,6 +17,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import com.verehire.config.AESEncryptionUtil;
+import com.verehire.user.UserSettingsEntity;
+import com.verehire.user.UserSettingsRepository;
+
 /**
  * Service managing ranking jobs and pipeline execution.
  *
@@ -36,17 +40,23 @@ public class JobService {
     private final CandidateRepository candidateRepository;
     private final AiServiceClient aiServiceClient;
     private final ObjectMapper objectMapper;
+    private final UserSettingsRepository userSettingsRepository;
+    private final AESEncryptionUtil encryptionUtil;
 
     public JobService(
         JobRepository jobRepository,
         CandidateRepository candidateRepository,
         AiServiceClient aiServiceClient,
-        ObjectMapper objectMapper
+        ObjectMapper objectMapper,
+        UserSettingsRepository userSettingsRepository,
+        AESEncryptionUtil encryptionUtil
     ) {
         this.jobRepository = jobRepository;
         this.candidateRepository = candidateRepository;
         this.aiServiceClient = aiServiceClient;
         this.objectMapper = objectMapper;
+        this.userSettingsRepository = userSettingsRepository;
+        this.encryptionUtil = encryptionUtil;
     }
 
     /**
@@ -74,16 +84,24 @@ public class JobService {
 
         // Self-invocation of @Async method via Spring bean proxy is needed for @Async to intercept.
         // Spring handles proxy injection properly when called on the bean.
-        triggerAsyncPipeline(hexId, jobDescription, csvBytes, filename);
+        triggerAsyncPipeline(hexId, userId, jobDescription, csvBytes, filename);
 
         return hexId;
     }
 
     @Async("pipelineTaskExecutor")
-    public void triggerAsyncPipeline(String jobId, String jobDescription, byte[] csvBytes, String filename) {
+    public void triggerAsyncPipeline(String jobId, UUID userId, String jobDescription, byte[] csvBytes, String filename) {
         log.info("Starting background AI pipeline for jobId={}", jobId);
         try {
-            List<Map<String, Object>> candidateJsonList = aiServiceClient.callPipeline(jobDescription, csvBytes, filename);
+            UserSettingsEntity settings = userSettingsRepository.findByUserId(userId).orElse(null);
+            String provider = settings != null ? settings.getAiProvider() : null;
+            String githubToken = settings != null ? encryptionUtil.decrypt(settings.getGithubTokenEncrypted()) : null;
+            String groqApiKey = settings != null ? encryptionUtil.decrypt(settings.getGroqApiKeyEncrypted()) : null;
+            String ollamaBaseUrl = settings != null ? settings.getOllamaBaseUrl() : null;
+
+            List<Map<String, Object>> candidateJsonList = aiServiceClient.callPipeline(
+                jobDescription, csvBytes, filename, provider, githubToken, groqApiKey, ollamaBaseUrl
+            );
             savePipelineResults(jobId, candidateJsonList);
 
         } catch (Exception e) {

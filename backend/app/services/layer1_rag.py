@@ -173,6 +173,8 @@ class Layer1RAGFilter:
         top_k: int = 200,
         groq_api_key: str = "",
         groq_model: str = "llama-3.3-70b-versatile",
+        provider: str = "groq",
+        ollama_base_url: Optional[str] = None,
     ) -> List[CandidateMatch]:
         """
         Retrieve the top-K candidates using cosine similarity + optional LLM filter.
@@ -186,7 +188,8 @@ class Layer1RAGFilter:
         """
         t_start = time.time()
         # Fetch more candidates when LLM filter is available
-        fetch_multiplier = 2.5 if groq_api_key else 1.0
+        has_llm = (provider == "ollama") or (provider == "groq" and groq_api_key)
+        fetch_multiplier = 2.5 if has_llm else 1.0
         fetch_top_k = int(top_k * fetch_multiplier)
 
         logger.info(
@@ -194,7 +197,7 @@ class Layer1RAGFilter:
             top_k,
             fetch_top_k,
             len(job_description),
-            "enabled" if groq_api_key else "disabled",
+            "enabled" if has_llm else "disabled",
         )
 
         # Step 1: Embed the job description
@@ -232,10 +235,11 @@ class Layer1RAGFilter:
         scored.sort(key=lambda x: (-x[1], x[0]))
 
         # Step 4: LLM filter (if API key available)
-        if groq_api_key and len(scored) > top_k:
+        if has_llm and len(scored) > top_k:
             cosine_pool = scored[:fetch_top_k]
             llm_selected = self._llm_filter(
-                cosine_pool, job_description, top_k, groq_api_key, groq_model,
+                cosine_pool, job_description, top_k, 
+                groq_api_key, groq_model, provider, ollama_base_url
             )
             # Rebuild scored using LLM selection order, backfill from cosine
             llm_set = set(llm_selected)
@@ -287,6 +291,8 @@ class Layer1RAGFilter:
         target_count: int,
         groq_api_key: str,
         groq_model: str,
+        provider: str = "groq",
+        ollama_base_url: Optional[str] = None,
     ) -> List[str]:
         """
         Use Groq LLM to filter candidates in batches of 50.
@@ -296,9 +302,19 @@ class Layer1RAGFilter:
         from app.integrations.groq_client import GroqClient
 
         try:
+            if provider == "ollama":
+                client_url = (ollama_base_url or "http://localhost:11434").rstrip("/") + "/v1"
+                client_key = "ollama"
+                client_model = "llama3"
+            else:
+                client_url = self.settings.groq_base_url
+                client_key = groq_api_key
+                client_model = groq_model
+                
             client = GroqClient(
-                api_key=groq_api_key,
-                model=groq_model,
+                api_key=client_key,
+                model=client_model,
+                base_url=client_url,
                 max_tokens=1000,
             )
         except Exception as e:

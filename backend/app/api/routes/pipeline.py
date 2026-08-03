@@ -18,7 +18,7 @@ import pandas as pd
 
 from app.models.candidate import CandidateOutput
 from app.models.api_schemas import ErrorResponse
-from app.parsers.csv_parser import parse_csv_content, MAX_CSV_SIZE_BYTES
+from app.parsers.csv_parser import MAX_CSV_SIZE_BYTES
 from app.services.orchestrator import PipelineOrchestrator
 from app.utils.logger import get_logger
 
@@ -40,6 +40,10 @@ async def run_pipeline(
     csv_file: UploadFile = File(..., description="Candidate dataset CSV file"),
     layer1_top_k: Optional[int] = Form(200, description="Layer 1 top K candidates"),
     layer2_top_k: Optional[int] = Form(50, description="Layer 2 top K candidates"),
+    provider: Optional[str] = Form("groq", description="AI Provider (groq/ollama)"),
+    github_token: Optional[str] = Form("", description="GitHub personal access token"),
+    groq_api_key: Optional[str] = Form("", description="Groq API key"),
+    ollama_base_url: Optional[str] = Form("http://localhost:11434", description="Ollama base URL"),
 ):
     """Execute AI pipeline and return CandidateOutput[] JSON."""
     if not job_description or not job_description.strip():
@@ -104,6 +108,10 @@ async def run_pipeline(
             df=df,
             layer1_top_k=layer1_top_k,
             layer2_top_k=layer2_top_k,
+            provider=provider,
+            github_token=github_token,
+            groq_api_key=groq_api_key,
+            ollama_base_url=ollama_base_url,
         )
         logger.info("AI pipeline complete: returned %d ranked candidates", len(results))
         return results

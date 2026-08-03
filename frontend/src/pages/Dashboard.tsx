@@ -14,7 +14,6 @@ import {
   getBackendVersion,
   backendSupportsMultipartRank,
   triggerRanking,
-  uploadCandidatesCsv,
   exportCandidates,
   pollUntilComplete,
   type Candidate,
@@ -179,16 +178,16 @@ export function Dashboard() {
 
   // CSV upload
   const handleDatasetUpload = async (file: File): Promise<UploadedDataset> => {
-    const result = await uploadCandidatesCsv(file)
+    // For API >= 1.0.1, we hold the file locally and submit via multipart /api/rank
     const uploaded: UploadedDataset = {
-      filePath: result.filePath,
-      filename: result.filename,
-      validCandidates: result.validCandidates,
-      totalRows: result.totalRows,
+      filePath: '',
+      filename: file.name,
+      validCandidates: 0,
+      totalRows: 0,
     }
     setDataset(uploaded)
     setCsvFile(file)
-    showToast(`Dataset loaded: ${result.validCandidates} candidates ready.`)
+    showToast(`Dataset loaded: ${file.name} ready for analysis.`)
     return uploaded
   }
 

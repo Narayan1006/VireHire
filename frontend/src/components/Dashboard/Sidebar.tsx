@@ -3,6 +3,7 @@ import {
   Trophy,
   FileText,
   Zap,
+  Settings,
 } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
 import { cn } from '../../utils/cn'
@@ -11,6 +12,7 @@ const navItems = [
   { icon: LayoutDashboard, label: 'Dashboard', to: '/dashboard', end: true },
   { icon: Trophy, label: 'Rankings', to: '/dashboard' },
   { icon: FileText, label: 'Job Descriptions', to: '/dashboard' },
+  { icon: Settings, label: 'Settings', to: '/settings' },
 ]
 
 export function Sidebar() {

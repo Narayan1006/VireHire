@@ -4,6 +4,7 @@ import { Landing } from './pages/Landing'
 import { Dashboard } from './pages/Dashboard'
 import { CandidateDetail } from './pages/CandidateDetail'
 import { CandidateSubmit } from './pages/CandidateSubmit'
+import { Settings } from './pages/Settings'
 import { Login } from './pages/Login'
 import { Signup } from './pages/Signup'
 import { GrainOverlay } from './components/shared/GrainOverlay'
@@ -57,6 +58,14 @@ function AnimatedRoutes() {
           element={
             <ProtectedRoute>
               <motion.div {...fade} transition={transition}><CandidateDetail /></motion.div>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/settings"
+          element={
+            <ProtectedRoute>
+              <motion.div {...fade} transition={transition}><Settings /></motion.div>
             </ProtectedRoute>
           }
         />

@@ -47,6 +47,10 @@ class PipelineOrchestrator:
         df: Optional[pd.DataFrame] = None,
         layer1_top_k: Optional[int] = None,
         layer2_top_k: Optional[int] = None,
+        provider: Optional[str] = "groq",
+        github_token: Optional[str] = None,
+        groq_api_key: Optional[str] = None,
+        ollama_base_url: Optional[str] = None,
     ) -> List[CandidateOutput]:
         """
         Execute the complete 3-layer ranking pipeline.
@@ -57,6 +61,10 @@ class PipelineOrchestrator:
             df: In-memory CSV data (production uploads — no disk).
             layer1_top_k: Candidates from Layer 1 (default: 200).
             layer2_top_k: Candidates from Layer 2 to Layer 3 (default: 50).
+            provider: AI provider for Layer 1 and 3 (groq/ollama).
+            github_token: User's GitHub token.
+            groq_api_key: User's Groq API key.
+            ollama_base_url: User's Ollama URL.
 
         Returns:
             Ranked list of CandidateOutput with verdicts.
@@ -83,7 +91,8 @@ class PipelineOrchestrator:
         t_start = time.time()
         try:
             layer1_results = self._run_layer1(
-                job_description, csv_path, df, layer1_top_k
+                job_description, csv_path, df, layer1_top_k,
+                provider=provider, groq_api_key=groq_api_key, ollama_base_url=ollama_base_url
             )
         except Exception as e:
             logger.error("Layer 1 failed: %s", str(e))
@@ -102,7 +111,10 @@ class PipelineOrchestrator:
         # ── Layer 2: Evidence Verification ────────────────────────
         t_start = time.time()
         try:
-            layer2_results = self._run_layer2(layer1_results, job_description)
+            layer2_results = self._run_layer2(
+                layer1_results, job_description,
+                github_token=github_token, provider=provider, groq_api_key=groq_api_key, ollama_base_url=ollama_base_url
+            )
         except Exception as e:
             logger.error("Layer 2 failed: %s", str(e))
             # Fallback: pass L1 results directly to L3 with zero scores
@@ -118,7 +130,8 @@ class PipelineOrchestrator:
         t_start = time.time()
         try:
             layer3_results = self._run_layer3(
-                layer2_results, layer2_top_k
+                layer2_results, layer2_top_k,
+                provider=provider, groq_api_key=groq_api_key, ollama_base_url=ollama_base_url
             )
         except Exception as e:
             logger.error("Layer 3 failed: %s", str(e))
@@ -163,6 +176,9 @@ class PipelineOrchestrator:
         csv_path: Optional[str],
         df: Optional[pd.DataFrame],
         top_k: int,
+        provider: str = "groq",
+        groq_api_key: Optional[str] = None,
+        ollama_base_url: Optional[str] = None,
     ) -> list:
         """Run Layer 1: CSV parsing + embedding + ChromaDB retrieval + LLM filter."""
         from app.services.layer1_rag import Layer1RAGFilter
@@ -175,31 +191,38 @@ class PipelineOrchestrator:
         results = rag.retrieve_top_candidates(
             job_description=job_description,
             top_k=top_k,
-            groq_api_key=self.settings.groq_api_key,
+            groq_api_key=groq_api_key or self.settings.groq_api_key,
             groq_model=self.settings.groq_model,
         )
 
         return results
 
-    def _run_layer2(self, candidates: list, job_description: str = "") -> list:
+    def _run_layer2(self, candidates: list, job_description: str = "", github_token: Optional[str] = None,
+                    provider: str = "groq", groq_api_key: Optional[str] = None, ollama_base_url: Optional[str] = None) -> list:
         """Run Layer 2: Evidence extraction + math scoring + LLM analysis."""
         from app.services.layer2_evidence import EvidenceExtractor
 
         extractor = EvidenceExtractor(
-            github_token=self.settings.github_token,
+            github_token=github_token or self.settings.github_token,
             parallel_workers=self.settings.parallel_workers,
-            groq_api_key=self.settings.groq_api_key,
+            groq_api_key=groq_api_key or self.settings.groq_api_key,
             groq_model=self.settings.groq_model,
             job_description=job_description,
         )
 
         return extractor.process_candidates(candidates)
 
-    def _run_layer3(self, scored_candidates: list, top_k: int) -> list:
+    def _run_layer3(self, scored_candidates: list, top_k: int, provider: str = "groq",
+                    groq_api_key: Optional[str] = None, ollama_base_url: Optional[str] = None) -> list:
         """Run Layer 3: LLM explanation generation."""
         from app.services.layer3_llm import Layer3LLMReasoner
 
-        reasoner = Layer3LLMReasoner(self.settings)
+        reasoner = Layer3LLMReasoner(
+            self.settings, 
+            provider=provider, 
+            groq_api_key=groq_api_key, 
+            ollama_base_url=ollama_base_url
+        )
         return reasoner.generate_explanations(
             scored_candidates, top_k=top_k
         )

@@ -503,9 +503,10 @@ class EvidenceExtractor:
         self,
         github_token: str = "",
         parallel_workers: int = 15,
-        groq_api_key: str = "",
         groq_model: str = "llama-3.3-70b-versatile",
         job_description: str = "",
+        provider: str = "groq",
+        ollama_base_url: Optional[str] = None,
     ):
         from app.integrations.github_client import GitHubClient
         from app.integrations.leetcode_client import LeetCodeClient
@@ -520,6 +521,8 @@ class EvidenceExtractor:
         self.groq_api_key = groq_api_key
         self.groq_model = groq_model
         self.job_description = job_description
+        self.provider = provider
+        self.ollama_base_url = ollama_base_url
 
     # ── Main Entry Point ──────────────────────────────────────────
 
@@ -598,8 +601,9 @@ class EvidenceExtractor:
             elapsed / len(candidates) if candidates else 0,
         )
 
-        # Step 2: LLM analysis on top 50 (if Groq available)
-        if self.groq_api_key and self.job_description:
+        # Step 2: LLM analysis on top 50 (if LLM is available)
+        has_llm = (self.provider == "ollama") or (self.provider == "groq" and self.groq_api_key)
+        if has_llm and self.job_description:
             scored_candidates = self._apply_llm_analysis(scored_candidates)
 
         return scored_candidates
@@ -615,9 +619,19 @@ class EvidenceExtractor:
         from app.models.ranking import ScoredCandidate
 
         try:
+            if self.provider == "ollama":
+                client_url = (self.ollama_base_url or "http://localhost:11434").rstrip("/") + "/v1"
+                client_key = "ollama"
+                client_model = "llama3"
+            else:
+                client_url = "https://api.groq.com/openai/v1"
+                client_key = self.groq_api_key
+                client_model = self.groq_model
+                
             client = GroqClient(
-                api_key=self.groq_api_key,
-                model=self.groq_model,
+                api_key=client_key,
+                model=client_model,
+                base_url=client_url,
                 max_tokens=1500,
             )
         except Exception as e:

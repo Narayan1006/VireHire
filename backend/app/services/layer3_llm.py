@@ -32,12 +32,23 @@ class Layer3LLMReasoner:
     candidates using Groq API (Llama 3).
     """
 
-    def __init__(self, settings: Optional[Settings] = None):
+    def __init__(self, settings: Optional[Settings] = None, provider: str = "groq", 
+                 groq_api_key: Optional[str] = None, ollama_base_url: Optional[str] = None):
         self.settings = settings or get_settings()
+        
+        if provider == "ollama":
+            base_url = (ollama_base_url or "http://localhost:11434").rstrip("/") + "/v1"
+            api_key = "ollama"
+            model = "llama3" # Default Ollama model
+        else:
+            base_url = self.settings.groq_base_url
+            api_key = groq_api_key or self.settings.groq_api_key
+            model = self.settings.groq_model
+
         self.groq_client = GroqClient(
-            api_key=self.settings.groq_api_key,
-            model=self.settings.groq_model,
-            base_url=self.settings.groq_base_url,
+            api_key=api_key,
+            model=model,
+            base_url=base_url,
             max_tokens=self.settings.groq_max_tokens,
         )
 
