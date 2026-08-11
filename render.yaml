@@ -1,9 +1,5 @@
 # =============================================================================
-# VireHire AI — Render Deployment Configuration
-# =============================================================================
-# This file defines all three services for deployment on Render.com
-# Deploy via: https://dashboard.render.com → New → Blueprint
-# Or connect this repo and Render will auto-detect this file.
+# VireHire AI — Render Deployment Configuration (Firebase Firestore)
 # =============================================================================
 
 services:
@@ -17,14 +13,10 @@ services:
     plan: free
     healthCheckPath: /api/health
     envVars:
-      - key: JDBC_URL
-        sync: false          # Set manually in Render dashboard (jdbc:postgresql://... format)
-      - key: DB_USERNAME
-        sync: false
-      - key: DB_PASSWORD
-        sync: false
+      - key: FIREBASE_CREDENTIALS_JSON
+        sync: false          # Raw JSON contents of serviceAccountKey.json
       - key: JWT_SECRET
-        sync: false
+        sync: false          # Secret string for JWT token signing
       - key: JWT_EXPIRATION_MS
         value: "86400000"
       - key: APP_ENCRYPTION_KEY
@@ -37,11 +29,9 @@ services:
       - key: AI_SERVICE_TIMEOUT_MINUTES
         value: "30"
       - key: CORS_ALLOWED_ORIGINS
-        sync: false          # Set to your Vercel frontend URL after deploy
+        value: "https://virehire-cdd94.web.app"
       - key: LOG_LEVEL
         value: "INFO"
-      - key: JPA_SHOW_SQL
-        value: "false"
 
   # ── Python AI Service ───────────────────────────────────────────────────────
   - type: web
@@ -52,18 +42,16 @@ services:
     plan: free
     healthCheckPath: /api/health
     envVars:
-      - key: DATABASE_URL
-        sync: false          # Same Neon URL as Spring Boot
+      - key: FIREBASE_CREDENTIALS_JSON
+        sync: false          # Same raw Firebase JSON
       - key: JWT_SECRET
         sync: false
       - key: AUTH_ENABLED
         value: "true"
       - key: GROQ_API_KEY
         sync: false
-      - key: GITHUB_TOKEN
-        sync: false
       - key: CORS_ORIGINS
-        sync: false          # Set to Spring Boot Render URL + Vercel frontend URL
+        value: "https://virehire-cdd94.web.app"
       - key: LOG_LEVEL
         value: "INFO"
       - key: DEBUG
