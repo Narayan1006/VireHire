@@ -1,10 +1,17 @@
 # VeriHire AI
 
-**Evidence-backed hiring intelligence — rank candidates by proven GitHub and LeetCode signals, not resume keywords.**
+**Evidence-backed hiring intelligence — rank candidates by proven engineering signals and multi-layered AI analysis, not resume keywords.**
 
-![VeriHire AI Architecture](docs/architecture.png) *(Note: Replace with actual image if available)*
+---
 
-VeriHire AI is a microservices-based platform built for technical recruiters and engineering teams. It evaluates candidates by running a **3-Layer AI Pipeline** that extracts semantic meaning from resumes, cross-references claims against live developer platforms (GitHub, LeetCode), and generates detailed, reasoning-backed verdicts using LLMs.
+## 🌐 Live Production Links
+
+| Service | Stack | Live URL |
+|---|---|---|
+| **React Frontend** | Firebase Hosting | 🔗 **[https://virehire-cdd94.web.app](https://virehire-cdd94.web.app)** |
+| **Core API** | Java 21, Spring Boot 3 | 🔗 **[https://virehire-api-ty18.onrender.com](https://virehire-api-ty18.onrender.com)** |
+| **AI Microservice** | Python 3.14, FastAPI | 🔗 **[https://virehire-python-ai-ty18.onrender.com](https://virehire-python-ai-ty18.onrender.com)** |
+| **Database** | Google Firebase Firestore | 📦 `virehire-cdd94` |
 
 ---
 
@@ -15,24 +22,26 @@ The platform uses a modern microservices architecture and a **Bring Your Own Key
 1. **Frontend (React SPA)**
    - Premium, interactive architecture showcase landing page.
    - Built with React 19, Vite, Tailwind CSS, and Framer Motion.
+   - Deployed on **Firebase Hosting**.
    - Recruiter dashboard for configuring API keys, uploading candidate CSVs, and viewing detailed ranking reports.
 2. **Spring Boot API (Core Backend)**
-   - Manages Authentication (JWT), Job configurations, and Candidate data.
+   - Manages Authentication (JWT) and User account data persisted in **Google Cloud Firestore**.
    - Handles the **BYOK secure storage**: User-provided GitHub and Groq API keys are encrypted at rest using AES-256 and decrypted in memory only when triggering the AI pipeline.
 3. **Python AI Microservice (Stateless Pipeline)**
    - Fast, stateless pipeline built with FastAPI.
-   - **Layer 1 (Semantic Retrieval)**: Uses ChromaDB and `sentence-transformers` to match resumes against job descriptions.
-   - **Layer 2 (Evidence Verification)**: Fetches live data from GitHub APIs using the recruiter's injected token.
+   - **Layer 1 (Semantic Retrieval)**: Uses ChromaDB and `sentence-transformers` embeddings to match candidate resumes against job descriptions.
+   - **Layer 2 (Evidence Verification)**: Mathematical scoring and consistency verification of developer profiles.
    - **Layer 3 (LLM Reasoning)**: Uses Groq (Llama 3) to generate the final HIRE / REVIEW / REJECT verdicts.
+   - Persists ranked candidates to **Firestore** under document collections (`/jobs/{job_id}/candidates`).
 
 ---
 
 ## 🚀 Key Features
 
-- 🎯 **3-Layer AI Pipeline**: RAG + External API Evidence + LLM Reasoning.
-- 🔐 **Bring Your Own Keys (BYOK)**: Recruiters supply their own Groq and GitHub keys via the UI. Keys are AES-256 encrypted in PostgreSQL.
-- 🐳 **Dockerized**: Fully containerized with Docker Compose for seamless deployment.
-- ⚡ **GPU Acceleration**: The Python service automatically detects CUDA for lightning-fast embedding generation.
+- 🎯 **3-Layer AI Pipeline**: RAG + Evidence Scoring + LLM Reasoning.
+- 📱 **Google Firebase Firestore**: Serverless NoSQL document database replacing relational PostgreSQL.
+- 🔐 **Bring Your Own Keys (BYOK)**: Recruiters supply their own Groq and GitHub keys via the UI, encrypted with AES-256.
+- 🐳 **Dockerized**: Fully containerized for seamless deployment.
 - 📊 **Real-time Dashboard**: Upload CSVs, track background pipeline progress, and drill down into developer portfolios.
 
 ---
@@ -42,62 +51,37 @@ The platform uses a modern microservices architecture and a **Bring Your Own Key
 | Component | Technology |
 |---|---|
 | **Frontend** | React 19, TypeScript, Vite, Tailwind, Framer Motion |
-| **Core API** | Java 21, Spring Boot 3, Spring Security, Hibernate |
-| **AI Service** | Python 3.10+, FastAPI, ChromaDB, Groq, Pandas |
-| **Database** | PostgreSQL (Supabase) |
-| **Deployment** | Docker, Nginx, Render Web Services |
+| **Core API** | Java 21, Spring Boot 3, Spring Security, Firebase Admin SDK |
+| **AI Service** | Python 3.14, FastAPI, Firebase Admin SDK, ChromaDB, Groq |
+| **Database** | Google Cloud Firestore NoSQL |
+| **Deployment** | Firebase Hosting, Render Web Services (Docker) |
 
 ---
 
-## 💻 Local Development (Docker Compose)
+## 💻 Local Development
 
-The easiest way to run the entire stack locally is using Docker Compose.
-
-### 1. Configure Environments
-Clone the repository and copy the environment template:
+### 1. Environment Configuration
+Copy `.env.example` to `.env`:
 ```bash
 cp .env.example .env
 ```
 
-Edit `.env` and provide your **Supabase PostgreSQL credentials**, a **JWT Secret** (min 32 chars), and an **AES Encryption Key** (exactly 32 chars).
+Provide your **Firebase Service Account Key path** (`FIREBASE_CREDENTIALS_PATH`), a **JWT Secret** (min 32 chars), and an **AES Encryption Key** (32 chars).
 
-*Note: You do NOT put your Groq or GitHub keys in the `.env` file. You will enter them in the Web UI later.*
-
-### 2. Start the Stack
+### 2. Start Services
 ```bash
-docker compose up --build -d
+# Start Python AI Backend
+cd backend
+python -m uvicorn app.main:app --reload --port 8000
+
+# Start Spring Boot Backend
+cd springboot
+./mvnw.cmd spring-boot:run
+
+# Start React Frontend
+cd frontend
+npm run dev
 ```
-This spins up three containers:
-- `frontend` (Nginx + React) on `http://localhost:80` (or `http://localhost:5173` if running dev server)
-- `springboot` (API) on `http://localhost:8080`
-- `python-ai` (Pipeline) on `http://localhost:8000`
-
-### 3. Usage
-1. Open your browser and navigate to the frontend.
-2. Sign up for an account.
-3. Navigate to **Settings** and enter your GitHub PAT and Groq API Key.
-4. Go to the **Dashboard**, enter a Job Description, and upload a `candidates.csv` file.
-
----
-
-## ☁️ Production Deployment (Render)
-
-To deploy to a cloud provider like Render:
-
-1. **Deploy Python AI Service**
-   - Environment: Docker
-   - Root Directory: `backend`
-   - Env Vars: `CORS_ORIGINS=*`, `CHROMADB_PATH=/app/data/chroma_db`
-
-2. **Deploy Spring Boot Service**
-   - Environment: Docker
-   - Root Directory: `springboot`
-   - Env Vars: Include your Supabase credentials, `JWT_SECRET`, `APP_ENCRYPTION_KEY`, and set `AI_SERVICE_URL` to the URL of your deployed Python service.
-
-3. **Deploy Frontend**
-   - Build Command: `npm install && npm run build`
-   - Publish Directory: `dist`
-   - Env Vars: `VITE_API_BASE_URL` pointing to your Spring Boot service URL.
 
 ---
 
