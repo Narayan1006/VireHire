@@ -21,7 +21,7 @@ spring:
 
   # ── Database (Neon PostgreSQL) ──────────────────────────────────────
   datasource:
-    url: ${JDBC_URL:jdbc:h2:file:./data/verehiredb;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE}
+    url: ${JDBC_URL:jdbc:h2:mem:verehiredb;DB_CLOSE_DELAY=-1}
     username: ${DB_USERNAME:sa}
     password: ${DB_PASSWORD:}
     driver-class-name: ${DB_DRIVER:org.h2.Driver}
