@@ -5,7 +5,7 @@ import { Database, FileText, Server, Brain, Activity, Search, LineChart, Code2, 
 const steps = [
   { icon: FileText, title: 'CSV Upload', desc: 'Recruiter uploads a dataset of candidates', color: 'text-zinc-600', bg: 'bg-zinc-100' },
   { icon: Server, title: 'Spring Boot Backend', desc: 'REST API handles multipart upload and auth', color: 'text-emerald-600', bg: 'bg-emerald-100' },
-  { icon: Database, title: 'PostgreSQL & Supabase', desc: 'Stores Job metadata and async job state', color: 'text-indigo-600', bg: 'bg-indigo-100' },
+  { icon: Database, title: 'Neon PostgreSQL', desc: 'Stores Job metadata and async job state', color: 'text-teal-600', bg: 'bg-teal-100' },
   { icon: Cpu, title: 'Python AI Service', desc: 'Stateless FastAPI engine receives job payload', color: 'text-blue-600', bg: 'bg-blue-100' },
   { icon: Search, title: 'Layer 1: Semantic Retrieval', desc: 'ChromaDB filters out irrelevant resumes', color: 'text-violet-600', bg: 'bg-violet-100' },
   { icon: Code2, title: 'Layer 2: Evidence Verification', desc: 'Queries GitHub, LeetCode, and Codeforces', color: 'text-orange-600', bg: 'bg-orange-100' },

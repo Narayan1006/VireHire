@@ -1,6 +1,7 @@
 package com.verehire.auth;
 
 import com.verehire.exception.ApiException;
+import com.verehire.user.FirestoreUserRepository;
 import com.verehire.user.UserEntity;
 import com.verehire.user.UserRepository;
 import org.slf4j.Logger;
@@ -21,11 +22,11 @@ public class AuthService {
 
     private static final Logger log = LoggerFactory.getLogger(AuthService.class);
 
-    private final UserRepository userRepository;
+    private final FirestoreUserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtUtil jwtUtil;
 
-    public AuthService(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtUtil jwtUtil) {
+    public AuthService(FirestoreUserRepository userRepository, PasswordEncoder passwordEncoder, JwtUtil jwtUtil) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtUtil = jwtUtil;

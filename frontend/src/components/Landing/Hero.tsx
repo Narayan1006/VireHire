@@ -21,7 +21,7 @@ const badges = [
   'Spring Boot',
   'React',
   'Python AI',
-  'Supabase PostgreSQL',
+  'Neon PostgreSQL',
   'JWT',
   'Docker',
   'ChromaDB',

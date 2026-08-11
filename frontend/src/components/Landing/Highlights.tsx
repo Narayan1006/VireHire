@@ -6,7 +6,7 @@ const features = [
   { icon: Lock, title: 'JWT Authentication', desc: 'Stateless authentication via Spring Security with RSA-signed JSON Web Tokens and BCrypt password hashing.' },
   { icon: Laptop, title: 'Python AI Microservice', desc: 'FastAPI backend decoupled from the monolith to handle heavy asynchronous inference tasks efficiently.' },
   { icon: RefreshCw, title: 'Asynchronous Processing', desc: 'Background job orchestration using Spring @Async, preventing timeout issues on long LLM inference calls.' },
-  { icon: Database, title: 'Supabase PostgreSQL', desc: 'Relational data modeling for Users, Jobs, and encrypted Settings, managed with Hibernate JPA.' },
+  { icon: Database, title: 'Neon PostgreSQL', desc: 'Relational data modeling for Users, Jobs, and encrypted Settings, managed with Hibernate JPA.' },
   { icon: Box, title: 'Docker Compose', desc: 'Containerized infrastructure for seamless orchestration of the frontend, backend, and ChromaDB vector store.' }, // Note: we'll import Box
   { icon: FileJson, title: 'Swagger OpenAPI', desc: 'Auto-generated API documentation for both Spring Boot and FastAPI, facilitating clean client code generation.' },
   { icon: Database, title: 'CSV Candidate Processing', desc: 'Scalable multipart file ingestion and pandas dataframe processing for large resume datasets.' },

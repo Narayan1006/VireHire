@@ -12,9 +12,9 @@ import org.springframework.test.context.TestPropertySource;
  */
 @SpringBootTest
 @TestPropertySource(properties = {
-    "SUPABASE_JDBC_URL=jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1",
-    "SUPABASE_DB_USERNAME=sa",
-    "SUPABASE_DB_PASSWORD=",
+    "JDBC_URL=jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1",
+    "DB_USERNAME=sa",
+    "DB_PASSWORD=",
     "JWT_SECRET=test-secret-min-32-chars-for-hmac-sha256-test",
     "AI_SERVICE_URL=http://localhost:9999"
 })

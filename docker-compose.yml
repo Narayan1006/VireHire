@@ -8,7 +8,7 @@
 #
 # Prerequisites:
 #   1. Copy .env.example to .env at project root
-#   2. Fill in SUPABASE_JDBC_URL, SUPABASE_DB_PASSWORD, JWT_SECRET, APP_ENCRYPTION_KEY
+#   2. Fill in DATABASE_URL, DB_PASSWORD, JWT_SECRET, APP_ENCRYPTION_KEY
 #   3. docker compose up --build -d
 #
 # Note: AI Provider keys (Groq/GitHub) are no longer required here.
@@ -76,10 +76,10 @@ services:
     ports:
       - "8080:8080"
     environment:
-      # Supabase PostgreSQL
-      SUPABASE_JDBC_URL: ${SUPABASE_JDBC_URL}
-      SUPABASE_DB_USERNAME: ${SUPABASE_DB_USERNAME:-postgres}
-      SUPABASE_DB_PASSWORD: ${SUPABASE_DB_PASSWORD}
+      # Neon PostgreSQL
+      DATABASE_URL: ${DATABASE_URL}
+      DB_USERNAME: ${DB_USERNAME:-postgres}
+      DB_PASSWORD: ${DB_PASSWORD}
       # Security (JWT & BYOK Encryption)
       JWT_SECRET: ${JWT_SECRET}
       JWT_EXPIRATION_MS: ${JWT_EXPIRATION_MS:-86400000}

@@ -21,13 +21,13 @@ const nodes = [
     color: 'bg-emerald-100 text-emerald-600 border-emerald-200'
   },
   {
-    id: 'supabase',
-    title: 'Supabase PostgreSQL',
+    id: 'neon',
+    title: 'Neon PostgreSQL',
     icon: Database,
-    desc: 'Stores users, settings (AES-256 encrypted), and job states.',
+    desc: 'Serverless PostgreSQL — stores users, settings (AES-256 encrypted), and job states.',
     col: 2,
     row: 2,
-    color: 'bg-indigo-100 text-indigo-600 border-indigo-200'
+    color: 'bg-teal-100 text-teal-600 border-teal-200'
   },
   {
     id: 'python',

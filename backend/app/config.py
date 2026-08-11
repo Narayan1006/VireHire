@@ -58,20 +58,22 @@ class Settings(BaseSettings):
             if origin.strip()
         ]
 
-    # ── Auth (Supabase) ────────────────────────────────────────────
+    # ── Firebase / Firestore ──────────────────────────────────────
     auth_enabled: bool = Field(
         default=True,
-        description=(
-            "Set to false to disable auth (dev/test only). "
-            "If true, SUPABASE_URL and JWT_SECRET are required at startup."
-        ),
+        description="Set to false to disable auth (dev/test only)."
     )
-    supabase_url: str = Field(default="", description="Supabase project URL")
-    supabase_anon_key: str = Field(default="", description="Supabase anon/public key")
-    supabase_service_role_key: str = Field(default="", description="Supabase service role key (for backend operations, bypasses RLS)")
+    firebase_credentials_json: str = Field(
+        default="",
+        description="Raw JSON string of Firebase service account key"
+    )
+    firebase_credentials_path: str = Field(
+        default="",
+        description="Path to Firebase serviceAccountKey.json"
+    )
     jwt_secret: str = Field(
         default="",
-        description="Supabase JWT secret (Settings → API → JWT Secret)",
+        description="Spring Boot JWT secret for HS256 verification (min 32 chars)"
     )
 
     # ── Data Paths ─────────────────────────────────────────────────

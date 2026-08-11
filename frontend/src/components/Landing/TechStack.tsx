@@ -8,7 +8,7 @@ const stack = [
   { name: 'Spring Boot', icon: Server, color: 'text-green-600' },
   { name: 'Spring Security', icon: Shield, color: 'text-emerald-700' },
   { name: 'JWT', icon: Key, color: 'text-purple-600' },
-  { name: 'Supabase PostgreSQL', icon: Database, color: 'text-emerald-500' },
+  { name: 'Neon PostgreSQL', icon: Database, color: 'text-teal-500' },
   { name: 'Python', icon: Terminal, color: 'text-yellow-600' },
   { name: 'FastAPI', icon: Zap, color: 'text-teal-600' },
   { name: 'ChromaDB', icon: Box, color: 'text-orange-500' },

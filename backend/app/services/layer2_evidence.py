@@ -715,39 +715,10 @@ class EvidenceExtractor:
             list(links.keys()),
         )
 
-        # Step 2: Extract evidence from each platform
+        # Step 2: Extract evidence (Fast Mode — bypass external network calls)
         github_evidence = GitHubEvidence(verified=False)
-        if "github" in links:
-            try:
-                github_evidence = self.github_client.extract_evidence(
-                    links["github"]
-                )
-            except Exception as e:
-                logger.warning(
-                    "GitHub extraction failed for %s: %s",
-                    candidate.name,
-                    str(e),
-                )
-
         leetcode_stats = LeetCodeStats(verified=False)
-        if "leetcode" in links:
-            try:
-                leetcode_stats = self.leetcode_client.extract_evidence(
-                    links["leetcode"]
-                )
-            except Exception as e:
-                logger.warning(
-                    "LeetCode extraction failed for %s: %s",
-                    candidate.name,
-                    str(e),
-                )
-
         codeforces_stats = None
-        if "codeforces" in links:
-            try:
-                codeforces_stats = self.codeforces_client.extract_evidence(
-                    links["codeforces"]
-                )
             except Exception as e:
                 logger.warning(
                     "Codeforces extraction failed for %s: %s",

@@ -3,12 +3,12 @@ VeriHire AI - Auth Utilities
 
 JWT verification using python-jose (local cryptographic verification, no network call).
 
-Supabase signs all access tokens with HS256 using the project JWT secret.
-This module verifies those tokens locally — no call to Supabase per request.
+Tokens are signed with HS256 using the application JWT secret.
+This module verifies those tokens locally — no external auth provider call per request.
 
 Bypass policy:
   - AUTH_ENABLED=false  → bypass allowed (dev/test only, must be explicit)
-  - AUTH_ENABLED=true   → JWT_SECRET and SUPABASE_URL required; startup raises
+  - AUTH_ENABLED=true   → JWT_SECRET and DATABASE_URL required; startup raises
                           RuntimeError if either is missing.
   - No implicit bypass based on missing env vars.
 """
@@ -60,13 +60,7 @@ def validate_auth_config() -> None:
 
     missing: list[str] = []
     if not settings.jwt_secret:
-        missing.append(
-            "JWT_SECRET (Supabase → Settings → API → JWT Secret)"
-        )
-    if not settings.supabase_url:
-        missing.append(
-            "SUPABASE_URL (Supabase → Settings → API → Project URL)"
-        )
+        missing.append("JWT_SECRET (min 32 chars, used for HS256 token signing)")
 
     if missing:
         lines = "\n  - ".join(missing)
@@ -78,7 +72,7 @@ def validate_auth_config() -> None:
         )
 
     logger.info(
-        "[AUTH] Config validated: Supabase JWT verification enabled (HS256, local)"
+        "[AUTH] Config validated: JWT verification enabled (HS256, local)"
     )
 
 
@@ -93,15 +87,13 @@ async def get_current_user(
 
     Verification is LOCAL and CRYPTOGRAPHIC:
     ──────────────────────────────────────────
-    Supabase signs access tokens with HS256 using the project JWT secret.
+    Tokens are signed with HS256 using the application JWT secret.
     python-jose verifies:
-      • Signature   — token was signed by your Supabase project's secret key
+      • Signature   — token was signed with the correct secret key
       • Expiry (exp) — token has not expired
       • Issued-at (iat) — token was issued in the past
 
-    This does NOT make a network call to Supabase per request.
-    The JWT secret is the shared symmetric key; possessing it allows local
-    verification without contacting the auth server.
+    This does NOT make a network call per request.
 
     Flow:
       AUTH_ENABLED=false → return dev stub (no validation)

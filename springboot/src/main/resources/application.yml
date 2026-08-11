@@ -19,12 +19,12 @@ spring:
     property-naming-strategy: SNAKE_CASE   # accessToken -> access_token, prScore -> pr_score
     default-property-inclusion: NON_NULL    # Omit null fields from responses
 
-  # ── Database (Supabase as plain PostgreSQL) ──────────────────────────────
+  # ── Database (Neon PostgreSQL) ──────────────────────────────────────
   datasource:
-    url: ${SUPABASE_JDBC_URL}
-    username: ${SUPABASE_DB_USERNAME:postgres}
-    password: ${SUPABASE_DB_PASSWORD}
-    driver-class-name: org.postgresql.Driver
+    url: ${JDBC_URL:jdbc:h2:file:./data/verehiredb;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE}
+    username: ${DB_USERNAME:sa}
+    password: ${DB_PASSWORD:}
+    driver-class-name: ${DB_DRIVER:org.h2.Driver}
     hikari:
       pool-name: VereHirePool
       maximum-pool-size: ${DB_POOL_SIZE:10}
@@ -36,7 +36,7 @@ spring:
   # ── JPA / Hibernate ───────────────────────────────────────────────────────
   jpa:
     hibernate:
-      ddl-auto: none   # Schema is managed manually via database/schema.sql
+      ddl-auto: update   # Auto-create tables (users, jobs, candidates, user_settings)
     show-sql: ${JPA_SHOW_SQL:false}
     open-in-view: false
     properties:

@@ -93,7 +93,12 @@ public class JobService {
     public void triggerAsyncPipeline(String jobId, UUID userId, String jobDescription, byte[] csvBytes, String filename) {
         log.info("Starting background AI pipeline for jobId={}", jobId);
         try {
-            UserSettingsEntity settings = userSettingsRepository.findByUserId(userId).orElse(null);
+            UserSettingsEntity settings = null;
+            try {
+                settings = userSettingsRepository.findByUserId(userId).orElse(null);
+            } catch (Exception e) {
+                log.debug("No user settings found or repository query skipped: {}", e.getMessage());
+            }
             String provider = settings != null ? settings.getAiProvider() : null;
             String githubToken = settings != null ? encryptionUtil.decrypt(settings.getGithubTokenEncrypted()) : null;
             String groqApiKey = settings != null ? encryptionUtil.decrypt(settings.getGroqApiKeyEncrypted()) : null;

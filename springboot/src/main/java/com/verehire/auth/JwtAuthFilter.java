@@ -1,14 +1,14 @@
 package com.verehire.auth;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.verehire.user.FirestoreUserRepository;
 import com.verehire.user.UserEntity;
-import com.verehire.user.UserRepository;
 import io.jsonwebtoken.JwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -28,7 +28,7 @@ import java.util.UUID;
  *
  * Runs once per request. Extracts the Bearer token from the Authorization
  * header, validates the signature and expiry via JwtUtil, loads the user
- * from the database, and populates the Spring SecurityContext.
+ * from Firestore, and populates the Spring SecurityContext.
  */
 @Component
 public class JwtAuthFilter extends OncePerRequestFilter {
@@ -36,9 +36,9 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     private static final Logger log = LoggerFactory.getLogger(JwtAuthFilter.class);
 
     private final JwtUtil jwtUtil;
-    private final UserRepository userRepository;
+    private final FirestoreUserRepository userRepository;
 
-    public JwtAuthFilter(JwtUtil jwtUtil, UserRepository userRepository) {
+    public JwtAuthFilter(JwtUtil jwtUtil, FirestoreUserRepository userRepository) {
         this.jwtUtil = jwtUtil;
         this.userRepository = userRepository;
     }
@@ -72,7 +72,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
                     log.debug("Authenticated user: {} ({})", email, userId);
                 } else {
-                    log.debug("JWT valid but user not found: {}", userId);
+                    log.debug("JWT valid but user not found in Firestore: {}", userId);
                 }
 
             } catch (JwtException e) {
