@@ -1,3 +1,0 @@
-# This directory holds:
-# - resume_data_for_ranking.csv (Kaggle dataset)
-# - chroma_db/ (ChromaDB persistence, auto-created)

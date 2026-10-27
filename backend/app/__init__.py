@@ -1,1 +1,0 @@
-# VeriHire AI Backend Application

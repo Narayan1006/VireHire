@@ -1,0 +1,20 @@
+name: Keepalive Ping
+
+on:
+  schedule:
+    # Run every 3 days at 00:00 UTC to prevent free tier spin-down
+    - cron: "0 0 */3 * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    name: Ping API Health
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping API Health Endpoint
+        run: |
+          if [ -z "${{ vars.API_HEALTH_URL }}" ]; then
+            echo "Repository variable API_HEALTH_URL is not configured."
+            exit 1
+          fi
+          curl -fsS "${{ vars.API_HEALTH_URL }}"

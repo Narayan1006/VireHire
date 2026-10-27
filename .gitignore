@@ -1,57 +1,66 @@
-# Dependencies
-node_modules/
-frontend/node_modules/
-
-# Build
-dist/
-frontend/dist/
-dist-ssr/
-
-# Environment
-.env
-.env.local
-.env.*.local
-backend/.env
-frontend/.env
-
 # Python
-backend/venv/
-backend/.venv/
 __pycache__/
 *.py[cod]
-backend/.pytest_cache/
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
 *.egg-info/
+.installed.cfg
+*.egg
+.venv
+venv/
+ENV/
+.pytest_cache/
+.ruff_cache/
 
-# Data & uploads
-backend/data/chroma_db/
-backend/data/bench_chroma_db/
-backend/data/test_chroma_db/
-backend/data/test_layer1_db/
-backend/data/uploads/*
-!backend/data/uploads/.gitkeep
-!backend/data/.gitkeep
-
-# Logs
-logs/
-*.log
+# Node
+node_modules/
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-debug.log*
 
-# OS & IDE
+# Build outputs
+apps/web/dist/
+apps/web/dist-ssr/
+*.tsbuildinfo
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*serviceAccountKey*.json
+
+# Database files
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.mv.db
+*.trace.db
+
+# IDE & OS
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 .DS_Store
 Thumbs.db
-.vscode/*
-!.vscode/extensions.json
-.idea/
-*.suo
-*.sw?
-
-# Large media (use Git LFS or host separately if needed)
-# frontend/public/videos/*.mp4
-
-# Cursor / local
-.cursor/
-.kiro/
-
-# Docs build artifacts
-docs/node_modules/
-docs/package-lock.json
