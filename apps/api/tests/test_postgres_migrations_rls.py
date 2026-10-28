@@ -8,7 +8,9 @@ import urllib.parse
 from alembic import command
 from alembic.config import Config
 import pytest
-from sqlalchemy import create_engine, text
+from sqlalchemy import text
+
+from app.database import build_engine
 
 LOCAL_DOCKER_DB_URL = "postgresql+psycopg://postgres:password@localhost:5433/verihire"
 
@@ -27,9 +29,10 @@ def test_postgres_migrations_and_rls_on_local_docker():
 
     is_ci = os.environ.get("CI", "").strip().lower() in ("true", "1") or os.environ.get("REQUIRE_POSTGRES", "").strip().lower() in ("true", "1")
     try:
-        engine = create_engine(test_db_url, connect_args={"prepare_threshold": None})
+        engine = build_engine(test_db_url)
         with engine.connect() as conn:
             conn.execute(text("SELECT 1"))
+
     except Exception as exc:
         if is_ci:
             pytest.fail(f"PostgreSQL database unreachable in CI ({type(exc).__name__}: {exc}). Skipping is forbidden.")

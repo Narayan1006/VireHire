@@ -12,7 +12,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import StaticPool
 
-from app.database import Base
+from app.database import Base, build_engine
 from app.models import Candidate, Job, User
 from app.security import hash_password
 from app.services.embedding import compute_embeddings
@@ -142,7 +142,7 @@ def test_hybrid_retrieval_postgres_live():
 
     is_ci = os.environ.get("CI", "").strip().lower() in ("true", "1") or os.environ.get("REQUIRE_POSTGRES", "").strip().lower() in ("true", "1")
     try:
-        engine = create_engine(test_db_url, connect_args={"prepare_threshold": None})
+        engine = build_engine(test_db_url)
         with engine.connect() as conn:
             conn.execute(sa.text("SELECT 1"))
     except Exception as exc:
@@ -226,7 +226,7 @@ def test_150_word_job_description_text_arm_and_rrf_live_postgres():
 
     is_ci = os.environ.get("CI", "").strip().lower() in ("true", "1") or os.environ.get("REQUIRE_POSTGRES", "").strip().lower() in ("true", "1")
     try:
-        engine = create_engine(test_db_url, connect_args={"prepare_threshold": None})
+        engine = build_engine(test_db_url)
         with engine.connect() as conn:
             conn.execute(sa.text("SELECT 1"))
     except Exception as exc:
@@ -344,7 +344,7 @@ def test_candidates_embeddings_roundtrip_postgres_live():
 
     is_ci = os.environ.get("CI", "").strip().lower() in ("true", "1") or os.environ.get("REQUIRE_POSTGRES", "").strip().lower() in ("true", "1")
     try:
-        engine = create_engine(test_db_url, connect_args={"prepare_threshold": None})
+        engine = build_engine(test_db_url)
         with engine.connect() as conn:
             conn.execute(sa.text("SELECT 1"))
     except Exception as exc:

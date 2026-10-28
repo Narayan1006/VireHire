@@ -7,6 +7,7 @@ stale job recovery, and generic error logging.
 
 from contextlib import contextmanager
 from datetime import datetime, timedelta, timezone
+import logging
 import threading
 import uuid
 from fastapi import HTTPException, status
@@ -15,6 +16,9 @@ from app.database import get_session_factory
 from app.models import Candidate, Job
 from app.services.embedding import compute_embeddings
 from app.services.retrieval import hybrid_retrieval, save_rankings
+
+logger = logging.getLogger(__name__)
+
 
 
 class HeavyTaskLockManager:
@@ -149,6 +153,7 @@ def embed_job_candidates_task(job_id: uuid.UUID, batch_size: int = 16) -> None:
                     db.commit()
 
             except Exception:
+                logger.exception("Failed to process candidate embeddings for job_id=%s", job_id)
                 db.rollback()
                 try:
                     job = db.get(Job, job_id)
@@ -157,9 +162,12 @@ def embed_job_candidates_task(job_id: uuid.UUID, batch_size: int = 16) -> None:
                         job.error = "Failed to process candidate embeddings"
                         db.commit()
                 except Exception:
-                    pass
+                    logger.exception("Failed to update status to failed for job_id=%s", job_id)
+    except Exception:
+        logger.exception("Unexpected error in embed_job_candidates_task for job_id=%s", job_id)
     finally:
         heavy_task_manager.release_safe()
+
 
 
 def run_job_retrieval_task(job_id: uuid.UUID, top_k: int = 200) -> None:
@@ -211,6 +219,7 @@ def run_job_retrieval_task(job_id: uuid.UUID, top_k: int = 200) -> None:
                     db.commit()
 
             except Exception:
+                logger.exception("Failed to run candidate retrieval for job_id=%s", job_id)
                 db.rollback()
                 try:
                     job = db.get(Job, job_id)
@@ -219,6 +228,9 @@ def run_job_retrieval_task(job_id: uuid.UUID, top_k: int = 200) -> None:
                         job.error = "Failed to run candidate retrieval"
                         db.commit()
                 except Exception:
-                    pass
+                    logger.exception("Failed to update status to failed for job_id=%s", job_id)
+    except Exception:
+        logger.exception("Unexpected error in run_job_retrieval_task for job_id=%s", job_id)
     finally:
         heavy_task_manager.release_safe()
+

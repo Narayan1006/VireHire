@@ -520,4 +520,73 @@ def test_numpy_array_embeddings_do_not_raise_truth_value_error(user_and_job):
         tasks.save_rankings = orig_save
 
 
+def test_task_failure_logs_traceback_and_stores_generic_error(test_db, user_and_job, monkeypatch, caplog):
+    """
+    Verifies that when a background embedding or retrieval task fails:
+    1. logger.exception logs the full traceback with job_id.
+    2. No sensitive data (resume, email, tokens) is logged.
+    3. The job's database error remains strictly generic without leaking internal exception text.
+    """
+    import logging
+    from app.services import tasks
+
+    _, job = user_and_job
+
+    # Failure in embed_job_candidates_task
+    def mock_fail_compute(*args, **kwargs):
+        raise RuntimeError("InternalVectorCalculationCrash: db_secret_xyz=999")
+
+    monkeypatch.setattr(tasks, "compute_embeddings", mock_fail_compute)
+
+    c = Candidate(
+        job_id=job.id,
+        name="Candidate A",
+        email="private_candidate@example.com",
+        resume_text="Confidential company IP and proprietary algorithms",
+    )
+    test_db.add(c)
+    test_db.commit()
+
+    with caplog.at_level(logging.ERROR, logger="app.services.tasks"):
+        tasks.embed_job_candidates_task(job.id)
+
+    # 1. Job status is failed with generic error message
+    test_db.refresh(job)
+    assert job.status == "failed"
+    assert job.error == "Failed to process candidate embeddings"
+    assert "InternalVectorCalculationCrash" not in job.error
+    assert "db_secret_xyz" not in job.error
+
+    # 2. Caplog captured the traceback and job id
+    assert str(job.id) in caplog.text
+    assert "InternalVectorCalculationCrash" in caplog.text
+    # 3. No sensitive candidate info in logs
+    assert "private_candidate@example.com" not in caplog.text
+    assert "Confidential company IP" not in caplog.text
+
+    # Repeat for run_job_retrieval_task
+    # Provide candidate embedding so it reaches hybrid_retrieval rather than embedding step
+    c.embedding = [0.1] * 384
+    test_db.commit()
+
+    caplog.clear()
+    def mock_fail_retrieval(*args, **kwargs):
+        raise ValueError("LowLevelRetrievalFatalError: syntax operator error")
+
+    monkeypatch.setattr(tasks, "hybrid_retrieval", mock_fail_retrieval)
+
+
+    with caplog.at_level(logging.ERROR, logger="app.services.tasks"):
+        tasks.run_job_retrieval_task(job.id)
+
+    test_db.refresh(job)
+    assert job.status == "failed"
+    assert job.error == "Failed to run candidate retrieval"
+    assert "LowLevelRetrievalFatalError" not in job.error
+
+    assert str(job.id) in caplog.text
+    assert "LowLevelRetrievalFatalError" in caplog.text
+
+
+
 

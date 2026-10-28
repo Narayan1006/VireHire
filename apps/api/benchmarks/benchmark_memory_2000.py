@@ -10,10 +10,12 @@ import threading
 import time
 import uuid
 import psutil
-from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
+from app.database import build_engine
+
 from app.models import Base, Candidate, Job, Ranking, User
+
 from app.services.embedding import compute_embeddings
 from app.services.retrieval import hybrid_retrieval
 
@@ -46,7 +48,8 @@ def run_benchmark():
 
     print(f"Connecting to database (host: {db_url.split('@')[-1].split('/')[0]})...")
 
-    engine = create_engine(db_url, pool_pre_ping=True)
+    engine = build_engine(db_url, pool_pre_ping=True)
+
     # Ensure tables exist
     Base.metadata.create_all(bind=engine)
 

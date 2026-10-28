@@ -9,7 +9,8 @@ from sqlalchemy import engine_from_config, pool
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from app.config import get_settings
-from app.database import Base
+from app.database import Base, configure_engine
+
 
 config = context.config
 
@@ -46,6 +47,8 @@ def run_migrations_online() -> None:
         poolclass=pool.NullPool,
         connect_args={"prepare_threshold": None},
     )
+    configure_engine(connectable)
+
 
     with connectable.connect() as connection:
         context.configure(
