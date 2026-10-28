@@ -117,3 +117,48 @@ class JobResponse(BaseModel):
     error: Optional[str] = None
     created_at: datetime
     updated_at: datetime
+
+
+class RejectionDetail(BaseModel):
+    row_number: int
+    reason: str
+
+
+class IngestionReport(BaseModel):
+    rows_accepted: int
+    rows_rejected: list[RejectionDetail]
+
+
+class CandidateResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: uuid.UUID
+    job_id: uuid.UUID
+    name: str
+    email: Optional[str] = None
+    resume_text: str
+    links: dict = Field(default_factory=dict)
+    created_at: datetime
+
+
+class JobResultRow(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    rank: int
+    candidate_id: uuid.UUID
+    name: str
+    retrieval_score: float
+    snippet: str
+
+
+class JobResultsResponse(BaseModel):
+    status: str
+    candidate_count: int
+    rows: list[JobResultRow]
+
+
+class JobRunResponse(BaseModel):
+    detail: str
+    status: str
+
+

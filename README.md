@@ -7,7 +7,7 @@ VeriHire is an evidence-backed hiring intelligence platform that ranks technical
 ```mermaid
 graph TD
     Client["Browser (React + Vite + Tailwind + shadcn/ui)<br/>Hosted on Vercel"]
-    API["VeriHire API (FastAPI, Python 3.11)<br/>Hosted on Render (verihire-api-v2)"]
+    API["VeriHire API (FastAPI, Python 3.12)<br/>Hosted on Render (verihire-api-v2)"]
     DB[("PostgreSQL 16 + pgvector<br/>Supabase Session Pooler (port 5432)")]
     Keepalive["GitHub Actions (Keepalive Workflow)<br/>Pings /health every 3 days"]
 
@@ -20,7 +20,7 @@ graph TD
 
 ### Prerequisites
 - Docker & Docker Compose
-- Python 3.11+
+- Python 3.12+
 - Node.js 20+ and npm
 
 ### Steps
@@ -136,3 +136,44 @@ Supabase is utilized strictly as a managed PostgreSQL instance with `pgvector` e
 - Free-tier Supabase projects are automatically paused after 7 days of inactivity.
 - A GitHub Actions workflow (`.github/workflows/keepalive.yml`) runs on a scheduled cron every 3 days (`0 0 */3 * *`).
 - The workflow pings the `/health` endpoint of the deployed API (`API_HEALTH_URL`). Because `/health` executes `SELECT 1` against PostgreSQL, this keepalive ping maintains both the Render free-tier container and the Supabase database instance in an active state.
+
+### 5. Authentication & In-Memory Rate Limiting
+- The login endpoint enforces rate limiting (maximum 5 failed attempts per `(email, IP)` tuple within 15 minutes).
+- **Per-Instance Limitation**: The rate limiter is strictly in-memory and operates per server instance. In multi-instance or auto-scaled environments, rate limit state is not shared across containers. Client IP is derived from the **last** entry of `X-Forwarded-For` (appended by the trusted reverse proxy) only in production when `TRUST_PROXY_HEADERS=true`; otherwise `request.client.host` is used. For multi-instance production environments, an external shared cache (such as Redis) or sticky sessions should be used.
+
+### 6. CSV Upload Limits & Memory Constraints on Render Free Tier
+- **Default Limit (`MAX_CSV_ROWS`)**: The default upload limit is set to 1,000 rows per CSV. On Render's free instance (512 MB RAM limit), limiting uploads to 1,000 candidates ensures peak memory usage stays well within the 450 MB safe target (~397 MB observed with batch size 16) and prevents Out-Of-Memory (OOM) termination.
+- **Configurable Override**: The limit can be customized via the `MAX_CSV_ROWS` environment variable up to a hard-coded ceiling of 5,000 rows.
+
+---
+
+## Testing
+
+The test suite supports two testing modes to balance fast developer iteration with full production fidelity:
+
+### 1. Fast SQLite Unit Tests (Default Mode)
+- **Purpose**: Rapid local feedback during development with zero infrastructure dependencies.
+- **Coverage**: Endpoint validation, authentication, CSV ingestion parsing, schemas, business logic, and rate limiting.
+- **Execution**: Run without setting `TEST_DATABASE_URL` (or using in-memory SQLite):
+  ```bash
+  cd apps/api
+  python -m pytest -q -m "not postgres"
+  ```
+- **Constraint**: SQLite does not support native `pgvector` or PostgreSQL full-text search dictionaries (`to_tsvector`), and stores vector embeddings as JSON/lists rather than NumPy arrays.
+
+### 2. Live PostgreSQL + pgvector Integration Tests (`@pytest.mark.postgres`)
+- **Purpose**: Verifies real database migrations, Row-Level Security (RLS) enforcement on all public schema tables, native `pgvector` `<=>` cosine distance queries, PostgreSQL `tsvector` OR-query retrieval, and `numpy.ndarray` deserialization behavior.
+- **Prerequisites**: Ensure the local pgvector Docker container is running (`docker compose up -d`).
+- **Execution**: Provide `TEST_DATABASE_URL` pointing at the local Docker database:
+  ```bash
+  cd apps/api
+  # PowerShell:
+  $env:TEST_DATABASE_URL="postgresql+psycopg://postgres:password@localhost:5433/verihire"
+  python -m pytest -q
+
+  # Bash:
+  TEST_DATABASE_URL="postgresql+psycopg://postgres:password@localhost:5433/verihire" python -m pytest -q
+  ```
+- **CI Enforcement**: Tests requiring Postgres are marked with `@pytest.mark.postgres`. In CI (where `CI=true` and `REQUIRE_POSTGRES=true`), a `pytest_runtest_makereport` hook strictly disallows skipping any `@pytest.mark.postgres` test, immediately failing the build if the database container is unreachable or any test is skipped.
+
+

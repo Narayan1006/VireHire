@@ -3,26 +3,39 @@ Test that all public schema tables have Row Level Security (RLS) enabled
 """
 
 import os
+import urllib.parse
 import pytest
 from sqlalchemy import create_engine, text
 
+LOCAL_DOCKER_DB_URL = "postgresql+psycopg://postgres:password@localhost:5433/verihire"
 
+
+@pytest.mark.postgres
 def test_public_tables_have_rls_enabled():
     """
     Verifies every table in public schema has relrowsecurity = true.
-    Skips if DATABASE_URL is unset.
+    Uses TEST_DATABASE_URL (or DATABASE_URL for compatibility).
     """
-    db_url = os.environ.get("DATABASE_URL")
-    if not db_url or not db_url.strip():
-        pytest.skip("DATABASE_URL is unset; skipping live RLS check.")
+    db_url = os.environ.get("TEST_DATABASE_URL") or os.environ.get("DATABASE_URL") or LOCAL_DOCKER_DB_URL
+    db_url = db_url.strip()
 
-    engine = create_engine(
-        db_url,
-        connect_args={"prepare_threshold": None},
-    )
-    with engine.connect() as conn:
-        # Check if database responds
-        conn.execute(text("SELECT 1"))
+    parsed = urllib.parse.urlparse(db_url)
+    assert "supabase" not in (parsed.hostname or "").lower(), "TEST_DATABASE_URL must never point to Supabase"
+
+    is_ci = os.environ.get("CI", "").strip().lower() in ("true", "1") or os.environ.get("REQUIRE_POSTGRES", "").strip().lower() in ("true", "1")
+
+    try:
+        engine = create_engine(
+            db_url,
+            connect_args={"prepare_threshold": None},
+        )
+        with engine.connect() as conn:
+            conn.execute(text("SELECT 1"))
+    except Exception as exc:
+        if is_ci:
+            pytest.fail(f"PostgreSQL database unreachable in CI ({type(exc).__name__}: {exc}). Skipping is forbidden.")
+        pytest.skip(f"Postgres database unreachable ({type(exc).__name__}); skipping live RLS check.")
+
 
         # Query all ordinary tables ('r') in the public schema, excluding alembic_version
         query = text("""

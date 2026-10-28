@@ -22,6 +22,17 @@ class Settings(BaseSettings):
     cors_origins: str = "http://localhost:5173,http://localhost:3000"
     version: str = "2.0.0"
     env: str = "development"
+    trust_proxy_headers: bool = False
+
+    max_upload_size_bytes: int = 5 * 1024 * 1024  # 5 MB
+    max_csv_rows: int = 1000
+    max_resume_length: int = 20000
+    retrieval_top_k: int = 200
+
+    @field_validator("max_csv_rows")
+    @classmethod
+    def validate_max_csv_rows(cls, v: int) -> int:
+        return min(max(1, v), 5000)
 
     @field_validator("database_url")
     @classmethod

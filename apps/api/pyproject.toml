@@ -2,6 +2,9 @@
 pythonpath = ["."]
 testpaths = ["tests"]
 asyncio_default_fixture_loop_scope = "function"
+markers = [
+    "postgres: marks tests that require a live PostgreSQL database with pgvector",
+]
 
 [tool.ruff]
 line-length = 100

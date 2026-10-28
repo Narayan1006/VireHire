@@ -175,3 +175,68 @@ def test_password_never_appears_in_responses(client):
         json={"email": "secret@example.com", "password": "WrongPassword123!"},
     )
     assert "WrongPassword123!" not in failed.text
+
+
+def test_client_ip_proxy_header_trusted_in_production(client, monkeypatch):
+    from app.config import get_settings
+    from app.rate_limiter import login_rate_limiter
+
+    monkeypatch.setenv("ENV", "production")
+    monkeypatch.setenv("TRUST_PROXY_HEADERS", "true")
+    get_settings.cache_clear()
+
+    # Make 5 failed attempts with X-Forwarded-For: "10.0.0.99, 198.51.100.1"
+    # When TRUST_PROXY_HEADERS is true in production, the LAST entry (appended by proxy) is used.
+    trusted_proxy_ip = "198.51.100.1"
+    headers = {"X-Forwarded-For": f"10.0.0.99, {trusted_proxy_ip}"}
+    for _ in range(5):
+        res = client.post(
+            "/auth/login",
+            json={"email": "proxy@example.com", "password": "WrongPassword123!"},
+            headers=headers,
+        )
+        assert res.status_code == 401
+
+    # 6th attempt from the same trusted proxy IP is blocked
+    res_blocked = client.post(
+        "/auth/login",
+        json={"email": "proxy@example.com", "password": "WrongPassword123!"},
+        headers=headers,
+    )
+    assert res_blocked.status_code == 429
+    assert login_rate_limiter.is_rate_limited("proxy@example.com", trusted_proxy_ip)[0] is True
+
+    # Attempt from a DIFFERENT proxy IP is NOT blocked
+    res_other = client.post(
+        "/auth/login",
+        json={"email": "proxy@example.com", "password": "WrongPassword123!"},
+        headers={"X-Forwarded-For": "10.0.0.99, 198.51.100.2"},
+    )
+    assert res_other.status_code == 401
+    get_settings.cache_clear()
+
+
+def test_client_ip_proxy_header_ignored_when_not_production_or_untrusted(client, monkeypatch):
+    from app.config import get_settings
+    from app.rate_limiter import login_rate_limiter
+
+    monkeypatch.setenv("ENV", "development")
+    monkeypatch.setenv("TRUST_PROXY_HEADERS", "true")
+    get_settings.cache_clear()
+
+    # Even with X-Forwarded-For header, in development it uses client.host (testclient)
+    spoofed_ip = "198.51.100.99"
+    headers = {"X-Forwarded-For": spoofed_ip}
+    for _ in range(5):
+        client.post(
+            "/auth/login",
+            json={"email": "devproxy@example.com", "password": "WrongPassword123!"},
+            headers=headers,
+        )
+
+    # Spoofed IP key should NOT have been recorded
+    assert login_rate_limiter.is_rate_limited("devproxy@example.com", spoofed_ip)[0] is False
+    # Instead, 'testclient' was recorded
+    assert login_rate_limiter.is_rate_limited("devproxy@example.com", "testclient")[0] is True
+    get_settings.cache_clear()
+

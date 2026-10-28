@@ -8,6 +8,7 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from app.auth import get_current_user
+from app.config import get_settings
 from app.database import get_db
 from app.models import User
 from app.rate_limiter import login_rate_limiter
@@ -23,9 +24,11 @@ router = APIRouter(tags=["auth"])
 
 
 def get_client_ip(request: Request) -> str:
-    forwarded = request.headers.get("x-forwarded-for")
-    if forwarded:
-        return forwarded.split(",")[0].strip()
+    settings = get_settings()
+    if settings.env == "production" and settings.trust_proxy_headers:
+        forwarded = request.headers.get("x-forwarded-for")
+        if forwarded:
+            return forwarded.split(",")[-1].strip()
     return request.client.host if request.client else "unknown"
 
 

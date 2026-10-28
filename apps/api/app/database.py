@@ -41,6 +41,12 @@ def get_session_factory():
     return _session_factory
 
 
+def set_session_factory(factory):
+    global _session_factory
+    _session_factory = factory
+
+
+
 def get_db() -> Generator[Session, None, None]:
     """FastAPI dependency yielding a SQLAlchemy database session."""
     session_factory = get_session_factory()

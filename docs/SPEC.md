@@ -24,7 +24,7 @@ Each candidate shows a score, a confidence level, evidence (GitHub, LeetCode), a
 | Area | Choice |
 |---|---|
 | Frontend | React + Vite + TypeScript + Tailwind + shadcn/ui, Inter font, light theme, one accent colour. Hosted on **Vercel** |
-| Backend | One FastAPI service (Python 3.11), SQLAlchemy 2, Alembic, pydantic-settings. Hosted on Render as `verihire-api-v2` |
+| Backend | One FastAPI service (Python 3.12), SQLAlchemy 2, Alembic, pydantic-settings. Hosted on Render as `verihire-api-v2` |
 | Database | Supabase Postgres via the **Session pooler** connection string, with `pgvector`. Supabase is used ONLY as a database (no Supabase Auth/Storage/SDK) |
 | Embeddings | `fastembed` (ONNX), model `BAAI/bge-small-en-v1.5` (384 dims). Computed once per candidate and stored |
 | Retrieval | Postgres full-text search + vector similarity, merged with reciprocal rank fusion (RRF) |
@@ -99,9 +99,9 @@ Each milestone is done only when it is **deployed, tested, and healthy**.
 - [x] Login, Jobs list, New job pages wired to the API (verified via tsc and npm run build)
 
 ### M2: Ingestion and retrieval
-- [ ] CSV upload with validation and clear error messages; size and row limits
-- [ ] Embeddings stored once; hybrid retrieval with RRF
-- [ ] Peak memory stays under the Render instance limit on a 2,000-row CSV (measured, reported)
+- [x] CSV upload with validation and clear error messages; size and row limits (verified via pytest in test_candidates_csv.py, frontend JobDetail.tsx, and live remote smoke test)
+- [x] Embeddings stored once; hybrid retrieval with RRF (verified on SQLite, local Docker Postgres, and live smoke test on remote database with top 5 RRF ranking)
+- [x] Peak memory stays under the Render instance limit on a 2,000-row CSV (measured 397.4 MB at batch size 16 vs 512 MB limit in benchmarks/benchmark_memory_2000.py)
 
 ### M3: Evidence and scoring
 - [ ] GitHub GraphQL fetch with caching, timeouts, rate-limit handling

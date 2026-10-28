@@ -62,3 +62,23 @@ def test_settings_success_with_valid_env(monkeypatch):
     assert s.database_url == "postgresql+psycopg://user:pass@localhost:5432/db"
     assert s.jwt_secret == "super-secret-jwt-key-min-32-chars"
     assert s.cors_origin_list == ["https://virehire.web.app", "http://localhost:5173"]
+
+
+def test_max_csv_rows_default_and_ceiling(monkeypatch):
+    monkeypatch.setenv("DATABASE_URL", "postgresql+psycopg://user:pass@localhost:5432/db")
+    monkeypatch.setenv("JWT_SECRET", "super-secret-jwt-key-min-32-chars")
+
+    # Default is 1000
+    s_default = Settings(_env_file=None)
+    assert s_default.max_csv_rows == 1000
+
+    # Overridden via env
+    monkeypatch.setenv("MAX_CSV_ROWS", "2500")
+    s_custom = Settings(_env_file=None)
+    assert s_custom.max_csv_rows == 2500
+
+    # Hard ceiling caps at 5000
+    monkeypatch.setenv("MAX_CSV_ROWS", "99999")
+    s_capped = Settings(_env_file=None)
+    assert s_capped.max_csv_rows == 5000
+

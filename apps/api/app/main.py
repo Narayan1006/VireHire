@@ -2,6 +2,7 @@
 VeriHire v2 - FastAPI Application Entrypoint
 """
 
+from contextlib import asynccontextmanager
 from fastapi import Depends, FastAPI, HTTPException, Request, status
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
@@ -13,11 +14,24 @@ from app.config import get_settings
 from app.database import get_db
 from app.routers.auth import router as auth_router
 from app.routers.jobs import router as jobs_router
+from app.services.tasks import recover_stale_jobs
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # App startup: recover any stale jobs left in 'processing' status
+    try:
+        recover_stale_jobs()
+    except Exception:
+        pass
+    yield
+
 
 app = FastAPI(
     title="VeriHire API",
     version="2.0.0",
     description="Evidence-backed hiring intelligence platform",
+    lifespan=lifespan,
 )
 
 # Custom exception handler to enforce consistent {"detail": ...} response

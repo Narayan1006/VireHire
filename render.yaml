@@ -3,12 +3,12 @@ services:
     name: verihire-api-v2
     runtime: python
     rootDir: apps/api
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install -r requirements.txt && python scripts/download_model.py
     startCommand: alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
     envVars:
       - key: PYTHON_VERSION
-        value: 3.11.9
+        value: 3.12.10
       - key: DATABASE_URL
         sync: false
       - key: JWT_SECRET
