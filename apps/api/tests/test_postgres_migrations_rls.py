@@ -60,10 +60,13 @@ def test_postgres_migrations_and_rls_on_local_docker():
         assert "jobs" in rows, "jobs table missing from public schema"
         assert "candidates" in rows, "candidates table missing from public schema"
         assert "rankings" in rows, "rankings table missing from public schema"
+        assert "evidence" in rows, "evidence table missing from public schema"
         assert rows["users"] is True, "RLS is not enabled on users table"
         assert rows["jobs"] is True, "RLS is not enabled on jobs table"
         assert rows["candidates"] is True, "RLS is not enabled on candidates table"
         assert rows["rankings"] is True, "RLS is not enabled on rankings table"
+        assert rows["evidence"] is True, "RLS is not enabled on evidence table"
+
 
         # Verify no table in public lacks RLS
         unsecured = [t for t, rls in rows.items() if not rls]

@@ -145,6 +145,28 @@ Supabase is utilized strictly as a managed PostgreSQL instance with `pgvector` e
 - **Default Limit (`MAX_CSV_ROWS`)**: The default upload limit is set to 1,000 rows per CSV. On Render's free instance (512 MB RAM limit), limiting uploads to 1,000 candidates ensures peak memory usage stays well within the 450 MB safe target (~397 MB observed with batch size 16) and prevents Out-Of-Memory (OOM) termination.
 - **Configurable Override**: The limit can be customized via the `MAX_CSV_ROWS` environment variable up to a hard-coded ceiling of 5,000 rows.
 
+### 7. Evidence Verification System (Milestone 3A)
+- **What is Collected**:
+  - **GitHub GraphQL**: Compact profile metadata (`createdAt`, `followers_count`, `public_repos_count`), non-fork repository statistics (total stars, forks, language histogram, presence of README), commit/PR/review contribution counts, and external merged pull requests count (`author:LOGIN is:pr is:merged -user:LOGIN`). Personal identifiable information (emails, names, locations, bios, avatar URLs) and raw response dumps are strictly excluded.
+  - **LeetCode GraphQL**: Problem-solving counts by difficulty (`easy`, `medium`, `hard`, `total`), global ranking, acceptance rate, and contribution points.
+- **Limits & Time Budget**:
+  - Evidence collection is scoped to the top-ranked candidates (`EVIDENCE_TOP_N=50`) following hybrid retrieval.
+  - GitHub queries run with managed concurrency (`EVIDENCE_CONCURRENCY=5`), while LeetCode runs sequentially at a maximum of 1 request per second.
+  - The pipeline operates under an overall time budget (`EVIDENCE_TIME_BUDGET_SECONDS=90`). Candidates remaining after the deadline expires are marked with `status="unverified"` and `reason="budget_exceeded"`.
+- **TTL Cache**:
+  - Evidence is cached in PostgreSQL with an indexed lookup on `(source, username, fetched_at)`.
+  - Reusable evidence with status `verified` or `unverified` with reason `not_found` younger than `EVIDENCE_TTL_DAYS=7` is reused across jobs and candidates.
+  - Transient errors (`status="error"`) and rate-limited runs are never cached.
+- **Unofficial LeetCode Endpoint & Cloudflare**:
+  - LeetCode does not provide an official public API; requests target the unofficial public GraphQL endpoint (`https://leetcode.com/graphql`).
+  - Cloudflare bot protection frequently blocks or challenges traffic originating from datacenter IP ranges (such as Render or AWS) with HTTP 403.
+  - Failures and timeouts (10s limit, max 1 retry) are treated as expected, recorded with `status="error"`, and **never abort the pipeline** or penalize a candidate.
+- **Missing Data is Unknown, Not Zero**:
+  - Candidates with missing evidence, absent links, blocked requests, or private profiles are designated as unverified.
+  - In accordance with SPEC scoring principles, lack of external evidence represents an *unknown* rather than a zero score. Unverified candidates are never penalized below their hybrid retrieval baseline.
+- **No-Token Behavior**:
+  - If `GITHUB_TOKEN` is not configured, GitHub evidence collection records rows with `status="unverified"` and `reason="no_token"`, allowing the platform to run gracefully in minimal deployments.
+
 ---
 
 ## Testing

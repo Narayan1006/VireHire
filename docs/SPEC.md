@@ -104,8 +104,8 @@ Each milestone is done only when it is **deployed, tested, and healthy**.
 - [x] Peak memory stays under the Render instance limit on a 2,000-row CSV (measured 397.4 MB at batch size 16 vs 512 MB limit in benchmarks/benchmark_memory_2000.py)
 
 ### M3: Evidence and scoring
-- [ ] GitHub GraphQL fetch with caching, timeouts, rate-limit handling
-- [ ] LeetCode best-effort with graceful failure
+- [x] GitHub GraphQL fetch with caching, timeouts, rate-limit handling (verified via pytest in test_evidence.py, TTL caching, token safety, and opt-in live test)
+- [x] LeetCode best-effort with graceful failure (verified via pytest in test_evidence.py with rate limiting and non-blocking failure)
 - [ ] Scoring with unknown-vs-zero handling and confidence; unit tests for edge cases
 - [ ] Results page shows breakdown, evidence chips, confidence
 

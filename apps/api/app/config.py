@@ -5,8 +5,9 @@ VeriHire v2 - Application Configuration
 from functools import lru_cache
 from typing import List
 
-from pydantic import field_validator
+from pydantic import SecretStr, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
 
 
 class Settings(BaseSettings):
@@ -28,6 +29,13 @@ class Settings(BaseSettings):
     max_csv_rows: int = 1000
     max_resume_length: int = 20000
     retrieval_top_k: int = 200
+
+    github_token: SecretStr | None = None
+    evidence_top_n: int = 50
+    evidence_ttl_days: int = 7
+    evidence_time_budget_seconds: int = 90
+    evidence_concurrency: int = 5
+
 
     @field_validator("max_csv_rows")
     @classmethod
@@ -61,6 +69,18 @@ class Settings(BaseSettings):
     @property
     def cors_origin_list(self) -> List[str]:
         return [origin.strip() for origin in self.cors_origins.split(",") if origin.strip()]
+
+    @property
+    def raw_github_token(self) -> str | None:
+        """Returns the unmasked GitHub token string or None without logging or leaking it."""
+        if self.github_token is None:
+            return None
+        val = self.github_token.get_secret_value().strip()
+        return val if val else None
+
+    def __repr__(self) -> str:
+        return f"<Settings env={self.env!r} version={self.version!r}>"
+
 
 
 @lru_cache

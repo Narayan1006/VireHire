@@ -162,3 +162,30 @@ class JobRunResponse(BaseModel):
     status: str
 
 
+class EvidenceItem(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    source: str
+    username: Optional[str] = None
+    status: str
+    reason: Optional[str] = None
+    fetched_at: datetime
+    payload: dict = Field(default_factory=dict)
+
+
+class CandidateEvidenceRow(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    rank: int
+    candidate_id: uuid.UUID
+    name: str
+    evidence: list[EvidenceItem] = Field(default_factory=list)
+
+
+class JobEvidenceResponse(BaseModel):
+    status: str
+    candidate_count: int
+    rows: list[CandidateEvidenceRow] = Field(default_factory=list)
+    candidates: list[CandidateEvidenceRow] = Field(default_factory=list)
+
+

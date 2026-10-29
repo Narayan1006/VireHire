@@ -23,11 +23,14 @@ from sqlalchemy.orm import Session
 from app.auth import get_current_user
 from app.config import get_settings
 from app.database import get_db
-from app.models import Candidate, Job, Ranking, User, utc_now
+from app.models import Candidate, Evidence, Job, Ranking, User, utc_now
 from app.schemas import (
+    CandidateEvidenceRow,
     CandidateResponse,
+    EvidenceItem,
     IngestionReport,
     JobCreateRequest,
+    JobEvidenceResponse,
     JobResponse,
     JobResultRow,
     JobResultsResponse,
@@ -35,7 +38,11 @@ from app.schemas import (
     JobUpdateRequest,
 )
 from app.services.csv_ingest import ingest_candidates_csv
-from app.services.tasks import heavy_task_manager, run_job_retrieval_task
+from app.services.tasks import (
+    heavy_task_manager,
+    run_evidence_collection_task,
+    run_job_retrieval_task,
+)
 
 router = APIRouter(prefix="/jobs", tags=["jobs"])
 
@@ -417,6 +424,138 @@ def get_job_results(
         status=job.status,
         candidate_count=total_candidates,
         rows=result_rows,
+    )
+
+
+@router.post(
+    "/{job_id}/verify",
+    response_model=JobRunResponse,
+    status_code=status.HTTP_202_ACCEPTED,
+)
+def verify_job_evidence(
+    job_id: uuid.UUID,
+    background_tasks: BackgroundTasks,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """
+    Triggers evidence collection for the top candidates of a job in the background.
+    Owner-scoped: returns 404 for other users' jobs.
+    Returns 409 if already processing or if the job has no rankings.
+    Returns 202 Accepted otherwise.
+    """
+    with heavy_task_manager.acquire_for_background() as hand_off:
+        query = select(Job).where(Job.id == job_id, Job.owner_id == current_user.id)
+        job = db.execute(query).scalar_one_or_none()
+        if job is None:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Job not found",
+            )
+
+        if job.status == "processing":
+            raise HTTPException(
+                status_code=status.HTTP_409_CONFLICT,
+                detail="Job is already processing",
+            )
+
+        ranking_count = db.execute(
+            select(sa.func.count(Ranking.id)).where(Ranking.job_id == job.id)
+        ).scalar() or 0
+
+        if ranking_count == 0:
+            raise HTTPException(
+                status_code=status.HTTP_409_CONFLICT,
+                detail="Job has no rankings. Run retrieval first.",
+            )
+
+        initial_status = job.status
+        try:
+            job.status = "processing"
+            job.error = None
+            db.commit()
+
+            background_tasks.add_task(run_evidence_collection_task, job.id)
+            hand_off()
+            return JobRunResponse(detail="Evidence collection started", status="processing")
+        except Exception:
+            db.rollback()
+            try:
+                job.status = initial_status
+                db.commit()
+            except Exception:
+                pass
+            raise
+
+
+@router.get(
+    "/{job_id}/evidence",
+    response_model=JobEvidenceResponse,
+)
+def get_job_evidence(
+    job_id: uuid.UUID,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """
+    Retrieves collected evidence per ranked candidate for a job owned by the current user.
+    Owner-scoped: returns 404 for other users' jobs.
+    Returns source, username, status, reason, fetched_at, and compact payload.
+    Never returns secrets, tokens, or emails.
+    """
+    query = select(Job).where(Job.id == job_id, Job.owner_id == current_user.id)
+    job = db.execute(query).scalar_one_or_none()
+    if job is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Job not found",
+        )
+
+    rankings_query = (
+        select(Ranking, Candidate.name)
+        .join(Candidate, Ranking.candidate_id == Candidate.id)
+        .where(Ranking.job_id == job.id)
+        .order_by(Ranking.rank.asc())
+    )
+    ranked_candidates = db.execute(rankings_query).all()
+
+    candidate_ids = [r.candidate_id for r, _ in ranked_candidates]
+    evidence_map: dict[uuid.UUID, list[EvidenceItem]] = {cid: [] for cid in candidate_ids}
+
+    if candidate_ids:
+        ev_query = (
+            select(Evidence)
+            .where(Evidence.candidate_id.in_(candidate_ids))
+            .order_by(Evidence.fetched_at.desc())
+        )
+        evidence_rows = db.execute(ev_query).scalars().all()
+        for ev in evidence_rows:
+            evidence_map[ev.candidate_id].append(
+                EvidenceItem(
+                    source=ev.source,
+                    username=ev.username,
+                    status=ev.status,
+                    reason=ev.reason,
+                    fetched_at=ev.fetched_at,
+                    payload=ev.payload or {},
+                )
+            )
+
+    rows = [
+        CandidateEvidenceRow(
+            rank=r.rank,
+            candidate_id=r.candidate_id,
+            name=name,
+            evidence=evidence_map.get(r.candidate_id, []),
+        )
+        for r, name in ranked_candidates
+    ]
+
+    return JobEvidenceResponse(
+        status=job.status,
+        candidate_count=len(rows),
+        rows=rows,
+        candidates=rows,
     )
 
 

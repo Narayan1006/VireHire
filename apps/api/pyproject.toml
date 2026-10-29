@@ -4,6 +4,7 @@ testpaths = ["tests"]
 asyncio_default_fixture_loop_scope = "function"
 markers = [
     "postgres: marks tests that require a live PostgreSQL database with pgvector",
+    "live: marks opt-in live tests that require external network access and RUN_LIVE_TESTS=1",
 ]
 
 [tool.ruff]

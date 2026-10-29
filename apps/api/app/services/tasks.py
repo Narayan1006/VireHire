@@ -234,3 +234,48 @@ def run_job_retrieval_task(job_id: uuid.UUID, top_k: int = 200) -> None:
     finally:
         heavy_task_manager.release_safe()
 
+
+def run_evidence_collection_task(job_id: uuid.UUID) -> None:
+    """
+    Background task to collect evidence for a job.
+    Transitions: processing -> done (or failed).
+    Releases heavy_task_lock exactly once upon completion without error.
+    """
+    try:
+        session_factory = get_session_factory()
+        with session_factory() as db:
+            try:
+                job = db.get(Job, job_id)
+                if not job:
+                    return
+
+                job.status = "processing"
+                job.error = None
+                db.commit()
+
+                from app.services.evidence import collect_evidence_for_job
+
+                collect_evidence_for_job(job_id)
+
+                job = db.get(Job, job_id)
+                if job:
+                    job.status = "done"
+                    job.error = None
+                    db.commit()
+
+            except Exception:
+                logger.exception("Failed to collect evidence for job_id=%s", job_id)
+                db.rollback()
+                try:
+                    job = db.get(Job, job_id)
+                    if job:
+                        job.status = "failed"
+                        job.error = "Failed to collect evidence"
+                        db.commit()
+                except Exception:
+                    logger.exception("Failed to update status to failed for job_id=%s", job_id)
+    except Exception:
+        logger.exception("Unexpected error in run_evidence_collection_task for job_id=%s", job_id)
+    finally:
+        heavy_task_manager.release_safe()
+

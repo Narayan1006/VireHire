@@ -171,6 +171,8 @@ class Candidate(Base):
 
     job = relationship("Job", back_populates="candidates")
     rankings = relationship("Ranking", back_populates="candidate", cascade="all, delete-orphan")
+    evidence = relationship("Evidence", back_populates="candidate", cascade="all, delete-orphan")
+
 
 
 class Ranking(Base):
@@ -203,4 +205,42 @@ class Ranking(Base):
 
     job = relationship("Job", back_populates="rankings")
     candidate = relationship("Candidate", back_populates="rankings")
+
+
+class Evidence(Base):
+    __tablename__ = "evidence"
+
+    id = sa.Column(sa.Uuid, primary_key=True, default=uuid.uuid4)
+    candidate_id = sa.Column(
+        sa.Uuid,
+        sa.ForeignKey("candidates.id", ondelete="CASCADE"),
+        nullable=False,
+    )
+    source = sa.Column(sa.String(20), nullable=False)
+    username = sa.Column(sa.String(100), nullable=True)
+    status = sa.Column(sa.String(20), nullable=False)
+    reason = sa.Column(sa.String(50), nullable=True)
+    payload = sa.Column(
+        sa.JSON().with_variant(postgresql.JSONB, "postgresql"),
+        nullable=False,
+        default=dict,
+        server_default=sa.text("'{}'"),
+    )
+    fetched_at = sa.Column(
+        sa.DateTime(timezone=True),
+        default=utc_now,
+        server_default=sa.func.now(),
+        nullable=False,
+    )
+
+    __table_args__ = (
+        sa.UniqueConstraint("candidate_id", "source", name="uq_evidence_candidate_source"),
+        sa.CheckConstraint("source IN ('github', 'leetcode')", name="ck_evidence_source"),
+        sa.CheckConstraint("status IN ('verified', 'unverified', 'error')", name="ck_evidence_status"),
+        sa.Index("ix_evidence_candidate_id", "candidate_id"),
+        sa.Index("ix_evidence_source_username_fetched_at", "source", "username", sa.text("fetched_at DESC")),
+    )
+
+    candidate = relationship("Candidate", back_populates="evidence")
+
 
