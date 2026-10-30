@@ -22,8 +22,20 @@ import {
   Download,
   Users,
   Search,
+  ShieldCheck,
+  Sliders,
+  ChevronRight,
+  HelpCircle,
 } from "lucide-react";
 import { Job } from "@/pages/JobsList";
+import {
+  JobResultRow,
+  JobResultsResponse,
+  EvidenceItem,
+  JobEvidenceResponse,
+} from "@/types/job";
+import { EvidenceChips } from "@/components/EvidenceChips";
+import { ScoreBreakdownDrawer } from "@/components/ScoreBreakdownDrawer";
 
 interface RejectionDetail {
   row_number: number;
@@ -33,20 +45,6 @@ interface RejectionDetail {
 interface IngestionReport {
   rows_accepted: number;
   rows_rejected: RejectionDetail[];
-}
-
-interface JobResultRow {
-  rank: number;
-  candidate_id: string;
-  name: string;
-  retrieval_score: number;
-  snippet: string;
-}
-
-interface JobResultsResponse {
-  status: Job["status"];
-  candidate_count: number;
-  rows: JobResultRow[];
 }
 
 export const JobDetailPage: React.FC = () => {
@@ -72,8 +70,10 @@ export const JobDetailPage: React.FC = () => {
   // Candidate & Results state
   const [candidateCount, setCandidateCount] = useState<number>(0);
   const [results, setResults] = useState<JobResultRow[]>([]);
+  const [evidenceMap, setEvidenceMap] = useState<Record<string, EvidenceItem[]>>({});
   const [resultsLoading, setResultsLoading] = useState(false);
   const [resultsError, setResultsError] = useState<string | null>(null);
+  const [selectedCandidate, setSelectedCandidate] = useState<JobResultRow | null>(null);
 
   // Upload state
   const [uploading, setUploading] = useState(false);
@@ -84,10 +84,13 @@ export const JobDetailPage: React.FC = () => {
   const [showReplaceConfirm, setShowReplaceConfirm] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // Retrieval run state
+  // Background action states
   const [runLoading, setRunLoading] = useState(false);
   const [runMessage, setRunMessage] = useState<string | null>(null);
   const [runError, setRunError] = useState<string | null>(null);
+
+  const [verifyLoading, setVerifyLoading] = useState(false);
+  const [scoreLoading, setScoreLoading] = useState(false);
 
   // Polling ref & counter
   const pollCountRef = useRef(0);
@@ -104,10 +107,22 @@ export const JobDetailPage: React.FC = () => {
 
       // Fetch results & candidate count
       try {
-        const resultsData = await apiRequest<JobResultsResponse>(`/jobs/${id}/results`);
+        const [resultsData, evidenceData] = await Promise.all([
+          apiRequest<JobResultsResponse>(`/jobs/${id}/results`),
+          apiRequest<JobEvidenceResponse>(`/jobs/${id}/evidence`).catch(() => null),
+        ]);
+
         setCandidateCount(resultsData.candidate_count);
         setResults(resultsData.rows || []);
         setResultsError(null);
+
+        if (evidenceData && evidenceData.rows) {
+          const map: Record<string, EvidenceItem[]> = {};
+          for (const row of evidenceData.rows) {
+            map[row.candidate_id] = row.evidence || [];
+          }
+          setEvidenceMap(map);
+        }
       } catch (err: any) {
         setResultsError(err.message || "Failed to load candidate results.");
       }
@@ -143,12 +158,22 @@ export const JobDetailPage: React.FC = () => {
 
         if (jobData.status !== "processing") {
           clearInterval(interval);
-          // Refresh results
+          // Refresh results & evidence
           setResultsLoading(true);
           try {
-            const resultsData = await apiRequest<JobResultsResponse>(`/jobs/${id}/results`);
+            const [resultsData, evidenceData] = await Promise.all([
+              apiRequest<JobResultsResponse>(`/jobs/${id}/results`),
+              apiRequest<JobEvidenceResponse>(`/jobs/${id}/evidence`).catch(() => null),
+            ]);
             setCandidateCount(resultsData.candidate_count);
             setResults(resultsData.rows || []);
+            if (evidenceData && evidenceData.rows) {
+              const map: Record<string, EvidenceItem[]> = {};
+              for (const row of evidenceData.rows) {
+                map[row.candidate_id] = row.evidence || [];
+              }
+              setEvidenceMap(map);
+            }
           } catch {
             // ignore
           } finally {
@@ -156,7 +181,7 @@ export const JobDetailPage: React.FC = () => {
           }
 
           if (jobData.status === "done") {
-            setSuccessMsg("Hybrid retrieval completed successfully!");
+            setSuccessMsg("Processing and scoring completed successfully!");
             setTimeout(() => setSuccessMsg(null), 5000);
           }
         }
@@ -218,7 +243,7 @@ export const JobDetailPage: React.FC = () => {
       setSuccessMsg(`Uploaded ${report.rows_accepted} candidate${report.rows_accepted === 1 ? "" : "s"} successfully.`);
       setTimeout(() => setSuccessMsg(null), 5000);
 
-      // Refresh job state (it transitions draft -> processing -> draft while embedding)
+      // Refresh job state (transitions draft -> processing -> draft while embedding)
       fetchJobAndResults(true);
     } catch (err: any) {
       if (err.status === 409) {
@@ -231,7 +256,6 @@ export const JobDetailPage: React.FC = () => {
           setUploadError(err.message || "Conflict: Unable to upload candidates.");
         }
       } else {
-        // Check for structured validation rejections
         const rejections =
           err.data?.detail?.rejections ||
           (Array.isArray(err.data?.rejections) ? err.data.rejections : null);
@@ -262,8 +286,7 @@ export const JobDetailPage: React.FC = () => {
         method: "POST",
       });
 
-      setRunMessage("Retrieval started in background. Polling for results...");
-      // Update local status to processing immediately
+      setRunMessage("Hybrid retrieval matching started. Polling for results...");
       setJob((prev) => (prev ? { ...prev, status: "processing", error: null } : null));
     } catch (err: any) {
       if (err.status === 409) {
@@ -277,6 +300,69 @@ export const JobDetailPage: React.FC = () => {
       }
     } finally {
       setRunLoading(false);
+    }
+  };
+
+  const handleVerifyEvidence = async () => {
+    if (!id) return;
+    setVerifyLoading(true);
+    setRunError(null);
+    setRunMessage(null);
+
+    try {
+      await apiRequest<{ detail: string; status: string }>(`/jobs/${id}/verify`, {
+        method: "POST",
+      });
+
+      setRunMessage("Collecting GitHub & LeetCode evidence in background. Candidates will be re-scored automatically...");
+      setJob((prev) => (prev ? { ...prev, status: "processing", error: null } : null));
+    } catch (err: any) {
+      if (err.status === 409) {
+        setRunError(err.message || "Job is already processing or has no rankings.");
+      } else {
+        setRunError(err.message || "Failed to initiate evidence verification.");
+      }
+    } finally {
+      setVerifyLoading(false);
+    }
+  };
+
+  const handleRecalculateScores = async () => {
+    if (!id) return;
+    setScoreLoading(true);
+    setRunError(null);
+
+    try {
+      const res = await apiRequest<{ detail: string; candidates_scored: number }>(`/jobs/${id}/score`, {
+        method: "POST",
+      });
+
+      // Refetch results immediately
+      setResultsLoading(true);
+      try {
+        const [resultsData, evidenceData] = await Promise.all([
+          apiRequest<JobResultsResponse>(`/jobs/${id}/results`),
+          apiRequest<JobEvidenceResponse>(`/jobs/${id}/evidence`).catch(() => null),
+        ]);
+        setCandidateCount(resultsData.candidate_count);
+        setResults(resultsData.rows || []);
+        if (evidenceData && evidenceData.rows) {
+          const map: Record<string, EvidenceItem[]> = {};
+          for (const row of evidenceData.rows) {
+            map[row.candidate_id] = row.evidence || [];
+          }
+          setEvidenceMap(map);
+        }
+      } finally {
+        setResultsLoading(false);
+      }
+
+      setSuccessMsg(`Deterministic scores recalculated for ${res.candidates_scored} candidate(s).`);
+      setTimeout(() => setSuccessMsg(null), 4000);
+    } catch (err: any) {
+      setRunError(err.message || "Failed to recalculate scores.");
+    } finally {
+      setScoreLoading(false);
     }
   };
 
@@ -353,6 +439,38 @@ export const JobDetailPage: React.FC = () => {
     }
   };
 
+  const getLabelBadge = (label?: string | null) => {
+    switch (label) {
+      case "strong_match":
+        return (
+          <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-300 font-semibold flex items-center gap-1">
+            <CheckCircle2 className="h-3 w-3 text-emerald-600" />
+            <span>Strong Match</span>
+          </Badge>
+        );
+      case "needs_review":
+        return (
+          <Badge variant="outline" className="bg-amber-50 text-amber-800 border-amber-300 font-semibold flex items-center gap-1">
+            <AlertCircle className="h-3 w-3 text-amber-600" />
+            <span>Needs Review</span>
+          </Badge>
+        );
+      case "insufficient_evidence":
+        return (
+          <Badge variant="outline" className="bg-slate-100 text-slate-700 border-slate-300 font-medium flex items-center gap-1">
+            <HelpCircle className="h-3 w-3 text-slate-500" />
+            <span>Insufficient Evidence</span>
+          </Badge>
+        );
+      default:
+        return (
+          <Badge variant="outline" className="bg-slate-50 text-slate-500 border-slate-200">
+            Unscored
+          </Badge>
+        );
+    }
+  };
+
   if (loading) {
     return (
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6">
@@ -383,7 +501,15 @@ export const JobDetailPage: React.FC = () => {
 
   const isProcessing = job.status === "processing";
   const hasCandidates = candidateCount > 0;
+  const hasRankings = results.length > 0;
   const canRunRetrieval = hasCandidates && !isProcessing && !runLoading;
+  const canVerify = hasRankings && !isProcessing && !verifyLoading;
+  const canScore = hasRankings && !isProcessing && !scoreLoading;
+
+  // Counts of recommendations
+  const strongCount = results.filter((r) => r.label === "strong_match").length;
+  const reviewCount = results.filter((r) => r.label === "needs_review").length;
+  const insufficientCount = results.filter((r) => r.label === "insufficient_evidence").length;
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 space-y-8">
@@ -758,14 +884,14 @@ export const JobDetailPage: React.FC = () => {
         </CardContent>
       </Card>
 
-      {/* Ranked Results Card */}
+      {/* Ranked Results Card with Evidence & Deterministic Scoring */}
       <Card className="shadow-sm border-slate-200">
         <CardHeader className="border-b border-slate-100 pb-5">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
             <div>
               <div className="flex items-center gap-2">
                 <Search className="h-5 w-5 text-indigo-600" />
-                <CardTitle className="text-lg font-bold text-slate-900">Ranked Results</CardTitle>
+                <CardTitle className="text-lg font-bold text-slate-900">Ranked Results & Evidence</CardTitle>
                 {results.length > 0 && (
                   <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-200">
                     {results.length} ranked
@@ -773,16 +899,81 @@ export const JobDetailPage: React.FC = () => {
                 )}
               </div>
               <CardDescription className="text-xs pt-1">
-                Top candidates merged via Reciprocal Rank Fusion (RRF) from vector embeddings and keyword search.
+                Multi-signal ranking combining dense semantic retrieval, public proof of work, and deterministic confidence weighting.
               </CardDescription>
+
+              {/* Recommendation summary pills */}
+              {results.length > 0 && (
+                <div className="flex flex-wrap items-center gap-2 pt-2">
+                  <span className="text-[11px] font-medium text-slate-500">Breakdown:</span>
+                  <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                    {strongCount} Strong Match
+                  </span>
+                  <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
+                    {reviewCount} Needs Review
+                  </span>
+                  <span className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+                    {insufficientCount} Insufficient Evidence
+                  </span>
+                </div>
+              )}
             </div>
+
+            {/* Action Buttons for Evidence & Scoring */}
+            {hasRankings && (
+              <div className="flex flex-wrap items-center gap-2">
+                {/* Verify Evidence Button */}
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleVerifyEvidence}
+                  disabled={!canVerify}
+                  className="bg-indigo-50/50 hover:bg-indigo-100/70 border-indigo-200 text-indigo-700 flex items-center gap-1.5 text-xs shadow-xs"
+                  title="Collects GitHub and LeetCode evidence for top candidates in background, then scores results"
+                >
+                  {verifyLoading || (isProcessing && !runLoading) ? (
+                    <>
+                      <RotateCw className="h-3.5 w-3.5 animate-spin text-indigo-600" />
+                      <span>Verifying Evidence...</span>
+                    </>
+                  ) : (
+                    <>
+                      <ShieldCheck className="h-3.5 w-3.5 text-indigo-600" />
+                      <span>Verify Evidence</span>
+                    </>
+                  )}
+                </Button>
+
+                {/* Recalculate Scores Button */}
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleRecalculateScores}
+                  disabled={!canScore}
+                  className="border-slate-200 text-slate-700 hover:bg-slate-100 flex items-center gap-1.5 text-xs shadow-xs"
+                  title="Recomputes deterministic scoring from cached evidence without external API calls"
+                >
+                  {scoreLoading ? (
+                    <>
+                      <RotateCw className="h-3.5 w-3.5 animate-spin" />
+                      <span>Scoring...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Sliders className="h-3.5 w-3.5 text-slate-500" />
+                      <span>Recalculate Scores</span>
+                    </>
+                  )}
+                </Button>
+              </div>
+            )}
           </div>
         </CardHeader>
 
         <CardContent className="pt-6">
           {resultsLoading ? (
             <div className="space-y-3 py-6">
-              {[1, 2, 3].map((i) => (
+              {[1, 2, 3, 4].map((i) => (
                 <div key={i} className="h-16 rounded-lg bg-slate-100/60 animate-pulse" />
               ))}
             </div>
@@ -797,56 +988,169 @@ export const JobDetailPage: React.FC = () => {
               <h4 className="text-sm font-medium text-slate-700">No ranked candidates yet</h4>
               <p className="text-xs text-slate-400 max-w-sm mx-auto mt-1">
                 {hasCandidates
-                  ? "Click 'Run Retrieval' above to rank candidates against this job description."
+                  ? "Click 'Run Retrieval' above to match and rank candidates against this job description."
                   : "Upload a CSV candidate roster to get started."}
               </p>
             </div>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm text-slate-700">
-                <thead className="border-b border-slate-100 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                <thead className="border-b border-slate-100 text-xs font-semibold text-slate-400 uppercase tracking-wider bg-slate-50/50">
                   <tr>
-                    <th className="px-4 py-3 w-16">Rank</th>
-                    <th className="px-4 py-3 w-48">Candidate</th>
-                    <th className="px-4 py-3 w-44">Match Score</th>
-                    <th className="px-4 py-3">Resume Snippet</th>
+                    <th className="px-4 py-3 w-16 text-center">Rank</th>
+                    <th className="px-4 py-3 min-w-[220px]">Candidate & Profiles</th>
+                    <th className="px-4 py-3 w-40">Recommendation</th>
+                    <th className="px-4 py-3 min-w-[170px]">Score Breakdown</th>
+                    <th className="px-4 py-3 min-w-[140px]">Proof Confidence</th>
+                    <th className="px-4 py-3 w-28 text-right">Details</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
-                  {results.map((row) => (
-                    <tr key={row.candidate_id} className="hover:bg-slate-50/50 transition-colors">
-                      <td className="px-4 py-4">
-                        <span className="inline-flex items-center justify-center h-7 w-7 rounded-full bg-slate-100 text-xs font-bold text-slate-700 font-mono">
-                          #{row.rank}
-                        </span>
-                      </td>
-                      <td className="px-4 py-4 font-semibold text-slate-900">
-                        {row.name}
-                      </td>
-                      <td className="px-4 py-4">
-                        <div className="space-y-1">
-                          <div className="flex items-center justify-between text-xs font-medium text-slate-700">
-                            <span>{(row.retrieval_score * 100).toFixed(1)}%</span>
+                  {results.map((row) => {
+                    const finalScoreDisplay = row.final_score !== null && row.final_score !== undefined
+                      ? row.final_score
+                      : row.retrieval_score;
+                    const finalScorePercent = (finalScoreDisplay * 100).toFixed(1);
+                    const retrievalPercent = (row.retrieval_score * 100).toFixed(0);
+                    const confidencePercent = ((row.confidence ?? 0) * 100).toFixed(0);
+                    const candidateEvidence = evidenceMap[row.candidate_id] || [];
+
+                    return (
+                      <tr
+                        key={row.candidate_id}
+                        onClick={() => setSelectedCandidate(row)}
+                        className="hover:bg-slate-50/70 transition-colors cursor-pointer group"
+                      >
+                        {/* Rank */}
+                        <td className="px-4 py-4 text-center">
+                          <span
+                            className={`inline-flex items-center justify-center h-7 w-7 rounded-full text-xs font-bold font-mono ${
+                              row.rank === 1
+                                ? "bg-amber-100 text-amber-900 border border-amber-300"
+                                : row.rank === 2
+                                ? "bg-slate-200 text-slate-800 border border-slate-300"
+                                : row.rank === 3
+                                ? "bg-amber-50 text-amber-800 border border-amber-200"
+                                : "bg-slate-100 text-slate-700"
+                            }`}
+                          >
+                            #{row.rank}
+                          </span>
+                        </td>
+
+                        {/* Candidate Name & Evidence Chips */}
+                        <td className="px-4 py-4 space-y-1.5">
+                          <div className="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors flex items-center gap-1.5">
+                            <span>{row.name}</span>
                           </div>
-                          <div className="h-2 w-full rounded-full bg-slate-100 overflow-hidden">
-                            <div
-                              className="h-full rounded-full bg-indigo-600 transition-all duration-500"
-                              style={{ width: `${Math.min(100, Math.max(0, row.retrieval_score * 100))}%` }}
-                            />
+                          <EvidenceChips evidence={candidateEvidence} />
+                        </td>
+
+                        {/* Recommendation Label Badge */}
+                        <td className="px-4 py-4">
+                          {getLabelBadge(row.label)}
+                        </td>
+
+                        {/* Final Score & Breakdown */}
+                        <td className="px-4 py-4">
+                          <div className="space-y-1">
+                            <div className="flex items-baseline justify-between">
+                              <span className="text-base font-extrabold text-slate-900 font-mono">
+                                {finalScorePercent}%
+                              </span>
+                              <span className="text-[11px] text-slate-500">
+                                {row.final_score !== null && row.final_score !== undefined ? "Final" : "Retrieval"}
+                              </span>
+                            </div>
+
+                            <div className="h-1.5 w-full rounded-full bg-slate-100 overflow-hidden">
+                              <div
+                                className="h-full rounded-full bg-indigo-600 transition-all duration-300"
+                                style={{ width: `${Math.min(100, Math.max(0, Number(finalScorePercent)))}%` }}
+                              />
+                            </div>
+
+                            <div className="flex items-center justify-between text-[10px] text-slate-400 font-mono">
+                              <span>R: {retrievalPercent}%</span>
+                              <span>
+                                {row.evidence_score !== null && row.evidence_score !== undefined
+                                  ? `E: ${(row.evidence_score * 100).toFixed(0)}%`
+                                  : "E: None"}
+                              </span>
+                            </div>
                           </div>
-                        </div>
-                      </td>
-                      <td className="px-4 py-4 text-xs text-slate-600 leading-relaxed italic">
-                        "{row.snippet}"
-                      </td>
-                    </tr>
-                  ))}
+                        </td>
+
+                        {/* Proof Confidence Level */}
+                        <td className="px-4 py-4">
+                          <div className="space-y-1">
+                            <div className="flex items-center justify-between text-xs font-semibold">
+                              <span className={
+                                (row.confidence ?? 0) >= 0.5
+                                  ? "text-emerald-700"
+                                  : (row.confidence ?? 0) > 0.2
+                                  ? "text-amber-700"
+                                  : "text-slate-500"
+                              }>
+                                {confidencePercent}%
+                              </span>
+                              <span className="text-[10px] font-normal text-slate-400">
+                                {(row.confidence ?? 0) >= 0.5
+                                  ? "High"
+                                  : (row.confidence ?? 0) > 0.2
+                                  ? "Medium"
+                                  : "Low"}
+                              </span>
+                            </div>
+                            <div className="h-1.5 w-full rounded-full bg-slate-100 overflow-hidden">
+                              <div
+                                className={`h-full rounded-full transition-all duration-300 ${
+                                  (row.confidence ?? 0) >= 0.5
+                                    ? "bg-emerald-500"
+                                    : (row.confidence ?? 0) > 0.2
+                                    ? "bg-amber-500"
+                                    : "bg-slate-300"
+                                }`}
+                                style={{ width: `${Math.min(100, Math.max(0, Number(confidencePercent)))}%` }}
+                              />
+                            </div>
+                          </div>
+                        </td>
+
+                        {/* Actions */}
+                        <td className="px-4 py-4 text-right">
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedCandidate(row);
+                            }}
+                            className="text-xs text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50 font-medium flex items-center gap-1 ml-auto"
+                          >
+                            <span>Breakdown</span>
+                            <ChevronRight className="h-3.5 w-3.5" />
+                          </Button>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
           )}
         </CardContent>
       </Card>
+
+      {/* Slide-out Score Breakdown & Proof Reasons Drawer */}
+      {selectedCandidate && (
+        <ScoreBreakdownDrawer
+          candidate={selectedCandidate}
+          evidence={evidenceMap[selectedCandidate.candidate_id] || []}
+          jobTitle={job.title}
+          onClose={() => setSelectedCandidate(null)}
+        />
+      )}
     </div>
   );
 };

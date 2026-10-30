@@ -107,7 +107,7 @@ Each milestone is done only when it is **deployed, tested, and healthy**.
 - [x] GitHub GraphQL fetch with caching, timeouts, rate-limit handling (verified via pytest in test_evidence.py, TTL caching, token safety, and opt-in live test)
 - [x] LeetCode best-effort with graceful failure (verified via pytest in test_evidence.py with rate limiting and non-blocking failure)
 - [x] Scoring with unknown-vs-zero handling and confidence; unit tests for edge cases (verified via pytest in test_scoring.py, deterministic formula, skill overlap, no-penalty rule, and Postgres round-tripping)
-- [ ] Results page shows breakdown, evidence chips, confidence
+- [x] Results page shows breakdown, evidence chips, confidence (verified via tsc, npm run build in apps/web, EvidenceChips, ScoreBreakdownDrawer, and JobDetail.tsx)
 
 ### M4: Evaluation and explanations
 - [ ] `eval/` harness: labeled queries, baselines (keyword/BM25, embeddings only, hybrid, full pipeline)
