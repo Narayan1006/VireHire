@@ -398,9 +398,13 @@ async def run_evidence_pipeline(job_id: uuid.UUID) -> None:
                 )
         db.commit()
 
+        # Score candidates with newly collected evidence
+        from app.services.scoring import score_job
+        score_job(job_id, db)
+
 
 def collect_evidence_for_job(job_id: uuid.UUID) -> None:
-    """Synchronous entry point that runs the async evidence pipeline."""
+    """Synchronous entry point that runs the async evidence pipeline and scoring."""
     try:
         loop = asyncio.get_event_loop()
         if loop.is_running():
@@ -413,3 +417,9 @@ def collect_evidence_for_job(job_id: uuid.UUID) -> None:
             loop.run_until_complete(run_evidence_pipeline(job_id))
     except RuntimeError:
         asyncio.run(run_evidence_pipeline(job_id))
+
+    # Guarantee scoring runs at the end of collect_evidence_for_job
+    from app.services.scoring import score_job
+    session_factory = get_session_factory()
+    with session_factory() as db:
+        score_job(job_id, db)

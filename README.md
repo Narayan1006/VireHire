@@ -167,6 +167,37 @@ Supabase is utilized strictly as a managed PostgreSQL instance with `pgvector` e
 - **No-Token Behavior**:
   - If `GITHUB_TOKEN` is not configured, GitHub evidence collection records rows with `status="unverified"` and `reason="no_token"`, allowing the platform to run gracefully in minimal deployments.
 
+### 8. Scoring Engine, Confidence & Labels (Milestone 3B)
+- **Deterministic Formula**:
+  - `w = SCORING_MAX_EVIDENCE_WEIGHT * confidence` (default `SCORING_MAX_EVIDENCE_WEIGHT = 0.4`)
+  - When verified evidence exists: `final_score = (1 - w) * retrieval_norm + w * evidence_score`
+  - When no verified evidence exists: `evidence_score = None`, `w = 0.0`, resulting in `final_score == retrieval_norm` exactly.
+- **Components & Default Weights (Re-normalized over available signals)**:
+  - `external_collaboration` (weight: `0.25`): Merged external PRs to other users' repositories (cap: `20`) and pull request review contributions (cap: `50`).
+  - `repo_impact` (weight: `0.15`): Log-saturated total stars (cap: `500`), forks (cap: `100`), and followers count (cap: `100`).
+  - `sustained_activity` (weight: `0.25`): Annual commit volume (cap: `1500`), repository push recency (graded within 90, 180, and 365 days), and GitHub account age (cap: `1825` days / 5 years).
+  - `breadth` (weight: `0.10`): Distinct programming languages in repository histogram (cap: `6`) and public repository count (cap: `30`).
+  - `skill_overlap` (weight: `0.15`): Overlap ratio between technologies specified in the job description and technologies verified in candidate repos and language histograms (from an 80+ term canonical vocabulary with aliases). Excluded if job description specifies no recognizable technologies.
+  - `leetcode` (weight: `0.10`): Problem-solving volume weighted by difficulty (0.45 hard, 0.40 medium, 0.15 easy) and contest rating (scaling above 1200 up to 2400).
+- **Saturating Transform**:
+  - All signals use log-saturating transforms: $x \to \min(1.0, \frac{\log(1 + x)}{\log(1 + \text{cap})})$. This prevents vanity metric gaming or star inflation (e.g., 1,000,000 stars provides no more advantage than the saturation cap of 500).
+- **Confidence Computation ($0.0 \le \text{confidence} \le 1.0$)**:
+  - 0.0 when no sources are verified.
+  - GitHub verified contributes up to 0.70, scaled by data richness (sample size, account age, and activity volume).
+  - LeetCode verified contributes up to 0.30, scaled by total solved problem count.
+  - Sum is capped at 1.0.
+- **Labels & Decision Rules**:
+  - `confidence < SCORING_MIN_CONFIDENCE (0.2)` $\to$ `insufficient_evidence`
+  - `final_score >= SCORING_STRONG_THRESHOLD (0.75)` $\to$ `strong_match`
+  - Otherwise $\to$ `needs_review`
+  - **No reject label anywhere.**
+- **The No-Penalty Rule**:
+  - Missing or unverified evidence is strictly treated as *unknown*, not zero. Candidates with unverified profiles, private accounts, or rate-limited runs retain their hybrid retrieval score exactly (`final_score == retrieval_norm`). They are never ranked below candidates whose verified public evidence proved weak.
+- **Signals Not Yet Available (Deferred)**:
+  - While `has_readme` indicates documentation presence, deep repository test presence/coverage analysis and full README quality parsing are not currently extracted from the compact GraphQL query and remain deferred.
+- **Provisional Note**:
+  - All weights, caps, and label thresholds are provisional and can be re-tuned via `SCORING_*` environment variables. They will be officially benchmarked and frozen against the evaluation harness in Milestone 4.
+
 ---
 
 ## Testing

@@ -36,6 +36,31 @@ class Settings(BaseSettings):
     evidence_time_budget_seconds: int = 90
     evidence_concurrency: int = 5
 
+    # Provisional scoring parameters (M3B default weights, caps, thresholds; tuned in M4)
+    scoring_weight_external_collaboration: float = 0.25
+    scoring_weight_repo_impact: float = 0.15
+    scoring_weight_sustained_activity: float = 0.25
+    scoring_weight_breadth: float = 0.10
+    scoring_weight_skill_overlap: float = 0.15
+    scoring_weight_leetcode: float = 0.10
+
+    scoring_cap_stars: int = 500
+    scoring_cap_external_prs: int = 20
+    scoring_cap_commits: int = 1500
+    scoring_cap_repos: int = 30
+    scoring_cap_reviews: int = 50
+    scoring_cap_forks: int = 100
+    scoring_cap_followers: int = 100
+    scoring_cap_leetcode_hard: int = 50
+    scoring_cap_leetcode_medium: int = 150
+    scoring_cap_leetcode_total: int = 300
+    scoring_cap_leetcode_rating: float = 2400.0
+    scoring_cap_account_age_days: int = 1825
+
+    scoring_max_evidence_weight: float = 0.4
+    scoring_min_confidence: float = 0.2
+    scoring_strong_threshold: float = 0.75
+
 
     @field_validator("max_csv_rows")
     @classmethod

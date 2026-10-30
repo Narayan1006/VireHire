@@ -35,9 +35,11 @@ from app.schemas import (
     JobResultRow,
     JobResultsResponse,
     JobRunResponse,
+    JobScoreResponse,
     JobUpdateRequest,
 )
 from app.services.csv_ingest import ingest_candidates_csv
+from app.services.scoring import score_job
 from app.services.tasks import (
     heavy_task_manager,
     run_evidence_collection_task,
@@ -386,8 +388,10 @@ def get_job_results(
 ):
     """
     Retrieves ranked results for a job owned by the current user.
-    Returns status, candidate count, and rows with 240-char snippet and score (0-1).
-    Never returns embeddings or full resume text.
+    Returns status, candidate count, and rows with 240-char snippet, retrieval_score,
+    evidence_score, confidence, final_score, label, and breakdown reasons.
+    Sorts by final_score descending when scored, else by retrieval rank, with stable tie-break.
+    Never returns embeddings, tokens, emails, or raw payloads.
     """
     query = select(Job).where(Job.id == job_id, Job.owner_id == current_user.id)
     job = db.execute(query).scalar_one_or_none()
@@ -405,19 +409,37 @@ def get_job_results(
         select(Ranking, Candidate.name, Candidate.resume_text)
         .join(Candidate, Ranking.candidate_id == Candidate.id)
         .where(Ranking.job_id == job.id)
-        .order_by(Ranking.rank.asc())
     )
-    rows_data = db.execute(results_query).all()
+    rows_data = list(db.execute(results_query).all())
+
+    # Sort by final_score descending when scored, else by retrieval rank, with stable tie-break
+    has_final_scores = any(r.final_score is not None for r, _, _ in rows_data)
+    if has_final_scores:
+        def sort_key(item):
+            r = item[0]
+            fs = r.final_score if r.final_score is not None else -1.0
+            rs = r.retrieval_score if r.retrieval_score is not None else -1.0
+            return (-fs, -rs, r.rank, str(r.candidate_id))
+
+        rows_data.sort(key=sort_key)
+    else:
+        rows_data.sort(key=lambda item: (item[0].rank, str(item[0].candidate_id)))
 
     result_rows = [
         JobResultRow(
-            rank=r.rank,
+            rank=idx + 1,
             candidate_id=r.candidate_id,
             name=name,
             retrieval_score=r.retrieval_score,
+            evidence_score=r.evidence_score,
+            confidence=r.confidence,
+            final_score=r.final_score,
+            label=r.label,
             snippet=resume[:240].strip(),
+            reasons=(r.breakdown or {}).get("reasons", []),
+            breakdown=r.breakdown or {},
         )
-        for r, name, resume in rows_data
+        for idx, (r, name, resume) in enumerate(rows_data)
     ]
 
     return JobResultsResponse(
@@ -425,6 +447,50 @@ def get_job_results(
         candidate_count=total_candidates,
         rows=result_rows,
     )
+
+
+@router.post(
+    "/{job_id}/score",
+    response_model=JobScoreResponse,
+    status_code=status.HTTP_200_OK,
+)
+def score_job_endpoint(
+    job_id: uuid.UUID,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """
+    Recomputes candidate scores, confidence, and labels from stored evidence
+    WITHOUT making any external network calls.
+    Owner-scoped: returns 404 for other users' jobs.
+    Returns 409 if job is processing or if the job has no rankings.
+    """
+    query = select(Job).where(Job.id == job_id, Job.owner_id == current_user.id)
+    job = db.execute(query).scalar_one_or_none()
+    if job is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Job not found",
+        )
+
+    if job.status == "processing":
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="Job is currently processing",
+        )
+
+    ranking_count = db.execute(
+        select(sa.func.count(Ranking.id)).where(Ranking.job_id == job.id)
+    ).scalar() or 0
+
+    if ranking_count == 0:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="Job has no rankings. Run retrieval first.",
+        )
+
+    scored_count = score_job(job.id, db)
+    return JobScoreResponse(detail="Scoring completed", candidates_scored=scored_count)
 
 
 @router.post(

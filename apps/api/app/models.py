@@ -191,6 +191,16 @@ class Ranking(Base):
     )
     rank = sa.Column(sa.Integer, nullable=False)
     retrieval_score = sa.Column(sa.Float, nullable=False)
+    evidence_score = sa.Column(sa.Float, nullable=True)
+    confidence = sa.Column(sa.Float, nullable=False, default=0.0, server_default=sa.text("0"))
+    final_score = sa.Column(sa.Float, nullable=True)
+    label = sa.Column(sa.String(30), nullable=True)
+    breakdown = sa.Column(
+        sa.JSON().with_variant(postgresql.JSONB, "postgresql"),
+        nullable=False,
+        default=dict,
+        server_default=sa.text("'{}'"),
+    )
     created_at = sa.Column(
         sa.DateTime(timezone=True),
         default=utc_now,
@@ -201,6 +211,11 @@ class Ranking(Base):
     __table_args__ = (
         sa.UniqueConstraint("job_id", "candidate_id", name="uq_rankings_job_candidate"),
         sa.Index("ix_rankings_job_id", "job_id"),
+        sa.Index("ix_rankings_job_id_final_score", "job_id", "final_score"),
+        sa.CheckConstraint(
+            "label IS NULL OR label IN ('strong_match', 'needs_review', 'insufficient_evidence')",
+            name="ck_rankings_label",
+        ),
     )
 
     job = relationship("Job", back_populates="rankings")

@@ -148,13 +148,24 @@ class JobResultRow(BaseModel):
     candidate_id: uuid.UUID
     name: str
     retrieval_score: float
+    evidence_score: Optional[float] = None
+    confidence: float = 0.0
+    final_score: Optional[float] = None
+    label: Optional[str] = None
     snippet: str
+    reasons: list[str] = Field(default_factory=list)
+    breakdown: dict = Field(default_factory=dict)
 
 
 class JobResultsResponse(BaseModel):
     status: str
     candidate_count: int
     rows: list[JobResultRow]
+
+
+class JobScoreResponse(BaseModel):
+    detail: str
+    candidates_scored: int
 
 
 class JobRunResponse(BaseModel):
