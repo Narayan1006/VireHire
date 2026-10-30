@@ -155,6 +155,7 @@ class JobResultRow(BaseModel):
     snippet: str
     reasons: list[str] = Field(default_factory=list)
     breakdown: dict = Field(default_factory=dict)
+    explanation: Optional[dict] = None
 
 
 class JobResultsResponse(BaseModel):
@@ -166,6 +167,11 @@ class JobResultsResponse(BaseModel):
 class JobScoreResponse(BaseModel):
     detail: str
     candidates_scored: int
+
+
+class JobExplainResponse(BaseModel):
+    detail: str
+    candidates_explained: int
 
 
 class JobRunResponse(BaseModel):

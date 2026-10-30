@@ -31,6 +31,7 @@ from app.schemas import (
     IngestionReport,
     JobCreateRequest,
     JobEvidenceResponse,
+    JobExplainResponse,
     JobResponse,
     JobResultRow,
     JobResultsResponse,
@@ -438,6 +439,7 @@ def get_job_results(
             snippet=resume[:240].strip(),
             reasons=(r.breakdown or {}).get("reasons", []),
             breakdown=r.breakdown or {},
+            explanation=r.explanation,
         )
         for idx, (r, name, resume) in enumerate(rows_data)
     ]
@@ -491,6 +493,56 @@ def score_job_endpoint(
 
     scored_count = score_job(job.id, db)
     return JobScoreResponse(detail="Scoring completed", candidates_scored=scored_count)
+
+
+@router.post(
+    "/{job_id}/explain",
+    response_model=JobExplainResponse,
+    status_code=status.HTTP_200_OK,
+)
+def explain_job_endpoint(
+    job_id: uuid.UUID,
+    top_m: int = Query(default=20, ge=1, le=100),
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """
+    Generates structured JSON explanations strictly from stored evidence and job descriptions
+    for the top M candidates. The LLM never alters or decides candidate rankings.
+    Owner-scoped: returns 404 for other users' jobs.
+    Returns 409 if job is processing or if the job has no rankings.
+    """
+    query = select(Job).where(Job.id == job_id, Job.owner_id == current_user.id)
+    job = db.execute(query).scalar_one_or_none()
+    if job is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Job not found",
+        )
+
+    if job.status == "processing":
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="Job is currently processing",
+        )
+
+    ranking_count = db.execute(
+        select(sa.func.count(Ranking.id)).where(Ranking.job_id == job.id)
+    ).scalar() or 0
+
+    if ranking_count == 0:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="Job has no rankings. Run retrieval first.",
+        )
+
+    from app.services.explanation import explain_top_candidates_for_job
+
+    explained_count = explain_top_candidates_for_job(job.id, db=db, top_m=top_m)
+    return JobExplainResponse(
+        detail="Explanations generated successfully",
+        candidates_explained=explained_count,
+    )
 
 
 @router.post(

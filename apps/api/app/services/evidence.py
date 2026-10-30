@@ -418,8 +418,13 @@ def collect_evidence_for_job(job_id: uuid.UUID) -> None:
     except RuntimeError:
         asyncio.run(run_evidence_pipeline(job_id))
 
-    # Guarantee scoring runs at the end of collect_evidence_for_job
+    # Guarantee scoring and explanations run at the end of collect_evidence_for_job
     from app.services.scoring import score_job
     session_factory = get_session_factory()
     with session_factory() as db:
         score_job(job_id, db)
+        try:
+            from app.services.explanation import explain_top_candidates_for_job
+            explain_top_candidates_for_job(job_id, db)
+        except Exception:
+            logger.exception("Failed to generate candidate explanations after evidence collection for job_id=%s", job_id)

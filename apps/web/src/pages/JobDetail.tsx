@@ -26,6 +26,7 @@ import {
   Sliders,
   ChevronRight,
   HelpCircle,
+  Sparkles,
 } from "lucide-react";
 import { Job } from "@/pages/JobsList";
 import {
@@ -91,6 +92,7 @@ export const JobDetailPage: React.FC = () => {
 
   const [verifyLoading, setVerifyLoading] = useState(false);
   const [scoreLoading, setScoreLoading] = useState(false);
+  const [explainLoading, setExplainLoading] = useState(false);
 
   // Polling ref & counter
   const pollCountRef = useRef(0);
@@ -366,6 +368,45 @@ export const JobDetailPage: React.FC = () => {
     }
   };
 
+  const handleGenerateExplanations = async () => {
+    if (!id) return;
+    setExplainLoading(true);
+    setRunError(null);
+
+    try {
+      const res = await apiRequest<{ detail: string; candidates_explained: number }>(`/jobs/${id}/explain`, {
+        method: "POST",
+      });
+
+      // Refetch results immediately to update candidates with generated explanations
+      setResultsLoading(true);
+      try {
+        const [resultsData, evidenceData] = await Promise.all([
+          apiRequest<JobResultsResponse>(`/jobs/${id}/results`),
+          apiRequest<JobEvidenceResponse>(`/jobs/${id}/evidence`).catch(() => null),
+        ]);
+        setCandidateCount(resultsData.candidate_count);
+        setResults(resultsData.rows || []);
+        if (evidenceData && evidenceData.rows) {
+          const map: Record<string, EvidenceItem[]> = {};
+          for (const row of evidenceData.rows) {
+            map[row.candidate_id] = row.evidence || [];
+          }
+          setEvidenceMap(map);
+        }
+      } finally {
+        setResultsLoading(false);
+      }
+
+      setSuccessMsg(`Generated AI structured explanations for ${res.candidates_explained} candidate(s).`);
+      setTimeout(() => setSuccessMsg(null), 4000);
+    } catch (err: any) {
+      setRunError(err.message || "Failed to generate explanations.");
+    } finally {
+      setExplainLoading(false);
+    }
+  };
+
   const handleSaveEdit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!id || !job) return;
@@ -505,6 +546,7 @@ export const JobDetailPage: React.FC = () => {
   const canRunRetrieval = hasCandidates && !isProcessing && !runLoading;
   const canVerify = hasRankings && !isProcessing && !verifyLoading;
   const canScore = hasRankings && !isProcessing && !scoreLoading;
+  const canExplain = hasRankings && !isProcessing && !explainLoading;
 
   // Counts of recommendations
   const strongCount = results.filter((r) => r.label === "strong_match").length;
@@ -962,6 +1004,28 @@ export const JobDetailPage: React.FC = () => {
                     <>
                       <Sliders className="h-3.5 w-3.5 text-slate-500" />
                       <span>Recalculate Scores</span>
+                    </>
+                  )}
+                </Button>
+
+                {/* Generate AI Explanations Button */}
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleGenerateExplanations}
+                  disabled={!canExplain}
+                  className="bg-purple-50/50 hover:bg-purple-100/70 border-purple-200 text-purple-700 flex items-center gap-1.5 text-xs shadow-xs"
+                  title="Generates structured JSON explanations strictly from stored evidence via Groq LLM"
+                >
+                  {explainLoading ? (
+                    <>
+                      <RotateCw className="h-3.5 w-3.5 animate-spin text-purple-600" />
+                      <span>Explaining...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Sparkles className="h-3.5 w-3.5 text-purple-600" />
+                      <span>Generate Explanations</span>
                     </>
                   )}
                 </Button>

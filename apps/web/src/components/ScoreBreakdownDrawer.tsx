@@ -247,6 +247,92 @@ export const ScoreBreakdownDrawer: React.FC<ScoreBreakdownDrawerProps> = ({
             </div>
           </div>
 
+          {/* AI Explanation Section (Milestone 4 - Groq JSON) */}
+          {candidate.explanation && (
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 text-purple-600" />
+                  <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider text-xs">
+                    AI Evaluation & Explanation
+                  </h3>
+                </div>
+                {candidate.explanation.generated_by && (
+                  <Badge variant="outline" className="bg-purple-50 text-purple-700 border-purple-200 text-[10px]">
+                    {candidate.explanation.generated_by}
+                  </Badge>
+                )}
+              </div>
+
+              <div className="rounded-xl border border-purple-100 bg-gradient-to-br from-purple-50/40 via-white to-slate-50 p-4 space-y-3.5 shadow-2xs">
+                {/* Executive Summary */}
+                <div className="rounded-lg bg-white border border-purple-100/80 p-3 shadow-2xs">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-purple-700 block mb-1">
+                    Executive Summary
+                  </span>
+                  <p className="text-xs text-slate-800 leading-relaxed font-medium">
+                    {candidate.explanation.summary}
+                  </p>
+                </div>
+
+                {/* Strengths & Gaps Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {/* Strengths */}
+                  <div className="rounded-lg bg-emerald-50/50 border border-emerald-200/80 p-3 space-y-1.5">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 flex items-center gap-1">
+                      <CheckCircle2 className="h-3 w-3 text-emerald-600" />
+                      Key Strengths
+                    </span>
+                    <ul className="space-y-1">
+                      {candidate.explanation.strengths?.map((s, idx) => (
+                        <li key={idx} className="text-[11px] text-emerald-950 flex items-start gap-1.5 leading-snug">
+                          <span className="text-emerald-500 font-bold">•</span>
+                          <span>{s}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Gaps / Probing Areas */}
+                  <div className="rounded-lg bg-amber-50/50 border border-amber-200/80 p-3 space-y-1.5">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-amber-900 flex items-center gap-1">
+                      <AlertCircle className="h-3 w-3 text-amber-600" />
+                      Interview Focus Areas
+                    </span>
+                    <ul className="space-y-1">
+                      {candidate.explanation.gaps?.map((g, idx) => (
+                        <li key={idx} className="text-[11px] text-amber-950 flex items-start gap-1.5 leading-snug">
+                          <span className="text-amber-500 font-bold">•</span>
+                          <span>{g}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Evidence Assessment & Rationale */}
+                <div className="space-y-2 pt-1 border-t border-purple-100/60 text-xs">
+                  <div>
+                    <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">
+                      Evidence Assessment:
+                    </span>
+                    <p className="text-slate-700 text-[11px] mt-0.5 leading-relaxed">
+                      {candidate.explanation.evidence_assessment}
+                    </p>
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">
+                      Recommendation Rationale:
+                    </span>
+                    <p className="text-slate-700 text-[11px] mt-0.5 leading-relaxed">
+                      {candidate.explanation.recommendation_rationale}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Factual Proof Points (Data-Derived Reasons) */}
           <div className="space-y-3">
             <div className="flex items-center gap-2">
@@ -281,7 +367,7 @@ export const ScoreBreakdownDrawer: React.FC<ScoreBreakdownDrawerProps> = ({
                   Evidence Signal Components
                 </h3>
               </div>
-              <span className="text-[11px] text-slate-400">Provisional Weights (M3)</span>
+              <span className="text-[11px] text-slate-400">Calibrated & Frozen (M4)</span>
             </div>
 
             <div className="space-y-2">

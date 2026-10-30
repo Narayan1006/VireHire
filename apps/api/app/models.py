@@ -201,6 +201,10 @@ class Ranking(Base):
         default=dict,
         server_default=sa.text("'{}'"),
     )
+    explanation = sa.Column(
+        sa.JSON().with_variant(postgresql.JSONB, "postgresql"),
+        nullable=True,
+    )
     created_at = sa.Column(
         sa.DateTime(timezone=True),
         default=utc_now,

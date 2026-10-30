@@ -24,6 +24,16 @@ export interface ScoreBreakdown {
 
 export type CandidateLabel = "strong_match" | "needs_review" | "insufficient_evidence";
 
+export interface CandidateExplanation {
+  summary: string;
+  strengths: string[];
+  gaps: string[];
+  evidence_assessment: string;
+  recommendation_rationale: string;
+  generated_by?: string;
+  timestamp?: string;
+}
+
 export interface JobResultRow {
   rank: number;
   candidate_id: string;
@@ -36,6 +46,7 @@ export interface JobResultRow {
   snippet: string;
   reasons: string[];
   breakdown: ScoreBreakdown;
+  explanation?: CandidateExplanation | null;
 }
 
 export interface EvidenceItem {

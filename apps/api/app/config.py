@@ -31,6 +31,9 @@ class Settings(BaseSettings):
     retrieval_top_k: int = 200
 
     github_token: SecretStr | None = None
+    groq_api_key: SecretStr | None = None
+    groq_model: str = "llama-3.3-70b-versatile"
+    explanation_top_m: int = 20
     evidence_top_n: int = 50
     evidence_ttl_days: int = 7
     evidence_time_budget_seconds: int = 90
@@ -101,6 +104,14 @@ class Settings(BaseSettings):
         if self.github_token is None:
             return None
         val = self.github_token.get_secret_value().strip()
+        return val if val else None
+
+    @property
+    def raw_groq_api_key(self) -> str | None:
+        """Returns the unmasked Groq API key or None without logging or leaking it."""
+        if self.groq_api_key is None:
+            return None
+        val = self.groq_api_key.get_secret_value().strip()
         return val if val else None
 
     def __repr__(self) -> str:

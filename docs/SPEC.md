@@ -110,10 +110,10 @@ Each milestone is done only when it is **deployed, tested, and healthy**.
 - [x] Results page shows breakdown, evidence chips, confidence (verified via tsc, npm run build in apps/web, EvidenceChips, ScoreBreakdownDrawer, and JobDetail.tsx)
 
 ### M4: Evaluation and explanations
-- [ ] `eval/` harness: labeled queries, baselines (keyword/BM25, embeddings only, hybrid, full pipeline)
-- [ ] Reports NDCG@10 and precision@10, latency, and LLM calls per run
-- [ ] Thresholds for labels set from the evaluation; formula frozen
-- [ ] Explanations generated from stored evidence only, JSON-validated
+- [x] `eval/` harness: labeled queries, baselines (keyword/BM25, embeddings only, hybrid, full pipeline) (verified in eval/dataset.py, eval/metrics.py, eval/baselines.py)
+- [x] Reports NDCG@10 and precision@10, latency, and LLM calls per run (verified via eval/run_eval.py and eval/results.json)
+- [x] Thresholds for labels set from the evaluation; formula frozen (calibrated strong_threshold >= 0.75, min_confidence >= 0.20, max_w = 0.40)
+- [x] Explanations generated from stored evidence only, JSON-validated (verified in app/services/explanation.py, test_explanation.py, and ScoreBreakdownDrawer)
 
 ### M5: Polish and launch
 - [ ] README: pitch, architecture diagram, results table, limitations and fairness section, run/deploy steps
