@@ -78,7 +78,12 @@ class Settings(BaseSettings):
                 "DATABASE_URL is required and cannot be empty. "
                 "Provide a valid postgresql+psycopg:// connection string."
             )
-        return v.strip()
+        val = v.strip()
+        if val.startswith("postgres://"):
+            val = "postgresql+psycopg://" + val[len("postgres://"):]
+        elif val.startswith("postgresql://") and not val.startswith("postgresql+"):
+            val = "postgresql+psycopg://" + val[len("postgresql://"):]
+        return val
 
     @field_validator("jwt_secret")
     @classmethod
