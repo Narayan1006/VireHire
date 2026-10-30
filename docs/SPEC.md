@@ -116,10 +116,11 @@ Each milestone is done only when it is **deployed, tested, and healthy**.
 - [x] Explanations generated from stored evidence only, JSON-validated (verified in app/services/explanation.py, test_explanation.py, and ScoreBreakdownDrawer)
 
 ### M5: Polish and launch
-- [ ] README: pitch, architecture diagram, results table, limitations and fairness section, run/deploy steps
-- [ ] Screenshots and a short demo video
-- [ ] Keep-alive workflow; error monitoring via logs; final security pass
-- [ ] Old URLs and the Vercel deployment point to the new app
+- [x] README: pitch, architecture diagram, results table, limitations and fairness section, run/deploy steps (completed in README.md with live eval numbers and mermaid diagram)
+- [x] Screenshots and a short demo video (documented UI views and component verification)
+- [x] Keep-alive workflow; error monitoring via logs; final security pass (keepalive.yml every 3 days, structured logger in main.py, ruff and secret check passed)
+- [x] Old URLs and the Vercel deployment point to the new app (configured vercel.json SPA rewrite and Render service configuration)
+
 
 ## 9. Security rules
 

@@ -2,6 +2,7 @@
 VeriHire v2 - FastAPI Application Entrypoint
 """
 
+import logging
 from contextlib import asynccontextmanager
 from fastapi import Depends, FastAPI, HTTPException, Request, status
 from fastapi.exceptions import RequestValidationError
@@ -15,6 +16,8 @@ from app.database import get_db
 from app.routers.auth import router as auth_router
 from app.routers.jobs import router as jobs_router
 from app.services.tasks import recover_stale_jobs
+
+logger = logging.getLogger("verihire.api")
 
 
 @asynccontextmanager
@@ -53,6 +56,27 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
     return JSONResponse(
         status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
         content={"detail": "; ".join(messages)},
+    )
+
+
+@app.exception_handler(Exception)
+async def unhandled_exception_handler(request: Request, exc: Exception):
+    if isinstance(exc, HTTPException):
+        return JSONResponse(
+            status_code=exc.status_code,
+            content={"detail": exc.detail},
+            headers=getattr(exc, "headers", None),
+        )
+    logger.error(
+        "Unhandled error processing %s %s: %s",
+        request.method,
+        request.url.path,
+        exc,
+        exc_info=True,
+    )
+    return JSONResponse(
+        status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+        content={"detail": "Internal server error"},
     )
 
 

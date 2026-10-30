@@ -16,3 +16,10 @@ services:
       - key: CORS_ORIGINS
         # Set to your Vercel deployment URL, e.g. https://<project>.vercel.app
         sync: false
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: ENV
+        value: production
+
