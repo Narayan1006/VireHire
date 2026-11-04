@@ -3,11 +3,14 @@ VeriHire v2 - Application Configuration
 """
 
 from functools import lru_cache
+import logging
+import re
 from typing import List
 
 from pydantic import SecretStr, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+logger = logging.getLogger(__name__)
 
 
 class Settings(BaseSettings):
@@ -15,6 +18,7 @@ class Settings(BaseSettings):
         env_file=".env",
         env_file_encoding="utf-8",
         extra="ignore",
+        hide_input_in_errors=True,
     )
 
     database_url: str
@@ -24,6 +28,7 @@ class Settings(BaseSettings):
     version: str = "2.0.0"
     env: str = "development"
     trust_proxy_headers: bool = False
+    enable_api_docs: bool = False
 
     max_upload_size_bytes: int = 5 * 1024 * 1024  # 5 MB
     max_csv_rows: int = 1000
@@ -79,6 +84,12 @@ class Settings(BaseSettings):
                 "Provide a valid postgresql+psycopg:// connection string."
             )
         val = v.strip()
+        if re.search(r"db\.[a-z0-9_-]+\.supabase\.co", val.lower()):
+            logger.warning(
+                "Detected direct Supabase host (db.<ref>.supabase.co). "
+                "Supabase direct connections resolve over IPv6 only and can cause connection timeouts on IPv4-only hosts such as Render. "
+                "Use the Supabase Session pooler connection string instead."
+            )
         if val.startswith("postgres://"):
             val = "postgresql+psycopg://" + val[len("postgres://"):]
         elif val.startswith("postgresql://") and not val.startswith("postgresql+"):

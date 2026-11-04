@@ -30,12 +30,61 @@ async def lifespan(app: FastAPI):
     yield
 
 
+try:
+    _settings = get_settings()
+    _cors_origins = _settings.cors_origin_list
+    _version = _settings.version
+    _env = _settings.env
+    _enable_api_docs = _settings.enable_api_docs
+except Exception:
+    _cors_origins = ["http://localhost:5173", "http://localhost:3000"]
+    _version = "2.0.0"
+    _env = "development"
+    _enable_api_docs = False
+
+_docs_enabled = (_env != "production") or _enable_api_docs
+
 app = FastAPI(
     title="VeriHire API",
-    version="2.0.0",
+    version=_version,
     description="Evidence-backed hiring intelligence platform",
     lifespan=lifespan,
+    docs_url="/docs" if _docs_enabled else None,
+    redoc_url="/redoc" if _docs_enabled else None,
+    openapi_url="/openapi.json" if _docs_enabled else None,
 )
+
+
+@app.middleware("http")
+async def security_and_docs_middleware(request: Request, call_next):
+    try:
+        current_settings = get_settings()
+        env = current_settings.env
+        enable_api_docs = current_settings.enable_api_docs
+    except Exception:
+        env = "development"
+        enable_api_docs = False
+
+    # Block docs and openapi in production unless explicitly enabled
+    if env == "production" and not enable_api_docs:
+        path = request.url.path.rstrip("/")
+        if path in ("/docs", "/redoc", "/openapi.json") or request.url.path.startswith("/docs/"):
+            return JSONResponse(
+                status_code=status.HTTP_404_NOT_FOUND,
+                content={"detail": "Not Found"},
+            )
+
+    response = await call_next(request)
+
+    # Set security headers in production
+    if env == "production":
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["X-Frame-Options"] = "DENY"
+        response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+        response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
+
+    return response
+
 
 # Custom exception handler to enforce consistent {"detail": ...} response
 # and strictly prevent echoing password fields in validation errors.
@@ -81,16 +130,6 @@ async def unhandled_exception_handler(request: Request, exc: Exception):
 
 
 # Configure CORS origins from environment
-try:
-    _settings = get_settings()
-    _cors_origins = _settings.cors_origin_list
-    _version = _settings.version
-    _env = _settings.env
-except Exception:
-    _cors_origins = ["http://localhost:5173", "http://localhost:3000"]
-    _version = "2.0.0"
-    _env = "development"
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=_cors_origins,

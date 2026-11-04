@@ -68,3 +68,6 @@ Thumbs.db
 # Model Cache
 .model_cache/
 apps/api/.model_cache/
+
+# Audit reports
+audit/

@@ -2,8 +2,8 @@
 
 > **Evidence-backed hiring intelligence platform.** VeriHire ranks technical job candidates by verifiable public proof of work—such as GitHub contributions, external pull requests, repository quality, and LeetCode problem-solving stats—rather than self-reported resume claims or keyword matching.
 
-[![CI](https://github.com/singh-naman1/VireHire-v2/actions/workflows/ci.yml/badge.svg)](https://github.com/singh-naman1/VireHire-v2/actions/workflows/ci.yml)
-[![Keepalive Ping](https://github.com/singh-naman1/VireHire-v2/actions/workflows/keepalive.yml/badge.svg)](https://github.com/singh-naman1/VireHire-v2/actions/workflows/keepalive.yml)
+[![CI](https://github.com/Narayan1006/VireHire/actions/workflows/ci.yml/badge.svg)](https://github.com/Narayan1006/VireHire/actions/workflows/ci.yml)
+[![Keepalive Ping](https://github.com/Narayan1006/VireHire/actions/workflows/keepalive.yml/badge.svg)](https://github.com/Narayan1006/VireHire/actions/workflows/keepalive.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
@@ -246,18 +246,43 @@ The backend is deployed as a Web Service on Render (`verihire-api-v2`):
 - **Start Command**: `alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port $PORT`
 - **Health Check Path**: `/health`
 
-#### Required Environment Variables in Render:
-| Variable | Description |
-|---|---|
-| `DATABASE_URL` | Supabase **Session Pooler** connection string (`postgresql+psycopg://...aws-0-[region].pooler.supabase.com:5432/...`) |
-| `JWT_SECRET` | 32+ character cryptographic secret for signing access tokens |
-| `CORS_ORIGINS` | Your deployed Vercel domain (e.g., `https://verihire-web.vercel.app`) |
-| `ENV` | `production` |
-| `GITHUB_TOKEN` | GitHub personal access token (fine-grained, read-only public repo scope) |
-| `GROQ_API_KEY` | Groq API key for structured explanation generation |
+#### Environment Variables Configuration:
+| Variable | Default / Scope | Description |
+|---|---|---|
+| `DATABASE_URL` | *Required (API)* | Supabase **Session Pooler** connection string (`postgresql+psycopg://...aws-0-[region].pooler.supabase.com:5432/...`) |
+| `JWT_SECRET` | *Required (API)* | 32+ character cryptographic secret for signing access tokens |
+| `CORS_ORIGINS` | `http://localhost:5173,...` | Comma-separated list of allowed frontend origins |
+| `ENV` | `development` | Deployment environment identifier (`production`, `development`) |
+| `TRUST_PROXY_HEADERS` | `false` | When `true`, client IP is derived from the last entry of `X-Forwarded-For` behind trusted reverse proxies |
+| `ENABLE_API_DOCS` | `false` | When `true`, forces Swagger (`/docs`) and OpenAPI schemas to be exposed even in production |
+| `GITHUB_TOKEN` | *Optional* | GitHub personal access token for higher GraphQL rate limits |
+| `GROQ_API_KEY` | *Optional* | Groq API key for structured explanation generation |
+| `GROQ_MODEL` | `llama-3.3-70b-versatile` | Model identifier for Groq explanation generation |
+| `MAX_UPLOAD_SIZE_BYTES` | `5242880` (5 MB) | Maximum permitted candidate CSV upload size |
+| `MAX_CSV_ROWS` | `1000` | Maximum candidate rows processed per CSV upload (ceiling: 5000) |
+| `MAX_RESUME_LENGTH` | `20000` | Maximum characters permitted per candidate resume text |
+| `RETRIEVAL_TOP_K` | `200` | Number of candidate matches retrieved during hybrid RRF search |
+| `EVIDENCE_TOP_N` | `50` | Maximum top candidates verified via GitHub and LeetCode per job |
+| `EVIDENCE_TTL_DAYS` | `7` | Days evidence results remain cached before refreshing |
+| `EVIDENCE_TIME_BUDGET_SECONDS` | `90` | Overall wall-clock budget for evidence collection tasks |
+| `EVIDENCE_CONCURRENCY` | `5` | Concurrent worker limit for asynchronous GitHub GraphQL requests |
+| `EXPLANATION_TOP_M` | `20` | Maximum top-ranked candidates for which LLM explanations are written |
 
 > [!IMPORTANT]
 > **Database Pooler Note**: Always connect via the Supabase **Session Pooler** (IPv4). The SQLAlchemy engine explicitly sets `connect_args={"prepare_threshold": None}` to disable server-side prepared statements on pooled connections.
+
+---
+
+## Architectural & Operational Limitations
+
+- **In-Memory Login Rate Limiter is Per-Instance**: The failed login tracking mechanism runs in local process memory (`apps/api/app/rate_limiter.py`). In horizontally scaled deployments with multiple active container replicas, rate limiting state is not shared between containers. For distributed multi-instance production environments, an external shared cache such as Redis should be configured.
+- **Client IP and Reverse Proxy Headers**: When `TRUST_PROXY_HEADERS=true`, client IP resolution selects the last entry from the comma-separated `X-Forwarded-For` header, representing the IP appended by the nearest trusted reverse proxy (such as Render or Cloudflare). If deployed behind proxies with differing forwarding conventions, intermediate proxy hops should be verified to prevent header spoofing.
+- **No Server-Side Token Revocation**: Authentication access tokens are stateless JWTs signed with HS256 and hard-coded to a 60-minute expiration. The system does not maintain a revocation blocklist or token rotation store, meaning an issued token remains valid until its timestamp expires.
+- **Client Token Storage in Browser LocalStorage**: The web application persists access tokens in browser `localStorage`. While mitigated by strict absence of raw HTML injection (`dangerouslySetInnerHTML`), any future client-side XSS flaw could expose the token. Production hardening can migrate this to `HttpOnly` and `SameSite` cookies.
+- **Migrations Run on Container Boot**: The container startup command invokes `alembic upgrade head` before starting Uvicorn. In single-instance deployments, this automates schema upgrades seamlessly; in multi-replica environments, concurrent container boots risk competing for Alembic schema locks.
+- **Unofficial LeetCode Public Endpoint**: LeetCode verification queries the unofficial public GraphQL endpoint. Datacenter IP addresses (e.g., Render, AWS) are frequently rate-limited or challenged by Cloudflare. The pipeline is designed to gracefully absorb failures without penalizing the candidate.
+- **CSV Data Stored As-Is**: Candidate resume text and names uploaded via CSV are stored verbatim without stripping leading arithmetic or formula trigger characters (`=`, `+`, `-`, `@`). Downstream systems or future export features must explicitly sanitize cells against formula injection before generating spreadsheet files.
+
 
 ### Frontend Deployment (Vercel)
 The web application is deployed via Vercel:
