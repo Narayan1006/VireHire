@@ -25,7 +25,7 @@ router = APIRouter(tags=["auth"])
 
 def get_client_ip(request: Request) -> str:
     settings = get_settings()
-    if settings.env == "production" and settings.trust_proxy_headers:
+    if settings.trust_proxy_headers:
         forwarded = request.headers.get("x-forwarded-for")
         if forwarded:
             return forwarded.split(",")[-1].strip()

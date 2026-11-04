@@ -56,12 +56,12 @@ def test_settings_fail_when_jwt_secret_too_short(monkeypatch):
 def test_settings_success_with_valid_env(monkeypatch):
     monkeypatch.setenv("DATABASE_URL", "postgresql+psycopg://user:pass@localhost:5432/db")
     monkeypatch.setenv("JWT_SECRET", "super-secret-jwt-key-min-32-chars")
-    monkeypatch.setenv("CORS_ORIGINS", "https://virehire.web.app,http://localhost:5173")
+    monkeypatch.setenv("CORS_ORIGINS", "https://verihire.vercel.app,http://localhost:5173")
 
     s = Settings(_env_file=None)
     assert s.database_url == "postgresql+psycopg://user:pass@localhost:5432/db"
     assert s.jwt_secret == "super-secret-jwt-key-min-32-chars"
-    assert s.cors_origin_list == ["https://virehire.web.app", "http://localhost:5173"]
+    assert s.cors_origin_list == ["https://verihire.vercel.app", "http://localhost:5173"]
 
 
 def test_max_csv_rows_default_and_ceiling(monkeypatch):
@@ -81,4 +81,51 @@ def test_max_csv_rows_default_and_ceiling(monkeypatch):
     monkeypatch.setenv("MAX_CSV_ROWS", "99999")
     s_capped = Settings(_env_file=None)
     assert s_capped.max_csv_rows == 5000
+
+
+def test_hide_input_in_errors_does_not_leak_other_field_secrets(monkeypatch):
+    """
+    Validation error on a missing or invalid setting must NOT leak secret-looking values
+    supplied for other fields (hide_input_in_errors=True).
+    """
+    secret_val = "x" * 40
+    monkeypatch.delenv("DATABASE_URL", raising=False)
+    monkeypatch.setenv("JWT_SECRET", secret_val)
+
+    with pytest.raises(ValidationError) as exc_info:
+        Settings(_env_file=None)
+    err_text = str(exc_info.value)
+    assert secret_val not in err_text
+
+
+def test_supabase_direct_host_warning(caplog, monkeypatch):
+    """
+    Logs a WARNING (does not fail) at startup if the database host looks like a
+    Supabase direct host (db.<ref>.supabase.co) and mentions the Session pooler.
+    The raw database URL / password must never be logged.
+    """
+    secret_password = "super-secret-password-12345"
+    direct_url = f"postgresql://postgres:{secret_password}@db.xyzprojectref123.supabase.co:5432/postgres"
+    monkeypatch.setenv("DATABASE_URL", direct_url)
+    monkeypatch.setenv("JWT_SECRET", "super-secret-jwt-key-min-32-chars")
+
+    with caplog.at_level("WARNING"):
+        s = Settings(_env_file=None)
+
+    # Must normalize URL and succeed without failing
+    assert s.database_url.startswith("postgresql+psycopg://")
+
+    # Check warning text
+    warning_records = [r for r in caplog.records if r.levelname == "WARNING"]
+    assert any(
+        "Detected direct Supabase host (db.<ref>.supabase.co)" in r.message
+        and "Session pooler" in r.message
+        for r in warning_records
+    )
+
+    # Ensure sensitive credentials or raw host are NEVER logged
+    for r in caplog.records:
+        assert secret_password not in r.message
+        assert "xyzprojectref123" not in r.message
+
 

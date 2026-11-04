@@ -216,15 +216,14 @@ def test_client_ip_proxy_header_trusted_in_production(client, monkeypatch):
     get_settings.cache_clear()
 
 
-def test_client_ip_proxy_header_ignored_when_not_production_or_untrusted(client, monkeypatch):
+def test_client_ip_proxy_header_ignored_when_untrusted(client, monkeypatch):
     from app.config import get_settings
     from app.rate_limiter import login_rate_limiter
 
-    monkeypatch.setenv("ENV", "development")
-    monkeypatch.setenv("TRUST_PROXY_HEADERS", "true")
+    monkeypatch.setenv("TRUST_PROXY_HEADERS", "false")
     get_settings.cache_clear()
 
-    # Even with X-Forwarded-For header, in development it uses client.host (testclient)
+    # When TRUST_PROXY_HEADERS is false, X-Forwarded-For is ignored and client.host (testclient) is used
     spoofed_ip = "198.51.100.99"
     headers = {"X-Forwarded-For": spoofed_ip}
     for _ in range(5):
@@ -239,4 +238,35 @@ def test_client_ip_proxy_header_ignored_when_not_production_or_untrusted(client,
     # Instead, 'testclient' was recorded
     assert login_rate_limiter.is_rate_limited("devproxy@example.com", "testclient")[0] is True
     get_settings.cache_clear()
+
+
+def test_get_client_ip_chosen_entry_for_multiple_headers(monkeypatch):
+    """
+    Shows the chosen entry for headers 'a, b, c' with TRUST_PROXY_HEADERS true and false.
+    When true: picks the last entry 'c' (nearest reverse proxy).
+    When false: ignores headers and falls back to request.client.host.
+    """
+    from fastapi import Request
+    from app.config import get_settings
+    from app.routers.auth import get_client_ip
+
+    scope = {
+        "type": "http",
+        "headers": [(b"x-forwarded-for", b"a, b, c")],
+        "client": ("192.0.2.1", 12345),
+    }
+    request = Request(scope)
+
+    # When TRUST_PROXY_HEADERS is true -> picks 'c'
+    monkeypatch.setenv("TRUST_PROXY_HEADERS", "true")
+    get_settings.cache_clear()
+    assert get_client_ip(request) == "c"
+
+    # When TRUST_PROXY_HEADERS is false -> picks request.client.host
+    monkeypatch.setenv("TRUST_PROXY_HEADERS", "false")
+    get_settings.cache_clear()
+    assert get_client_ip(request) == "192.0.2.1"
+
+    get_settings.cache_clear()
+
 
