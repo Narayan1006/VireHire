@@ -13,8 +13,25 @@ jobs:
     steps:
       - name: Ping API Health Endpoint
         run: |
-          if [ -z "${{ vars.API_HEALTH_URL }}" ]; then
-            echo "Repository variable API_HEALTH_URL is not configured."
-            exit 1
+          TARGET_URL="${{ vars.API_HEALTH_URL }}"
+          if [ -z "$TARGET_URL" ]; then
+            echo "::warning::Repository variable API_HEALTH_URL is not set. Falling back to default Render service URL."
+            TARGET_URL="https://verihire-api-v2.onrender.com/health"
           fi
-          curl -fsS --retry 5 --retry-delay 15 --retry-all-errors --max-time 120 "${{ vars.API_HEALTH_URL }}"
+          echo "Target URL: $TARGET_URL"
+          echo "Sending ping to keep free-tier Render & Supabase active..."
+          
+          # Attempt curl with retries to allow sleeping Render instances to cold-boot (up to ~60s)
+          RESPONSE=$(curl -sS -w "\nHTTP_STATUS:%{http_code}\nTIME_TOTAL:%{time_total}s" \
+            --retry 4 \
+            --retry-delay 15 \
+            --retry-all-errors \
+            --max-time 120 \
+            "$TARGET_URL") || CURL_EXIT=$?
+          
+          echo "$RESPONSE"
+          
+          if [ "${CURL_EXIT:-0}" -ne 0 ]; then
+            echo "::error::Ping request failed with curl exit code $CURL_EXIT. Please verify API_HEALTH_URL in repository variables."
+            exit $CURL_EXIT
+          fi
