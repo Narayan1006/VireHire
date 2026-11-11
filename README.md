@@ -8,6 +8,17 @@
 
 ---
 
+## 🌐 Live Production Links
+
+| Service | Stack & Host | Live Production URL |
+|---|---|---|
+| **Frontend Application** | React 19, TypeScript, Tailwind, Vite on **Vercel** | 🔗 **[https://web-zeta-ruddy-39.vercel.app](https://web-zeta-ruddy-39.vercel.app)** |
+| **Backend API** | Python 3.12, FastAPI, Uvicorn on **Render** | 🔗 **[https://virehire-fhl2.onrender.com](https://virehire-fhl2.onrender.com)** |
+| **API Health Endpoint** | PostgreSQL connection check | 🔗 **[https://virehire-fhl2.onrender.com/health](https://virehire-fhl2.onrender.com/health)** |
+| **Database** | Supabase (PostgreSQL 16 + pgvector) | 📦 Project Ref: `qwyqemvadtbeoktzldon` |
+
+---
+
 ## The Pitch
 
 Traditional hiring platforms rank candidates by keyword density, buzzword matching, and unverified resume claims. This incentives keyword-stuffed resumes and disadvantages engineers whose skills are demonstrated in code rather than buzzwords.

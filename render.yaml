@@ -14,12 +14,10 @@ services:
       - key: JWT_SECRET
         sync: false
       - key: CORS_ORIGINS
-        # Set to your Vercel deployment URL, e.g. https://<project>.vercel.app
-        sync: false
+        value: "https://web-zeta-ruddy-39.vercel.app,http://localhost:5173"
       - key: GITHUB_TOKEN
         sync: false
       - key: GROQ_API_KEY
         sync: false
       - key: ENV
         value: production
-
