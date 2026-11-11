@@ -15,13 +15,14 @@ jobs:
         run: |
           TARGET_URL="${{ vars.API_HEALTH_URL }}"
           if [ -z "$TARGET_URL" ]; then
-            echo "::warning::Repository variable API_HEALTH_URL is not set. Falling back to default Render service URL."
-            TARGET_URL="https://verihire-api-v2.onrender.com/health"
+            echo "::notice::Repository variable API_HEALTH_URL is not set. Using active Render URL: https://virehire-fhl2.onrender.com/health"
+            TARGET_URL="https://virehire-fhl2.onrender.com/health"
           fi
           echo "Target URL: $TARGET_URL"
-          echo "Sending ping to keep free-tier Render & Supabase active..."
+          echo "Sending keepalive ping to wake up and keep Render & Supabase active..."
           
-          # Attempt curl with retries to allow sleeping Render instances to cold-boot (up to ~60s)
+          # Render free-tier can take up to 60s to cold-start when sleeping.
+          # Retries ensure cold-boot finishes and succeeds.
           RESPONSE=$(curl -sS -w "\nHTTP_STATUS:%{http_code}\nTIME_TOTAL:%{time_total}s" \
             --retry 4 \
             --retry-delay 15 \
@@ -32,6 +33,6 @@ jobs:
           echo "$RESPONSE"
           
           if [ "${CURL_EXIT:-0}" -ne 0 ]; then
-            echo "::error::Ping request failed with curl exit code $CURL_EXIT. Please verify API_HEALTH_URL in repository variables."
+            echo "::error::Ping request failed with curl exit code $CURL_EXIT"
             exit $CURL_EXIT
           fi

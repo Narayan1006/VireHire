@@ -290,7 +290,7 @@ The web application is deployed via Vercel:
 - **Framework Preset**: Vite
 - **Build Command**: `npm run build`
 - **Output Directory**: `dist`
-- **Environment Variable**: `VITE_API_URL` pointing to your Render backend (e.g., `https://verihire-api-v2.onrender.com`).
+- **Environment Variable**: `VITE_API_URL` pointing to your Render backend (e.g., `https://virehire-fhl2.onrender.com`).
 - The repository includes [`apps/web/vercel.json`](apps/web/vercel.json) for automatic single-page application (SPA) rewrites to `/index.html`.
 
 ---

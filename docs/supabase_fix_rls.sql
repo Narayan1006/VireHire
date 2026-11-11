@@ -35,3 +35,4 @@ SELECT
     rowsecurity AS rls_enabled
 FROM pg_tables 
 WHERE schemaname = 'public';
+
